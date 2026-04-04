@@ -459,7 +459,10 @@
 		"Slutective",
 		"Studective",
 		"Van Dorn Agent",
-		// "Gumshoe",
+		"Forensic Investigator",
+		"Cinder Dick",
+		"Cooperate Auditor",
+		"RHIB Agent"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()

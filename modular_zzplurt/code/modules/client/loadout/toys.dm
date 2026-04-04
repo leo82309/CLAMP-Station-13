@@ -49,3 +49,7 @@
 	name = "Doctor Addy Plushie"
 	item_path = /obj/item/toy/plush/doctoraddy
 	ckeywhitelist = null
+/datum/loadout_item/toys/angry_man
+	name = "Angry Man Plushie"
+	item_path = /obj/item/toy/plush/sock_plush
+	ckeywhitelist = null
