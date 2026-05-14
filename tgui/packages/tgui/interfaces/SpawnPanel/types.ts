@@ -12,6 +12,7 @@ export interface SpawnPreferences {
   object_count: number;
   dir: number;
   object_name: string;
+  pod_style?: string; //VENUS ADDITION - Pod styles for spawning panel
 }
 
 export interface SpawnPanelPreferences {
@@ -51,3 +52,10 @@ export interface CreateObjectProps {
     }>,
   ) => void;
 }
+
+//VENUS ADDITION START - Pod styles for spawning panel
+export interface PodStyle {
+  id: string;
+  title: string;
+}
+//VENUS ADDITION

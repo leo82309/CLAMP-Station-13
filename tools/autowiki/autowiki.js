@@ -38,7 +38,7 @@ async function main() {
   const bot = new MWBot();
 
   await bot.loginGetEditToken({
-    apiUrl: "https://wiki.splurt.space/w/api.php", //SPLURT EDIT - USE SPLURT WIKI
+    apiUrl: "https://tgstation13.org/wiki/api.php",
     username: USERNAME,
     password: PASSWORD,
   });

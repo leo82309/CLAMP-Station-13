@@ -23,7 +23,7 @@
 
 	switch(action)
 		if("select_simple_color")
-			if(loadout_flags & LOADOUT_FLAG_ALLOW_SIMPLE_COLOR && !(loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED))
+			if(loadout_flags & LOADOUT_FLAG_ALLOW_SIMPLE_COLOR) //VENUS EDIT: Removed && !(loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED)
 				return set_item_simple_color(manager, user)
 
 /datum/loadout_item/on_equip_item(obj/item/equipped_item, list/item_details, mob/living/carbon/human/equipper, datum/outfit/outfit, visuals_only = FALSE)
@@ -41,7 +41,7 @@
 /datum/loadout_item/get_ui_buttons()
 	. = ..()
 
-	if(loadout_flags & LOADOUT_FLAG_ALLOW_SIMPLE_COLOR && !(loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED))
+	if(loadout_flags & LOADOUT_FLAG_ALLOW_SIMPLE_COLOR) //VENUS EDIT: Removed && !(loadout_flags & LOADOUT_FLAG_GREYSCALING_ALLOWED)
 		UNTYPED_LIST_ADD(., list(
 			"label" = "Simple recolor",
 			"act_key" = "select_simple_color",

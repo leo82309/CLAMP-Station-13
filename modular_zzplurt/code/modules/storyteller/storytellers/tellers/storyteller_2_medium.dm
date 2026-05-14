@@ -1,3 +1,5 @@
+//VENUS REMOVAL START
+/*
 /datum/storyteller/medium
 	name = "Medium Chaos"
 	desc = "Medium Chaos is the default Storyteller, and the comparison point for every other Storyteller. \
@@ -31,3 +33,5 @@
 
 /datum/storyteller_data/tracks/medium/opfor
 	threshold_crewset = INFINITY
+*/
+//VENUS REMOVAL END

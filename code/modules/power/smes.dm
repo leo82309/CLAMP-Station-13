@@ -69,6 +69,15 @@
 		return
 	terminal.master = src
 	update_appearance(UPDATE_OVERLAYS)
+	//VENUS ADDITION: Auto-configure SMES in solar areas
+	var/area/my_area = get_area(src)
+	if(istype(my_area, /area/station/maintenance/solars))
+		input_attempt = TRUE
+		input_level = input_level_max // 100% input
+		output_attempt = TRUE
+		output_level = output_level_max * 0.9 // 90% output
+    //VENUS ADDITION END
+
 
 /obj/machinery/power/smes/get_cell()
 	var/obj/item/stock_parts/power_store/lowest_charged_part

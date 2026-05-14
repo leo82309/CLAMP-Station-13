@@ -45,7 +45,8 @@ export const Adminhelp = (props) => {
               autoFocus
               height="100%"
               fluid
-              placeholder="Admin help"
+              // VENUS EDIT: Original placeholder: "Admin help"
+              placeholder="Admin help: Don't use this for bug reports, gameplay questions (use Wiki, mentorhelp or #game-help Discord channel), or trivial in-character requests (use Pray command). See rules for full details."
               onChange={setAhelpMessage}
             />
           </Stack.Item>

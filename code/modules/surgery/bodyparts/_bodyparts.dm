@@ -80,8 +80,14 @@
 	var/can_be_disabled = FALSE //Defaults to FALSE, as only human limbs can be disabled, and only the appendages.
 	///Controls if the limb is disabled. TRUE means it is disabled (similar to being removed, but still present for the sake of targeted interactions).
 	var/bodypart_disabled = FALSE
-	///Handles limb disabling by damage. If LIMB_NO_DISABLE (-1), a limb can't be disabled via damage. If 1 (100%), it is disabled at max limb damage. Anything between is the percentage of damage against maximum limb damage needed to disable the limb.
-	var/disabling_threshold_percentage = LIMB_NO_DISABLE
+	///Handles limb disabling by damage. If 0 (0%), a limb can't be disabled via damage. If 1 (100%), it is disabled at max limb damage. Anything between is the percentage of damage against maximum limb damage needed to disable the limb.
+	//VENUS ADDITION START - Persistent limbs/organs
+	/// Was this limb loaded from the map file? If TRUE, don't persist it (it's already in the map)
+	var/maploaded = FALSE
+	/// How many rounds has this limb persisted? Used for janitor examine text
+	var/rounds_persisted = 0
+	//VENUS ADDITION END - Persistent limbs/organs
+	var/disabling_threshold_percentage = 1 //SKYRAT EDIT CHANGE - COMBAT - ORIGINAL : var/disabling_threshold_percentage = 0
 
 	// Damage variables
 	///A mutiplication of the burn and brute damage that the limb's stored damage contributes to its attached mob's overall wellbeing.
@@ -255,6 +261,7 @@
 	return ..()
 
 /obj/item/bodypart/Initialize(mapload)
+	maploaded = mapload //VENUS ADDITION - Persistent limbs/organs
 	. = ..()
 	if(can_be_disabled)
 		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
@@ -742,7 +749,16 @@
 				if(wounding_type == WOUND_PIERCE && !easy_dismember)
 					wounding_dmg *= 0.75 // piercing weapons pass along 75% of their wounding damage to the bone since it's more concentrated
 				wounding_type = WOUND_BLUNT
-		if ((dismemberable_by_wound() || dismemberable_by_total_damage()) && try_dismember(wounding_type, wounding_dmg, wound_bonus, exposed_wound_bonus))
+			//VENUS ADDITION START: mirror of the above for blunt progression -- once bone is already mangled but exterior skin is not, repeated blunt trauma can start tearing exterior tissue
+			// This allows pure blunt to naturally reach dismember (pulverize) without needing an initial sharp hit. We convert some blunt force into a low-efficiency slashing-style wound.
+			else if(has_exterior && has_interior && (mangled_state & BODYPART_MANGLED_INTERIOR) && !(mangled_state & BODYPART_MANGLED_EXTERIOR) && wounding_type == WOUND_BLUNT && !sharpness)
+				// Apply a penalty since blunt is inefficient at creating surface lacerations; easydismember trait skips the penalty similar to sharp->bone logic.
+				if(!easy_dismember)
+					wounding_dmg *= 0.6
+				// Recast as a slashing wound so check_wounding() can roll exterior lacerations (which carry MANGLES_EXTERIOR)
+				wounding_type = WOUND_SLASH
+			//VENUS ADDITION END
+		if ((dismemberable_by_wound() || dismemberable_by_total_damage()) && try_dismember(wounding_type, wounding_dmg, wound_bonus, exposed_wound_bonus, attack_direction)) //VENUS EDIT: Added attack_direction
 			return
 		// now we have our wounding_type and are ready to carry on with wounds and dealing the actual damage
 		if(wounding_dmg >= WOUND_MINIMUM_DAMAGE && wound_bonus != CANT_WOUND)
@@ -877,6 +893,11 @@
 //Cannot remove negative damage (i.e. apply damage)
 /obj/item/bodypart/proc/heal_damage(brute, burn, updating_health = TRUE, forced = FALSE, required_bodytype)
 	SHOULD_CALL_PARENT(TRUE)
+
+	//VENUS ADDITION START - Prevent healing of persistent limbs
+	if(rounds_persisted > 0)
+		return FALSE
+	//VENUS ADDITION END
 
 	if(!forced && required_bodytype && !(bodytype & required_bodytype)) //So we can only heal certain kinds of limbs, ie robotic vs organic.
 		return
@@ -1823,6 +1844,59 @@
 	if(isnull(owner))
 		return
 	ADD_TRAIT(owner, new_trait, bodypart_trait_source)
+
+//VENUS ADDITION START - Persistent limbs/organs medical examine
+/// Override examine to add medical-specific text for persistent limbs
+/obj/item/bodypart/examine(mob/user)
+	. = ..()
+
+	if(!rounds_persisted)
+		return
+
+	var/time_text
+	if(rounds_persisted <= 1)
+		time_text = "a shift or two"
+	else if(rounds_persisted <= 5)
+		time_text = "between one and five shifts"
+	else if(rounds_persisted <= 10)
+		time_text = "between five and ten shifts"
+	else if(rounds_persisted <= 20)
+		time_text = "between ten and twenty shifts"
+	else if(rounds_persisted <= 50)
+		time_text = "between twenty and fifty shifts"
+	else if(rounds_persisted <= 100)
+		time_text = "between fifty and a hundred shifts"
+	else
+		time_text = "more than a hundred shifts"
+
+	// General message for everyone
+	var/general_text
+	if(rounds_persisted <= 5)
+		general_text = "multiple shifts"
+	else if(rounds_persisted <= 20)
+		general_text = "many shifts"
+	else
+		general_text = "many, many shifts"
+
+	// Show specific details for medical personnel, generic text for everyone else
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		var/datum/job/user_job = human_user.mind?.assigned_role
+		if(user_job)
+			// Check if user is in medical department
+			var/is_medical = FALSE
+			for(var/department in user_job.departments_list)
+				if(ispath(department, /datum/job_department/medical))
+					is_medical = TRUE
+					break
+
+			if(is_medical)
+				. += span_notice("Your experience in medicine tells you that this has been here for [time_text].")
+				. += span_notice("This limb is severely decayed and should be disposed of properly - try throwing it in maintenance or using the disposals system.")
+				return
+
+	. += span_notice("It looks like it has been here for [general_text]... A medical professional might be able to tell more.")
+//VENUS ADDITION END - Persistent limbs/organs medical examine
 
 /// Remove a trait from the bodypart traits list, then removes the trait if necessary
 /obj/item/bodypart/proc/remove_bodypart_trait(old_trait)

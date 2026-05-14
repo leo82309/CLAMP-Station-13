@@ -135,6 +135,12 @@
 	needs_update_stat = TRUE
 	tick_interval = 2 SECONDS
 
+//VENUS ADDITION START - Voluntary sleep
+/datum/status_effect/incapacitating/sleeping/voluntary
+	alert_type = /atom/movable/screen/alert/status_effect/asleep/voluntary
+	duration = STATUS_EFFECT_PERMANENT
+//VENUS ADDITION END
+
 /datum/status_effect/incapacitating/sleeping/on_apply()
 	. = ..()
 	if(!.)
@@ -211,6 +217,7 @@
 		if(locate(/obj/item/pillow) in owner.loc)
 			sleep_quality += 0.1
 
+		var/ignore_sleep_heal_cap = HAS_TRAIT(owner, TRAIT_DORMANT_HEALING_FACTOR) //VENUS ADDITION - Dormant Healing Factor trait ignores the sleep healing cap
 		var/need_mob_update = FALSE
 		if(sleep_quality > 0)
 			if(iscarbon(owner))
@@ -232,7 +239,7 @@
 					if(prob(2))
 						to_chat(carbon_owner, span_notice("You feel your fitness improving!"))
 
-			if(health_ratio > 0.8) // only heals minor physical damage
+			if(health_ratio > 0.8 || ignore_sleep_heal_cap) // only heals minor physical damage //VENUS EDIT - added ignore_sleep_heal_cap - Dormant Healing Factor trait ignores the sleep healing cap
 				need_mob_update += owner.adjust_brute_loss(-0.4 * sleep_quality * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
 				need_mob_update += owner.adjust_fire_loss(-0.4 * sleep_quality * seconds_between_ticks, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
 				need_mob_update += owner.adjust_tox_loss(-0.2 * sleep_quality * seconds_between_ticks, updating_health = FALSE, forced = TRUE, required_biotype = MOB_ORGANIC)
@@ -254,6 +261,79 @@
 	desc = "You've fallen asleep. Wait a bit and you should wake up. Unless you don't, considering how helpless you are."
 	use_user_hud_icon = TRUE
 	overlay_state = "asleep"
+
+//VENUS ADDITION START - Voluntary sleep
+/atom/movable/screen/alert/status_effect/asleep/voluntary
+	name = "Sleeping Soundly"
+	desc = "You're sleeping, hopefully without a care in the world. Touch this to try and wake up."
+	overlay_state = "netpod_stasis"
+	clickable_glow = TRUE
+	var/wake_in_progress = FALSE
+	var/wake_cancelled = FALSE
+
+/atom/movable/screen/alert/status_effect/asleep/voluntary/update_desc()
+	. = ..()
+	desc = initial(desc)
+	if(!isliving(owner))
+		return
+	var/mob/living/living_owner = owner
+	var/list/bonuses = list()
+	var/turf/rest_turf = get_turf(living_owner)
+	var/is_sleeping_in_darkness = rest_turf && rest_turf.get_lumcount() <= LIGHTING_TILE_IS_DARK
+
+	if(living_owner.is_blind_from(EYES_COVERED))
+		bonuses += "covered eyes"
+	if(is_sleeping_in_darkness)
+		bonuses += "darkness"
+	if(HAS_TRAIT(living_owner, TRAIT_DEAF))
+		bonuses += "silence"
+	if((locate(/obj/structure/bed) in living_owner.loc))
+		bonuses += "bed"
+	else if((locate(/obj/structure/table) in living_owner.loc))
+		bonuses += "table"
+	if(locate(/obj/item/bedsheet) in living_owner.loc)
+		bonuses += "bedsheet"
+	if(locate(/obj/item/pillow) in living_owner.loc)
+		bonuses += "pillow"
+
+	if(wake_in_progress)
+		desc += " You're trying to wake up."
+	if(length(bonuses))
+		desc += " You're sleeping more comfortably thanks to [english_list(bonuses)]."
+
+/atom/movable/screen/alert/status_effect/asleep/voluntary/MouseEntered(location, control, params)
+	update_appearance(UPDATE_DESC)
+	return ..()
+
+/atom/movable/screen/alert/status_effect/asleep/voluntary/proc/wake_check()
+	if(QDELETED(src) || wake_cancelled || !isliving(owner))
+		return FALSE
+	var/mob/living/living_owner = owner
+	return living_owner.IsSleeping()
+
+/atom/movable/screen/alert/status_effect/asleep/voluntary/Click(location, control, params)
+	. = ..()
+	if(!.)
+		return
+	if(!isliving(owner))
+		return
+	var/mob/living/living_owner = owner
+	if(!living_owner.IsSleeping())
+		return
+	if(wake_in_progress)
+		wake_cancelled = TRUE
+		to_chat(living_owner, span_notice("You stop trying to wake up."))
+		return
+	if(tgui_alert(living_owner, "Try to wake up?", "Wake up", list("Yes", "No")) != "Yes")
+		return
+	wake_in_progress = TRUE
+	wake_cancelled = FALSE
+	to_chat(living_owner, span_notice("You try to wake up..."))
+	if(do_after(living_owner, 15 SECONDS, target = living_owner, timed_action_flags = (IGNORE_USER_LOC_CHANGE | IGNORE_TARGET_LOC_CHANGE | IGNORE_INCAPACITATED), extra_checks = CALLBACK(src, PROC_REF(wake_check)), hidden = TRUE))
+		if(!QDELETED(src))
+			living_owner.SetSleeping(0)
+	wake_in_progress = FALSE
+//VENUS ADDITION END
 
 //STASIS
 /datum/status_effect/grouped/stasis

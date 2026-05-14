@@ -39,7 +39,7 @@
 
 /datum/round_event_control/anomaly/anomaly_pyro
 	track = EVENT_TRACK_MAJOR
-	tags = list(TAG_DESTRUCTIVE)
+	// tags = list(TAG_DESTRUCTIVE) //VENUS REMOVAL: Already defined in parent path
 
 /datum/round_event_control/cme
 	track = EVENT_TRACK_MAJOR
@@ -52,4 +52,4 @@
 /datum/round_event_control/cortical_borer
 	track = EVENT_TRACK_MAJOR
 	tags = list(TAG_TARGETED, TAG_SPOOKY)
-	min_players = 40
+	min_players = 20

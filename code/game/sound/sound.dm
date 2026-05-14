@@ -198,7 +198,7 @@
 	S.status = SOUND_UPDATE
 	SEND_SOUND(src, S)
 
-/client/proc/playtitlemusic(volume_multiplier = 1)
+/client/proc/playtitlemusic(volume_multiplier = 0.5)//VENUS EDIT: 1 -> 0.5
 	set waitfor = FALSE
 	UNTIL(SSticker.login_music) //wait for SSticker init to set the login music
 

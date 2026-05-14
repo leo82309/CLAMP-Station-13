@@ -176,7 +176,7 @@
 		var/list/achievements = list(/datum/award/achievement/boss/boss_killer, /datum/award/score/boss_score, /datum/award/score/legion_score, /datum/award/achievement/boss/legion_kill)
 		AddElement(/datum/element/kill_achievement, string_list(achievements), crusher_achievement_type, /datum/memory/megafauna_slayer)
 	else if(prob(20)) //20% chance for sick lootz.
-		loot = list(/obj/structure/closet/crate/necropolis/tendril)
+		loot = list(/obj/structure/closet/crate/necropolis/tendril/legion) // VENUS EDIT (Fixes loot being broken by legion) - Original: /obj/structure/closet/crate/necropolis/tendril
 		if(!true_spawn)
 			loot = null
 	return ..()

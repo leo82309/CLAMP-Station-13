@@ -447,6 +447,21 @@
 /datum/component/riding/vehicle/wheelchair
 	vehicle_move_delay = 0
 	ride_check_flags = RIDER_NEEDS_ARMS
+//VENUS ADDITION START - Walk mode for wheelchairs.
+	///If TRUE, the vehicle will be slower (but safer) to ride on walk intent.
+	var/can_slow_down = TRUE
+	///The delay adjustment applied when walking (should be the same as the skateboard's)
+	var/walk_delay_adjustment = 0.6
+
+/datum/component/riding/vehicle/wheelchair/RegisterWithParent()
+	. = ..()
+	if(can_slow_down)
+		RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+
+/datum/component/riding/vehicle/wheelchair/proc/on_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	examine_list += span_notice("Going slow and nice at [EXAMINE_HINT("walk")] speed will prevent crashing into things.")
+//VENUS ADDITION END
 
 /datum/component/riding/vehicle/wheelchair/get_parent_offsets_and_layers()
 	return list(
@@ -458,10 +473,15 @@
 
 /datum/component/riding/vehicle/wheelchair/hand
 	/// Magic number used in calculating the speed of the wheelchair
-	var/delay_multiplier = 6.7
+	var/delay_multiplier = 5.7 //VENUS EDIT - ORIGINAL: 6.7, god damnit (tweaked for Venus' config run delay)
+
 
 /datum/component/riding/vehicle/wheelchair/hand/driver_move(obj/vehicle/vehicle_parent, mob/living/user, direction)
 	vehicle_move_delay = round(CONFIG_GET(number/movedelay/run_delay) * delay_multiplier) / clamp(user.usable_hands, 1, 2)
+	//VENUS ADDITION - Walk mode for wheelchairs.
+	if(can_slow_down && user.move_intent == MOVE_INTENT_WALK)
+		vehicle_move_delay += walk_delay_adjustment
+	//VENUS ADDITION END
 	return ..()
 
 /datum/component/riding/vehicle/wheelchair/motorized
@@ -471,6 +491,10 @@
 	var/speed = our_chair.speed
 	var/delay_multiplier = our_chair.delay_multiplier
 	vehicle_move_delay = round(CONFIG_GET(number/movedelay/run_delay) * delay_multiplier) / speed
+	//VENUS ADDITION - Walk mode for wheelchairs.
+	if(can_slow_down && user.move_intent == MOVE_INTENT_WALK)
+		vehicle_move_delay += walk_delay_adjustment
+	//VENUS ADDITION END
 	return ..()
 
 /datum/component/riding/vehicle/wheelchair/motorized/handle_ride(mob/user, direction)

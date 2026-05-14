@@ -251,3 +251,15 @@
 	user_arousal = 8
 	target_arousal = 8
 	target_pain = 4
+
+//VENUS ADDITION START: Vulnerability to penetration
+/datum/interaction/lewd/fuck/post_interaction(mob/living/user, mob/living/target)
+	. = ..()
+	if(HAS_TRAIT(target, TRAIT_BIMBO))
+		target.adjust_stamina_loss(30)
+		if(prob(15))
+			to_chat(target, span_purple("You feel so helpless..."))
+		if(target.has_status_effect(/datum/status_effect/incapacitating/stamcrit))
+			if(prob(15))
+				to_chat(target, span_purple("It feels too good..."))
+//VENUS ADDITION END

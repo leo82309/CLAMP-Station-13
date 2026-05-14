@@ -25,7 +25,11 @@ export type SpawnPanelData = {
   iconStates: string[];
   selected_object?: string;
   precise_mode: string;
-};
+  //VENUS ADDITION START - Pod styles for spawning panel
+  podStyles?: Array<{ id: string; title: string }>;
+  podStyle?: string;
+  //VENUS ADDITION END
+}
 
 interface CreateObjectSettingsProps {
   onCreateObject?: (obj: Record<string, unknown>) => void;
@@ -43,6 +47,7 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
   const [direction, setDirection] = useState(0);
   const [objectName, setObjectName] = useState('');
   const [offset, setOffset] = useState('');
+  const [podStyle, setPodStyle] = useState('standard'); //VENUS ADDITION - Pod styles for spawning panel
 
   const updateAmount = (value: number) => {
     setAmount(value);
@@ -62,6 +67,14 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
     storage.set('spawnpanel-where_target_type', value);
     sendUpdatedSettings({ where_target_type: value });
   };
+
+  //VENUS ADDITION START - Pod styles for spawning panel
+  const updatePodStyle = (value: string) => {
+    setPodStyle(value);
+    storage.set('spawnpanel-pod_style', value);
+    sendUpdatedSettings({ pod_style: value });
+  };
+  //VENUS ADDITION END
 
   const updateDirection = (value: number) => {
     setDirection(value);
@@ -126,6 +139,7 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
       atom_name: objectName,
       atom_icon_size: iconSettings.iconSize,
       apply_icon_override: iconSettings.applyIcon ?? false,
+      pod_style: podStyle, //VENUS ADDITION - Pod styles for spawning panel
       ...changedSettings,
     };
     act('update-settings', currentSettings);
@@ -138,6 +152,7 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
     const defaultDirection = 0;
     const defaultObjectName = '';
     const defaultOffset = '';
+    const defaultPodStyle = 'standard'; //VENUS ADDITION - Pod styles for spawning panel
 
     setAmount(defaultAmount);
     setCordsType(defaultCordsType);
@@ -145,6 +160,7 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
     setDirection(defaultDirection);
     setObjectName(defaultObjectName);
     setOffset(defaultOffset);
+    setPodStyle(defaultPodStyle); //VENUS ADDITION - Pod styles for spawning panel
 
     storage.set('spawnpanel-atom_amount', defaultAmount);
     storage.set('spawnpanel-offset_type', defaultCordsType);
@@ -152,6 +168,7 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
     storage.set('spawnpanel-direction', defaultDirection);
     storage.set('spawnpanel-atom_name', defaultObjectName);
     storage.set('spawnpanel-offset', defaultOffset);
+    storage.set('spawnpanel-pod_style', defaultPodStyle); //VENUS ADDITION - Pod styles for spawning panel
 
     sendUpdatedSettings({
       atom_amount: defaultAmount,
@@ -160,6 +177,7 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
       atom_dir: [1, 2, 4, 8][defaultDirection],
       offset: defaultOffset,
       atom_name: defaultObjectName,
+      pod_style: defaultPodStyle, //VENUS ADDITION - Pod styles for spawning panel
     });
   };
 
@@ -172,12 +190,17 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
       const storedDirection = await storage.get('spawnpanel-direction');
       const storedObjectName = await storage.get('spawnpanel-atom_name');
       const storedOffset = await storage.get('spawnpanel-offset');
+      const storedPodStyle = await storage.get('spawnpanel-pod_style'); //VENUS ADDITION - Pod styles for spawning panel
 
       if (storedCordsType !== undefined) setCordsType(storedCordsType);
       if (storedSpawnLocation) setSpawnLocation(storedSpawnLocation);
       if (storedDirection !== undefined) setDirection(storedDirection);
       if (storedObjectName !== undefined) setObjectName(storedObjectName);
       if (storedOffset !== undefined) setOffset(storedOffset);
+      //VENUS ADDITION START - Pod styles for spawning panel
+      if (storedPodStyle) setPodStyle(storedPodStyle);
+      else if (data?.podStyle) setPodStyle(data.podStyle);
+      //VENUS ADDITION END
     };
 
     loadStoredValues();
@@ -187,6 +210,19 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
     spawnLocation === 'Targeted location' ||
     spawnLocation === 'Targeted location (droppod)' ||
     spawnLocation === "In targeted mob's hand";
+
+  //VENUS ADDITION START - Pod styles for spawning panel
+  const isDroppodMode =
+    spawnLocation === 'Current location (droppod)' ||
+    spawnLocation === 'Targeted location (droppod)';
+
+  const podStyleOptions = data?.podStyles || [];
+  const podStyleLookup: Record<string, string> = {};
+  podStyleOptions.forEach((style) => {
+    podStyleLookup[style.title] = style.id;
+  });
+  const podStyleTitles = podStyleOptions.map((style) => style.title);
+  //VENUS ADDITION END
 
   const isPreciseModeActive = data?.precise_mode === 'Target';
   const isMarkModeActive = data?.precise_mode === 'Mark';
@@ -227,6 +263,7 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
       atom_icon_size: iconSettings.iconSize,
       selected_atom: data.selected_object,
       apply_icon_override: iconSettings.applyIcon ?? false,
+      pod_style: podStyle, //VENUS ADDITION - Pod styles for spawning panel
     };
 
     act('update-settings', currentSettings);
@@ -479,6 +516,26 @@ export function CreateObjectSettings(props: CreateObjectSettingsProps) {
                     selected={spawnLocation}
                   />
                 </Stack.Item>
+                {/* VENUS ADDITION START - Pod styles for spawning panel */}
+                {isDroppodMode && (
+                  <Stack.Item>
+                    <Dropdown
+                      options={podStyleTitles}
+                      onSelected={(value) => {
+                        const styleId = podStyleLookup[value];
+                        if (styleId) {
+                          updatePodStyle(styleId);
+                        }
+                      }}
+                      selected={
+                        podStyleOptions.find((s) => s.id === podStyle)?.title ||
+                        'Standard'
+                      }
+                      width="100%"
+                    />
+                  </Stack.Item>
+                )}
+                {/* VENUS ADDITION END - Pod styles for spawning panel */}
               </Stack>
             </Stack.Item>
           </Stack>

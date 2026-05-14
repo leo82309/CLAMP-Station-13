@@ -14,7 +14,7 @@
 	tags = list(TAG_COMMUNAL, TAG_SPACE, TAG_DESTRUCTIVE, TAG_CHAOTIC, TAG_HIGH)
 
 /datum/round_event_control/radiation_storm
-	max_occurrences = 0
+	// max_occurrences = 0 VENUS REMOVAL
 
 /datum/round_event_control/wormholes
 	tags = list(TAG_COMMUNAL, TAG_MEDIUM)

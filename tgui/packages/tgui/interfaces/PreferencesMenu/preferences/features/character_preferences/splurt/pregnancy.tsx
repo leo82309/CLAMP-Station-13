@@ -60,6 +60,15 @@ export const pregnancy_insemination_anus: FeatureToggle = {
   component: CheckboxInput,
 };
 
+// VENUS ADDITION START
+export const pregnancy_can_impregnate_others: FeatureToggle = {
+  name: 'Pregnancy: Can impregnate others',
+  description:
+    'When toggled, you can impregnate others when you climax inside them.',
+  component: CheckboxInput,
+};
+// VENUS ADDITION END
+
 export const pregnancy_insemination_mouth: FeatureToggle = {
   name: 'Pregnancy: Oral insemination',
   description: 'When toggled, you can get impregnated from oral insemination.',

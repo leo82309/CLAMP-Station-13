@@ -94,6 +94,21 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
+//VENUS ADDITION START - Placeable tape
+// Departmental tape rolls (security)
+/datum/design/sec_tape
+	name = "Police Tape Roll"
+	id = "sec_tape"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT)
+	build_path = /obj/item/taperoll/police
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+//VENUS ADDITION END
+
 /datum/design/handcuffs
 	name = "Handcuffs"
 	id = "handcuffs"

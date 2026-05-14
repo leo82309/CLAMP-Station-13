@@ -2057,7 +2057,6 @@
 "zR" = (
 /obj/item/toy/plush/Synth{
 	name = "meik";
-	desc = "in honor of the best security officer splurt has ever seen"
 	},
 /obj/structure/sign/directions/evac/directional/east{
 	pixel_x = -30;

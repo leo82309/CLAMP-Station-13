@@ -4,8 +4,12 @@
 /datum/storyteller/fragile
 	votable = FALSE
 
+//VENUS REMOVAL START: Make default votable
+/*
 /datum/storyteller/default
 	votable = FALSE
+*/
+//VENUS REMOVAL END
 
 /datum/storyteller/bomb
 	votable = FALSE

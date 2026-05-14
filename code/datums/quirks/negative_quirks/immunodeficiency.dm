@@ -8,6 +8,7 @@
 	gain_text = span_danger("Just the thought of illness makes you feverish.")
 	lose_text = span_notice("Your immune system miraculously reasserts itself.")
 	medical_record_text = "Patient is afflicted with chronic immunodeficiency."
+	species_blacklist = list(/datum/species/synthetic) //VENUS ADDITION - Synths shouldn't get this quirk.
 	mail_goodies = list(
 		/obj/item/reagent_containers/syringe/antiviral,
 		/obj/item/healthanalyzer/simple/disease

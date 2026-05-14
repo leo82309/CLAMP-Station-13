@@ -489,6 +489,13 @@
 			living_mob.apply_damage(kinetic_blast.damage*modifier, kinetic_blast.damage_type, kinetic_blast.def_zone, armor)
 			to_chat(living_mob, span_userdanger("You're struck by a [kinetic_blast.name]!"))
 
+			//VENUS TEMPORARY FIX: Make hostile mobs aggro on the attacker when hit by explosion
+			if(istype(living_mob, /mob/living/simple_animal/hostile) && kinetic_blast.firer && isliving(kinetic_blast.firer))
+				var/mob/living/simple_animal/hostile/hostile_mob = living_mob
+				if(hostile_mob.CanAttack(kinetic_blast.firer))
+					hostile_mob.GiveTarget(kinetic_blast.firer)
+			//VENUS TEMPORARY FIX END
+
 /obj/item/borg/upgrade/modkit/aoe/turfs
 	name = "mining explosion"
 	desc = "Causes the kinetic accelerator to destroy rock in an AoE."

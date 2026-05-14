@@ -924,10 +924,23 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(grappled && attacking_bodypart.grappled_attack_verb)
 		atk_verb = attacking_bodypart.grappled_attack_verb
 		atk_verb_continuous = attacking_bodypart.grappled_attack_verb_continuous
-
+	//VENUS EDIT START: More specific unarmed combat messages
+	//ORIGINAL:
+	/*
 	target.visible_message(span_danger("[user] [atk_verb_continuous] [target]!"), \
 					span_userdanger("[user] [atk_verb_continuous] you!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, user)
 	to_chat(user, span_danger("You [atk_verb] [target]!"))
+	*/
+	var/struck_limb = affecting?.plaintext_zone
+	target.visible_message(
+		span_danger("[user] [atk_verb_continuous] [target]!"),
+		span_userdanger("[user] [atk_verb_continuous] you in the [struck_limb]!"),
+		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		COMBAT_MESSAGE_RANGE,
+		user,
+	)
+	to_chat(user, span_danger("You [atk_verb] [target] in the [struck_limb]!"))
+	//VENUS EDIT END
 
 	target.lastattacker = user.real_name
 	target.lastattackerckey = user.ckey

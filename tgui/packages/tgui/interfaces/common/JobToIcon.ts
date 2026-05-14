@@ -33,6 +33,7 @@ const BASEICONS = {
   Cyborg: 'robot',
   'Security Cyborg': 'robot', //SPLURT ADDITION
   Detective: 'user-secret',
+  Explorer: 'user-astronaut', // VENUS ADDITION - IRIS PORT (Explorer Job)
   Geneticist: 'dna',
   'Head of Personnel': 'dog',
   'Head of Security': 'user-shield',

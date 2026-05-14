@@ -214,6 +214,16 @@
 	var/mob/living/carbon/human/patient = occupant
 	var/original_name = patient.dna.real_name
 
+	//VENUS ADDITION START - Clean removal of external parts before applying prefs
+	// First, remove all external organs (visual parts like tails, wings, etc.)
+	for(var/obj/item/organ/organ in patient.organs)
+		if((organ.organ_flags & ORGAN_EXTERNAL) || istype(organ, /obj/item/organ/genital))
+			organ.Remove(patient, special = TRUE)
+			qdel(organ)
+	// Clear the DNA records for mutant bodyparts and markings to ensure clean regeneration
+	patient.dna.mutant_bodyparts = list()
+	patient.dna.body_markings = list()
+	//VENUS ADDITION END
 	patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient, visuals_only = TRUE)
 	patient.dna.update_dna_identity()
 	// SPLURT ADDITION START - Fix of naga with shoes

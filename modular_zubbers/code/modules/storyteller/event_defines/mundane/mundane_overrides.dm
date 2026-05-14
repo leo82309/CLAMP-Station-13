@@ -1,5 +1,6 @@
 /datum/round_event_control/aurora_caelus
 	track = EVENT_TRACK_MUNDANE
+	weight = 5 //VENUS ADDITION - Original: 1
 	tags = list(TAG_COMMUNAL, TAG_NEUTRAL, TAG_SPACE)
 
 /datum/round_event_control/brain_trauma

@@ -15,6 +15,7 @@
 		ACCESS_SCIENCE,
 		ACCESS_SERVICE,
 		ACCESS_PARAMEDIC,
+		ACCESS_EXTERNAL_AIRLOCKS //VENUS ADDITION - Add missing access
 		)
 
 	extra_access = list(

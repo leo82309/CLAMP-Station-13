@@ -73,6 +73,14 @@
 		"borg_upgrade_lavaproof",
 		"borg_upgrade_holding",
 		"borg_upgrade_diamonddrill",
+		//VENUS ADDITION START - Mining Cyborg PKA variants
+		"borg_upgrade_pka_railgun",
+		"borg_upgrade_pka_shotgun",
+		"borg_upgrade_pka_shockwave",
+		"borg_upgrade_pka_repeater",
+		"borg_upgrade_pka_pistol",
+		"borg_upgrade_pka_grenade",
+		//VENUS ADDITION END
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)

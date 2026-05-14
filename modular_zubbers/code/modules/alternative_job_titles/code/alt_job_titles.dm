@@ -35,6 +35,17 @@
 		"Armorsmith",
 	)
 
+//VENUS ADDITION START - IRIS PORT (Explorer Job)
+/datum/job/explorer
+	alt_titles = list(
+		"Explorer",
+		"Surveyor",
+		"Pioneer",
+		"Navigator",
+		"Frontiersperson",
+		"Apprentice Explorer",
+	)
+//VENUS ADDITION END - IRIS PORT (Explorer Job)
 /datum/job/bridge_assistant
 	alt_titles = list(
 		"Bridge Assistant",

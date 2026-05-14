@@ -116,6 +116,15 @@
 	savefile_key = "pregnancy_insemination_mouth"
 	default_value = FALSE
 
+//VENUS ADDITION START
+/// If enabled, you can impregnate others when you climax inside them
+/datum/preference/toggle/pregnancy/can_impregnate_others
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "pregnancy_can_impregnate_others"
+	default_value = TRUE
+//VENUS ADDITION END
+
 /// Type of egg used for oviposition
 /datum/preference/choiced/pregnancy/egg_skin
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES

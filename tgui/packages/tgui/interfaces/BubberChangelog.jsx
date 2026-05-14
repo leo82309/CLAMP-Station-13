@@ -118,7 +118,7 @@ const DateDropdown = (props) => {
 };
 
 const ChangelogList = (props) => {
-  const { contents, bubberContents, splurtContents } = props; // SPLURT EDIT ADDITION: Changelog 3
+  const { contents, bubberContents, splurtContents, venusContents } = props; // VENUS EDIT ADDITION: Changelog 4
 
   const combinedDates = {};
   Object.assign(
@@ -126,6 +126,7 @@ const ChangelogList = (props) => {
     typeof contents === 'object' ? contents : {},
     typeof bubberContents === 'object' ? bubberContents : {},
     typeof splurtContents === 'object' ? splurtContents : {}, // SPLURT EDIT ADDITION: Changelog 3
+    typeof venusContents === 'object' ? venusContents : {}, // VENUS EDIT ADDITION: Changelog 4
   );
 
   if (Object.keys(combinedDates).length < 1) {
@@ -138,6 +139,17 @@ const ChangelogList = (props) => {
     .map((date) => (
       <Section key={date} title={dateformat(date, 'd mmmm yyyy', true)} pb={1}>
         <Box ml={3}>
+          {bubberContents[date] && (
+            <Section mb={-2}>
+              {Object.entries(bubberContents[date]).map(([name, changes]) => (
+                <BubberChangelogEntry
+                  key={name}
+                  author={name}
+                  changes={changes}
+                />
+              ))}
+            </Section>
+          )}
           {/* SPLURT EDIT ADDITION: Changelog 3 */}
           {splurtContents[date] && (
             <Section mb={-2}>
@@ -151,10 +163,11 @@ const ChangelogList = (props) => {
             </Section>
           )}
           {/* SPLURT EDIT ADDITION END */}
-          {bubberContents[date] && (
+          {/* VENUS EDIT ADDITION: Changelog 4 */}
+          {venusContents[date] && (
             <Section mb={-2}>
-              {Object.entries(bubberContents[date]).map(([name, changes]) => (
-                <BubberChangelogEntry
+              {Object.entries(venusContents[date]).map(([name, changes]) => (
+                <VenusChangelogEntry
                   key={name}
                   author={name}
                   changes={changes}
@@ -323,12 +336,64 @@ const SplurtChangelogEntry = (props) => {
 };
 // SPLURT EDIT ADDITION END
 
+// VENUS EDIT ADDITION: Changelog 4
+const VenusChangelogEntry = (props) => {
+  const { author, changes } = props;
+
+  return (
+    <Stack.Item mb={-1} pb={1} key={author}>
+      <Box>
+        <h4>
+          <Image verticalAlign="bottom" src={resolveAsset('venus_16.png')} />{' '}
+          {author} changed:
+        </h4>
+      </Box>
+      <Box ml={3} mt={-0.2}>
+        <Table>
+          {changes.map((change) => {
+            const changeType = Object.keys(change)[0];
+            return (
+              <Table.Row key={changeType + change[changeType]}>
+                <Table.Cell
+                  className={classes([
+                    'Changelog__Cell',
+                    'Changelog__Cell--Icon',
+                  ])}
+                >
+                  <Icon
+                    color={
+                      icons[changeType]
+                        ? icons[changeType].color
+                        : icons['unknown'].color
+                    }
+                    name={
+                      icons[changeType]
+                        ? icons[changeType].icon
+                        : icons['unknown'].icon
+                    }
+                    verticalAlign="middle"
+                  />
+                </Table.Cell>
+                <Table.Cell className="Changelog__Cell">
+                  {change[changeType]}
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
+        </Table>
+      </Box>
+    </Stack.Item>
+  );
+};
+// VENUS EDIT ADDITION END
+
 export const BubberChangelog = (props) => {
   const { data } = useBackend();
   const { dates } = data;
   const [contents, setContents] = useState('');
   const [bubberContents, setBubberContents] = useState('');
   const [splurtContents, setSplurtContents] = useState(''); // SPLURT EDIT ADDITION: Changelog 3
+  const [venusContents, setVenusContents] = useState(''); // VENUS EDIT ADDITION: Changelog 4
   const [selectedDate, setSelectedDate] = useState(dates[0]);
   const [selectedDateIndex, setSelectedDateIndex] = useState(0);
 
@@ -336,6 +401,7 @@ export const BubberChangelog = (props) => {
     setContents('Loading changelog data...');
     setBubberContents('Loading changelog data...');
     setSplurtContents('Loading changelog data...'); // SPLURT EDIT ADDITION: Changelog 3
+    setVenusContents('Loading changelog data...'); // VENUS EDIT ADDITION: Changelog 4
     getData(selectedDate);
   }, [selectedDate]);
 
@@ -354,16 +420,18 @@ export const BubberChangelog = (props) => {
       fetch(resolveAsset(`${date}.yml`)),
       fetch(resolveAsset(`bubber_${date}.yml`)),
       fetch(resolveAsset(`splurt_${date}.yml`)), // SPLURT EDIT ADDITION: Changelog 3
+      fetch(resolveAsset(`venus_${date}.yml`)), // VENUS EDIT ADDITION: Changelog 4
     ]).then(async (links) => {
       const result = await links[0].text();
       const bubberResult = await links[1].text();
       const splurtResult = await links[2].text(); // SPLURT EDIT ADDITION: Changelog 3
-
+      const venusResult = await links[3].text(); // VENUS EDIT ADDITION: Changelog 4
       // SPLURT EDIT ADDITION: Changelog 3
       if (
         links[0].status !== 200 &&
         links[1].status !== 200 &&
-        links[2].status !== 200
+        links[2].status !== 200 &&
+        links[3].status !== 200 // VENUS EDIT ADDITION: Changelog 4
       ) {
         // SPLURT EDIT ADDITION END
         const timeout = 50 + attemptNumber * 50;
@@ -377,6 +445,11 @@ export const BubberChangelog = (props) => {
           `Loading changelog data${'.'.repeat(attemptNumber + 3)}`,
         );
         // SPLURT EDIT ADDITION END
+        // VENUS EDIT ADDITION: Changelog 4
+        setVenusContents(
+          'Loading changelog data' + '.'.repeat(attemptNumber + 3),
+        );
+        // VENUS EDIT ADDITION END
         setTimeout(() => {
           getData(date, attemptNumber + 1);
         }, timeout);
@@ -396,13 +469,19 @@ export const BubberChangelog = (props) => {
           );
         }
         // SPLURT EDIT ADDITION END
+        // VENUS EDIT ADDITION: Changelog 4
+        if (links[3].status === 200) {
+          setVenusContents(
+            yaml.load(venusResult, { schema: yaml.CORE_SCHEMA }),
+          );
+        }
       }
     });
   }
 
   const header = (
     <Section>
-      <h1>S.P.L.U.R.T-tg</h1> {/* SPLURT EDIT ADDITION: Changelog 3 */}
+      <h1>V.E.N.U.S Station 13</h1> {/* VENUS EDIT ADDITION: Changelog 4 */}
       <p>
         <b>Thanks to: </b>
         /tg/station 13, Effigy, Stellar Haven, Baystation 12, /vg/station,
@@ -412,16 +491,16 @@ export const BubberChangelog = (props) => {
       </p>
       <p>
         {'Current organization members can be found '}
-        <a href="https://github.com/orgs/SPLURT-Station/people">here</a>
+        <a href="https://github.com/orgs/VENUS-Station/people">here</a>
         {', recent GitHub contributors can be found '}
-        <a href="https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/pulse/monthly">
+        <a href="https://github.com/VENUS-Station/V.E.N.U.S-TG/pulse/monthly">
           here
         </a>
         .
       </p>
       <p>
         {'You can also join our discord '}
-        <a href="https://discord.com/invite/wynHVMzHzC">here</a>!
+        <a href="https://discord.com/invite/kCuWJRdzb7">here</a>!
       </p>
       <DateDropdown
         dates={dates}
@@ -443,12 +522,12 @@ export const BubberChangelog = (props) => {
         setSelectedDateIndex={setSelectedDateIndex}
       />
       <h2>Licenses</h2>
-      <Section title="S.P.L.U.R.T-tg">
+      <Section title="V.E.N.U.S Station 13">
         <p>
           {'All code is licensed under '}
           <a href="https://www.gnu.org/licenses/agpl-3.0.html">GNU AGPL v3</a>.
           {' See '}
-          <a href="https://github.com/SPLURT-Station/S.P.L.U.R.T-tg/blob/master/LICENSE">
+          <a href="https://github.com/VENUS-Station/V.E.N.U.S-TG/blob/master/LICENSE">
             LICENSE
           </a>{' '}
           for more details.
@@ -535,7 +614,7 @@ export const BubberChangelog = (props) => {
           No
         </p>
         <p>
-          S.P.L.U.R.T, Bubberstation and /tg/station 13 are thankful to the
+          V.E.N.U.S, Bubberstation and /tg/station 13 are thankful to the
           GoonStation 13 Development Team for its work on the game up to the
           {' r4407 release. The changelog for changes up to r4407 can be seen '}
           <a href="https://wiki.ss13.co/Pre-2016_Changelog#April_2010">here</a>.
@@ -565,6 +644,7 @@ export const BubberChangelog = (props) => {
           contents={contents}
           bubberContents={bubberContents}
           splurtContents={splurtContents}
+          venusContents={venusContents} // VENUS EDIT ADDITION: Changelog 4
         />
         {/* SPLURT EDIT ADDITION END */}
         {footer}

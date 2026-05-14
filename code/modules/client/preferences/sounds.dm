@@ -118,6 +118,11 @@
 	savefile_key = "sound_radio_noise"
 	savefile_identifier = PREFERENCE_PLAYER
 
+//VENUS ADDITION START - Default radio volume to 50%
+/datum/preference/numeric/volume/sound_radio_noise/create_default_value()
+	return 50
+//VENUS ADDITION END
+
 /// Controls hearing AI VOX announcements
 /datum/preference/numeric/volume/sound_ai_vox
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES

@@ -106,7 +106,11 @@
 
 	var/obj/structure/closet/supplypod/centcompod/pod
 	if(use_droppod)
-		pod = new()
+		//VENUS EDIT START - Pod styles for spawning panel
+		//ORIGINAL: pod = new()
+		var/datum/pod_style/chosen_style = spawn_params["pod_style"] || /datum/pod_style
+		pod = new(null, chosen_style)
+		//VENUS EDIT END
 
 	for(var/i in 1 to amount)
 		if(istype(atom_to_spawn, /turf))

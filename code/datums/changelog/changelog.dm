@@ -38,8 +38,11 @@
 	// SPLURT EDIT ADDITION BEGIN: Changelog 3
 	var/list/splurt_files = flist("html/changelogs/splurt_archive/")
 	// SPLURT EDIT ADDITION END: Changelog 3
+	//VENUS EDIT ADDITION BEGIN: Changelog 4
+	var/list/venus_files = flist("html/changelogs/venus_archive/")
+	//VENUS EDIT ADDITION END: Changelog 4
 
-	for(var/archive_file in sort_list(tg_files |= bubber_files | splurt_files)) // SPLURT EDIT CHANGE: Changelog 3: Original: for(var/archive_file in sort_list(flist("html/changelogs/archive/")))
+	for(var/archive_file in sort_list(tg_files |= bubber_files | splurt_files | venus_files)) // VENUS EDIT CHANGE: Changelog 4: Original: for(var/archive_file in sort_list(flist("html/changelogs/archive/")))
 		var/archive_date = ymlRegex.Replace(archive_file, "")
 		data["dates"] = list(archive_date) + data["dates"]
 

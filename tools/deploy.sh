@@ -50,3 +50,7 @@ source modular_zubbers/tools/deploy_bubber.sh
 # SPLURT EDIT ADDITION BEGIN - Call our deploy too
 source modular_zzplurt/tools/deploy_splurt.sh
 # SPLURT EDIT ADDITION END - Call our deploy too
+
+# VENUS EDIT ADDITION BEGIN - Call our deploy too
+source modular_zzvenus/tools/deploy_venus.sh
+# VENUS EDIT ADDITION END - Call our deploy too

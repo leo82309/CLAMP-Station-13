@@ -3,7 +3,10 @@
 	typepath = /datum/round_event/radiation_storm
 	max_occurrences = 1
 	category = EVENT_CATEGORY_SPACE
-	description = "Radiation storm affects the station, forcing the crew to escape to maintenance."
+	//VENUS EDIT START: (Changed description to reflect that dorms and maintenance are best shielded from radiation)
+	// description = "Radiation storm affects the station, forcing the crew to escape to maintenance."
+	description = "Radiation storm affects the station, forcing the crew to escape to maintenance and dorms."
+	//VENUS EDIT END
 	min_wizard_trigger_potency = 3
 	max_wizard_trigger_potency = 7
 
@@ -16,7 +19,10 @@
 	announce_when = 1
 
 /datum/round_event/radiation_storm/announce(fake)
-	priority_announce("High levels of radiation detected near the station. Maintenance is best shielded from radiation.", "Anomaly Alert", ANNOUNCER_RADIATION)
+	//VENUS EDIT START: (Changed priority announce to reflect that dorms and maintenance are best shielded from radiation)
+	// priority_announce("High levels of radiation detected near the station. Maintenance is best shielded from radiation.", "Anomaly Alert", ANNOUNCER_RADIATION)
+	priority_announce("High levels of radiation detected near the station. Maintenance and Dorms are best shielded from radiation.", "Anomaly Alert", ANNOUNCER_RADIATION)
+	//VENUS EDIT END
 	//sound not longer matches the text, but an audible warning is probably good
 
 /datum/round_event/radiation_storm/start()

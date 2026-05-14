@@ -154,8 +154,8 @@ export function CharacterPreferenceWindow(props) {
           {!data.content_unlocked && (
             <Stack.Item grow align="center" mb={-1}>
               <NoticeBox color="grey">
-                <a href="https://www.byond.com/membership">
-                  Become a BYOND Member to unlock more character slots and other
+                <a href="https://ko-fi.com/venus_station/tiers">
+                  Become a VENUS Member to unlock more character slots and other
                   members-only benefits!
                 </a>
               </NoticeBox>

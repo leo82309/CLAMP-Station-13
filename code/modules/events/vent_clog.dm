@@ -97,6 +97,10 @@
 		var/turf/vent_turf = get_turf(vent)
 		var/area/vent_area = get_area(vent)
 		if(vent_turf && is_station_level(vent_turf.z) && !vent.welded && istype(vent_area, /area/station) && !vent_turf.is_blocked_turf_ignore_climbable())
+			//VENUS ADDITION START: Protect dorms from vent clogs
+			if(istype(vent_area, /area/station/commons/dorms))
+				continue
+			//VENUS ADDITION END
 			vent_list += vent
 
 	if(!length(vent_list))

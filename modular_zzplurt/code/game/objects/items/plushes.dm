@@ -67,7 +67,6 @@
 	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
 	icon_state = "ollie_plush"
 	worn_icon_state = "ollie_plush"
-	squeak_override = list('modular_zzplurt/sound/voice/farts/fart9.ogg' = 1)
 
 /obj/item/toy/plush/artificer_kobold
 	name = "Artificer Kobold"
@@ -76,27 +75,6 @@
 	icon_state = "artificer_kobold"
 	worn_icon_state = "artificer_kobold"
 	squeak_override = list('modular_zubbers/code/modules/emotes/sound/voice/yip.ogg' = 1)
-
-/obj/item/toy/plush/mossy
-	name = "Ethereal Skulldog Plushie"
-	desc = "It's a marketable plushie of our glorious leader, There seems to be some extra padding on the rear area..."
-	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
-	icon_state = "plushie_mossy"
-	worn_icon_state = "plushie_mossy"
-	attack_verb_simple = list("lick", "nuzzle", "hump", "bark")
-	attack_verb_continuous = list("licks", "nuzzles", "humps", "barks")
-	squeak_override = list('modular_zzplurt/sound/voice/bork.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark1.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/bark2.ogg' = 1)
-
-/obj/item/toy/plush/panic
-	name = "Tired Raccoon Plushie"
-	desc = "He doesn't want to be here. Tired, exhausted, and hailing from maints. \
-		The plushie has a camcorder stuck in it's stuffing... You can't take it out."
-	icon = 'modular_zzplurt/icons/obj/plushes.dmi'
-	icon_state = "plushie_panic"
-	worn_icon_state = "plushie_panic"
-	attack_verb_simple = list("record", "clip", "examine")
-	attack_verb_continuous = list("records", "clips", "examines")
-	squeak_override = list('modular_skyrat/modules/emotes/sound/voice/wurble.ogg' = 1, 'modular_skyrat/modules/emotes/sound/voice/warbles.ogg' = 10)
 
 /obj/item/toy/plush/tree_ferret
 	name = "Tree Ferret Plushie"

@@ -1060,6 +1060,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/screw = FALSE
 	/// Whether the vape has been overloaded to spread smoke.
 	var/super = FALSE
+	//VENUS ADDITION START - Vape cloud on exhale
+	/// How long the current mob has been vaping this e-cigarette
+	VAR_FINAL/how_long_have_we_been_vapin = 0 SECONDS
+	//VENUS ADDITION END
 
 /obj/item/vape/Initialize(mapload)
 	. = ..()
@@ -1154,6 +1158,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.flags |= NO_REACT
 		STOP_PROCESSING(SSobj, src)
 		set_light_on(FALSE)
+		//VENUS ADDITION START - Vape cloud on exhale
+		// We don't show vapour while passively vaping; only do a large vapour exhale on removal.
+		if(!QDELETED(src) && !QDELETED(user) && how_long_have_we_been_vapin >= 4 SECONDS && iscarbon(user) && iscarbon(loc))
+			var/mob/living/carbon/vaper = user
+			if(src == vaper.wear_mask && !vaper.incapacitated)
+				long_exhale(vaper)
+		how_long_have_we_been_vapin = 0 SECONDS
+		//VENUS ADDITION END
 
 /obj/item/vape/proc/handle_reagents()
 	if(!reagents.total_volume)
@@ -1183,6 +1195,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(isliving(loc))
 		M.ignite_mob()
 
+	//VENUS ADDITION START - Vape cloud on exhale
+	if(iscarbon(M))
+		var/mob/living/carbon/vaper = M
+		if(src == vaper.wear_mask)
+			how_long_have_we_been_vapin += seconds_per_tick * (1 SECONDS)
+	//VENUS ADDITION END
 	if(!reagents.total_volume)
 		if(ismob(loc))
 			to_chat(M, span_warning("[src] is empty!"))
@@ -1214,6 +1232,52 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.remove_all(smoke_amount / 24)
 
 	handle_reagents()
+
+//VENUS ADDITION START - Vape cloud on exhale
+/obj/item/vape/proc/update_particle_position_vape(obj/effect/abstract/particle_holder/to_edit, new_dir = loc.dir)
+	var/new_x = 0
+	var/new_layer = initial(to_edit.layer)
+	if(new_dir & NORTH)
+		new_x = 4
+		new_layer = BELOW_MOB_LAYER
+	else if(new_dir & SOUTH)
+		new_x = -4
+	else if(new_dir & EAST)
+		new_x = 8
+	else if(new_dir & WEST)
+		new_x = -8
+	to_edit.set_particle_position(new_x, 8, 0)
+	to_edit.layer = new_layer
+
+/obj/item/vape/proc/long_exhale(mob/living/carbon/vaper)
+	var/mob/living/guy_infront
+	for(var/mob/living/guy in get_step(vaper, vaper.dir))
+		if(guy.body_position != vaper.body_position)
+			continue
+		if(!(REVERSE_DIR(guy.dir) & vaper.dir))
+			continue
+		guy_infront = guy
+		if(ishuman(guy_infront))
+			break
+
+	if(isnull(guy_infront))
+		vaper.visible_message(
+			span_notice("[vaper] exhales a large cloud of vapour from [src]."),
+			span_notice("You exhale a large cloud of vapour from [src]."),
+		)
+	else
+		guy_infront.visible_message(
+			span_notice("[vaper] exhales a large cloud of vapour from [src] at [guy_infront]."),
+			span_notice("You exhale a large cloud of vapour from [src] at [guy_infront]."),
+		)
+
+	if(!isturf(vaper.loc))
+		return
+
+	var/obj/effect/abstract/particle_holder/big_vape = new(vaper.loc, /particles/smoke/cig/big/vape)
+	update_particle_position_vape(big_vape, vaper.dir)
+	QDEL_IN(big_vape, big_vape.particles.lifespan)
+//VENUS ADDITION END
 
 /obj/item/vape/red
 	icon_state = "/obj/item/vape/red"

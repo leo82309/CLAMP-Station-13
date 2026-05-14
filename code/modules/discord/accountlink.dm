@@ -1,4 +1,7 @@
 // IF you have linked your account, this will trigger a verify of the user
+
+//VENUS REMOVAL START - (no self-verification)
+/*
 /client/verb/verify_in_discord()
 	set category = "OOC"
 	set name = "Verify Discord Account"
@@ -46,5 +49,5 @@
 	var/datum/browser/window = new /datum/browser(usr, "discordverification", "Discord Verification")
 	window.set_content("<div>[message]</div>")
 	window.open()
-
-
+*/
+// VENUS REMOVAL END

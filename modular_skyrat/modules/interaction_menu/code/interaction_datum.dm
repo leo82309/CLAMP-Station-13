@@ -112,8 +112,9 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			knot = penis.override_string_knot
 	// We replace %USER% with nothing because manual_emote already prepends it.
 	msg = trim(replacetext(replacetext(replacetext(msg, "%TARGET%", "[target]"), "%USER%", ""), "%KNOT%", "[knot]"), INTERACTION_MAX_CHAR)
+	msg = autopunct_bare(msg) //VENUS ADDITION: Ensure punctuation for messages
 	if(lewd)
-		//SPLURT EDIT: msg -> span_lewd(msg) to give it the lewd color
+		//VENUS EDIT: msg -> span_lewd(msg) to give it the lewd color
 		user.emote("subtle", null, span_lewd(msg), TRUE)
 	else
 		user.manual_emote(msg)
@@ -122,13 +123,15 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		if(!isnull(body_relay))
 			user_msg = replacetext(user_msg, "%TARGET%", "\the [body_relay.name]")
 		user_msg = replacetext(replacetext(replacetext(user_msg, "%TARGET%", "[target]"), "%USER%", "[user]"), "%KNOT%", "[knot]")
-		to_chat(user, user_msg)
+		user_msg = autopunct_bare(user_msg) //VENUS ADDITION: Ensure punctuation for messages
+		to_chat(user, span_love(user_msg)) //VENUS ADDITION: Added span_love to the user_messages
 	if(target_messages.len)
 		var/target_msg = pick(target_messages)
 		if(!isnull(body_relay))
 			target_msg = replacetext(target_msg, "%USER%", "Unknown")
 		target_msg = replacetext(replacetext(replacetext(target_msg, "%TARGET%", "[target]"), "%USER%", "[user]"), "%KNOT%", "[knot]")
-		to_chat(target, target_msg)
+		target_msg = autopunct_bare(target_msg) //VENUS ADDITION: Ensure punctuation for messages
+		to_chat(target, span_love(target_msg)) //VENUS ADDITION: Added span_love to the target_messages
 	if(sound_use)
 		if(!sound_possible)
 			message_admins("Interaction has sound_use set to TRUE but does not set sound! '[name]'")

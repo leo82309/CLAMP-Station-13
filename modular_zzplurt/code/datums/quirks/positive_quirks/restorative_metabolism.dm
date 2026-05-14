@@ -1,3 +1,5 @@
+//VENUS REMOVAL START - Replaced with dormant healing factor
+/*
 #define RESTMETA_BRUTE_THRESHOLD 40
 #define RESTMETA_BRUTE_AMOUNT -0.4
 #define RESTMETA_BURN_THRESHOLD 40
@@ -15,7 +17,7 @@
 	medical_record_text = "Patient possesses a Semi self-reconstructive condition. Medical care is required way less frequently"
 	species_blacklist = list(SPECIES_PODPERSON_WEAK,)
 	mob_trait = TRAIT_RESTORATIVE_METABOLISM
-	hardcore_value = -10
+	hardcore_value = -6
 	icon = FA_ICON_BRIEFCASE_MEDICAL
 
 /datum/quirk/restorative_metabolism/process(seconds_per_tick)
@@ -50,3 +52,5 @@
 #undef RESTMETA_BURN_AMOUNT
 #undef RESTMETA_TOX_THRESHOLD
 #undef RESTMETA_TOX_AMOUNT
+*/
+//VENUS REMOVAL END

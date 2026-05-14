@@ -1,33 +1,28 @@
 /datum/quirk/vacuum_resistance
-	name = "Vacuum Resistance"
-	desc = "Your body is specially adapted to withstand and operate in zero-pressure environments. You may still need a source of breathable air, however."
+	name = "Vacuum Resistance" //VENUS EDIT - Original: Vacuum Adaptation
+	//VENUS EDIT START
+	/* ORIGINAL:
+	desc = "Your body is specially adapted to temporarily withstand cold zero-pressure environments.\
+	You still need a source of breathable air, however."
+	*/
+	desc = "Your body is specially adapted to withstand zero-pressure environments. However, you may still need a source of breathable air and insulation against the cold."
+	//VENUS EDIT END
 	value = 8
-	gain_text = span_notice("Your physique attunes to the silence of space, now able to operate in zero pressure.")
+	// quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_PROCESSES //VENUS REMOVAL
+	gain_text = span_notice("Your physique attunes to the silence of space.")
 	lose_text = span_notice("Your physiology reverts as your space faring gifts lay dormant once more.")
+	//VENUS EDIT START
+	//ORIGINAL: medical_record_text = "Patient's body has an adaptation increasing survivability in zero-pressure environments."
 	medical_record_text = "Patient's body has fully adapted to zero-pressure environments."
-	mob_trait = TRAIT_VACUUM_RESIST
-	species_blacklist = list(SPECIES_SYNTH)
+	mob_trait = TRAIT_RESISTLOWPRESSURE //VENUS EDIT - Original: TRAIT_RESISTCOLD
 	hardcore_value = -6
 	icon = FA_ICON_ROCKET
 	mail_goodies = list (
 		/obj/item/storage/box/emergency_spacesuit = 1
 	)
 
-/datum/quirk/vacuum_resistance/add(client/client_source)
-	// Define quirk mob
-	var/mob/living/carbon/human/quirk_mob = quirk_holder
-
-	// Add quirk traits
-	quirk_mob.add_traits(list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD), TRAIT_VACUUM_RESIST)
-
-/datum/quirk/vacuum_resistance/remove()
-	// Define quirk mob
-	var/mob/living/carbon/human/quirk_mob = quirk_holder
-
-	// Remove quirk traits
-	quirk_mob.remove_traits(list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD), TRAIT_VACUUM_RESIST)
-
-/* Reverted for now due to rules preventing this from being abused
+//VENUS REMOVAL START - Unnerf vacuum resistance
+/*
 /datum/quirk/vacuum_resistance/process(seconds_per_tick)
 	var/mob/living/carbon/human/holder = quirk_holder
 
@@ -68,3 +63,4 @@
 	icon = 'modular_zzplurt/icons/hud/screen_alert.dmi'
 	icon_state = "low_press_res"
 */
+//VENUS REMOVAL END

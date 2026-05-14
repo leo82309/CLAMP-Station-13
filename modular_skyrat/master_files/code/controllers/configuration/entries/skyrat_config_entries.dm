@@ -34,6 +34,13 @@
 // To turn off SSDecay nests based on a config. If SSDecay is disabled, this won't matter.
 /datum/config_entry/flag/ssdecay_disable_nests
 
+// VENUS ADDITION START: SSDecay chance to apply to a round
+/datum/config_entry/number/ssdecay_chance
+	default = 50
+	integer = TRUE
+	min_val = 0
+	max_val = 100
+// VENUS ADDITION END
 // Intensity of dirt generation for SSDecay (1-4) or set to 5 for random
 /datum/config_entry/number/ssdecay_intensity
 	default = 5

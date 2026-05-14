@@ -1,3 +1,4 @@
+/* VENUS REMOVAL: Handled by preferences instead
 /datum/quirk/infertile
 	name = "Infertile"
 	desc = "Try as you might, you cannot impregnate anyone, and you can't get impregnated either. You will never get to experience the love of a child."
@@ -7,3 +8,4 @@
 	medical_record_text = "Patient is completely infertile."
 	mob_trait = TRAIT_INFERTILE
 	icon = FA_ICON_SCISSORS
+*/

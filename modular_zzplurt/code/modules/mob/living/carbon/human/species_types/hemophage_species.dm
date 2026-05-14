@@ -10,6 +10,12 @@
 		TRAIT_NOBREATH,
 		TRAIT_VIRUSIMMUNE,
 	)
+	//VENUS ADDITION START (No thirst for hemophages)
+	var/list/extra_inherent_traits = list(
+		TRAIT_NOTHIRST
+	)
+	LAZYADD(inherent_traits, extra_inherent_traits)
+	//VENUS ADDITION END
 
 	// Restore lungs
 	mutantlungs = /datum/species::mutantlungs

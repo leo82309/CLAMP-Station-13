@@ -716,7 +716,7 @@ SUBSYSTEM_DEF(gamemode)
 
 	min_pop_thresholds[EVENT_TRACK_MUNDANE] = CONFIG_GET(number/mundane_min_pop)
 	min_pop_thresholds[EVENT_TRACK_MODERATE] = CONFIG_GET(number/moderate_min_pop)
-	min_pop_thresholds[EVENT_TRACK_MAJOR] = CONFIG_GET(number/major_min_pop)
+	min_pop_thresholds[EVENT_TRACK_MAJOR] = 0 // VENUS EDIT: Hardcoded to 0 since configs aren't working - Original: CONFIG_GET(number/major_min_pop)
 	min_pop_thresholds[EVENT_TRACK_CREWSET] = CONFIG_GET(number/crewset_min_pop)
 	min_pop_thresholds[EVENT_TRACK_GHOSTSET] = CONFIG_GET(number/ghostset_min_pop)
 

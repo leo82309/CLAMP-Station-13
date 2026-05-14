@@ -28,6 +28,7 @@ const customJobs = [
   'Syndicate Corporate Liaison',
   'Persistence Admiral',
   'Tarkon Ensign',
+  'Explorer', //VENUS ADDITION - Explorer Job
 ];
 // BUBBER EDIT ADDITION END - Custom observe menu icons
 

@@ -1,3 +1,5 @@
+//VENUS REMOVAL START
+/*
 GLOBAL_LIST_INIT(brap_noises, list(
 			'modular_zzplurt/sound/voice/farts/fart.ogg',
 			'modular_zzplurt/sound/voice/farts/fart1.ogg',
@@ -28,6 +30,8 @@ GLOBAL_LIST_INIT(assswallow_noises, list(
 			'modular_zzplurt/sound/interactions/crapjob.ogg',
 			'modular_zzplurt/sound/interactions/crapjob1.ogg'
 			)) // Swallow sound
+*/
+//VENUS REMOVAL END
 
 GLOBAL_LIST_INIT(waterpiss_noises, list(
 			'modular_zzplurt/sound/interactions/watering1.ogg',

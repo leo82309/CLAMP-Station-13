@@ -55,8 +55,12 @@
 #define TRAIT_HALLOWED			"hallowed"
 /// Trait for quirk: Messy
 #define TRAIT_MESSY				"messy"
+//VENUS REMOVAL START - Replaced with dormant healing factor
+/*
 /// Trait for quirk: Restorative Metabolism
 #define TRAIT_RESTORATIVE_METABOLISM   "restorative_metabolism"
+*/
+//VENUS REMOVAL END
 /// Trait for quirk: Kiss Slut
 #define TRAIT_KISS_SLUT			"kiss_slut"
 /// Trait for quirk: Flimsy
@@ -118,5 +122,5 @@
 // These traits are applied to /obj/item/organ/liver
 #define TRAIT_CARGO_METABOLISM "cargo_metabolism"
 
-/// Trait that makes you unable to get pregnant, make people pregnant, and triggers abortions too
+/// Trait that makes you unable to get pregnant, make people pregnant, causes eggs to fail to develop
 #define TRAIT_INFERTILE "pregnancy_infertile"

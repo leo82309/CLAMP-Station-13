@@ -137,7 +137,10 @@
 	if(!HAS_TRAIT(dropped_atom, TRAIT_FENCE_CLIMBER) && !HAS_TRAIT(dropped_atom, TRAIT_CAN_HOLD_ITEMS)) // If you can hold items you can probably climb a fence
 		return
 	var/mob/living/living_target = dropped_atom
-
+    	//VENUS ADDITION START
+	if(living_target.body_position == LYING_DOWN && climbed_thing.GetComponent(/datum/component/crawl_under))
+		return
+	//VENUS ADDITION END
 	// BUBBER EDIT ADDITION BEGIN - OVERSIZED QUIRK
 	// Check if this is an Oversized player trying to sit on a table with Alt held
 	var/list/modifiers = params2list(params)

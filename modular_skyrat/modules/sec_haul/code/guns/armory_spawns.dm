@@ -81,4 +81,7 @@
 		/obj/item/gun/ballistic/automatic/wt550,
 		/obj/item/gun/ballistic/automatic/wt550,
 		/obj/item/gun/ballistic/automatic/wt550,
+		//VENUS ADDITION START - Re-added modular laser rifles to armory spawns (inspired by Nova Sector)
+		/obj/item/gun/energy/modular_laser_rifle,
+		//VENUS ADDITION END
 	)

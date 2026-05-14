@@ -15,6 +15,7 @@
 	new /obj/item/storage/photo_album/captain(src)
 	new /obj/item/megaphone/command(src)
 	new /obj/item/card/id/departmental_budget(src) //SKYRAT EDIT ADDITION
+	new /obj/item/taperoll/bureaucracy(src) //VENUS ADDITION - Placeable tape
 
 /obj/structure/closet/secure_closet/captains/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)
@@ -44,6 +45,7 @@
 	new /obj/item/storage/lockbox/medal/hop(src)
 	new /obj/item/storage/box/stamps(src)
 	new /obj/item/card/id/departmental_budget/srv(src) //SKYRAT EDIT ADDITION
+	new /obj/item/taperoll/bureaucracy(src) //VENUS ADDITION - Placeable tape
 
 /obj/structure/closet/secure_closet/hop/populate_contents_immediate()
 	new /obj/item/gun/energy/e_gun(src)
@@ -118,6 +120,7 @@
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
 	new /obj/item/flashlight/seclite(src)
 	new /obj/item/clothing/gloves/tackler/security(src) // SKYRAT EDIT CHANGE - Gives Them The Blue Ones - ORIGINAL: new /obj/item/clothing/gloves/tackler(src)
+	new /obj/item/taperoll/police(src) //VENUS ADDITION - Placeable tape
 
 /obj/structure/closet/secure_closet/security/sec
 
@@ -195,6 +198,10 @@
 	new /obj/item/binoculars(src)
 	new /obj/item/storage/box/rxglasses/spyglasskit(src)
 	new /obj/item/clothing/head/fedora/inspector_hat(src)
+	//VENUS ADDITION - Placeable tape and crime scene markers
+	new /obj/item/taperoll/police(src)
+	new /obj/item/storage/csi_markers(src)
+	//VENUS ADDITION END
 
 /obj/structure/closet/secure_closet/injection
 	name = "lethal injections locker"

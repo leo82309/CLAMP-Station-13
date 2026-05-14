@@ -21,6 +21,9 @@ $include splurt/game_options.txt
 $include splurt/age_gate.txt
 $include splurt/plug13.txt
 
+# VENUS configs
+$include venus/venus_config.txt
+
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
 # Example usage:
 # @SERVERNAME tgstation

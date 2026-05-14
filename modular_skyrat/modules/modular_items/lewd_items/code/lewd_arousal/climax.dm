@@ -253,8 +253,18 @@
 						if(!preference_source)
 							preference_source = GET_CLIENT(src)
 						#endif
+						//VENUS REMOVAL START - Replaced with preference system
+						/*
 						if(ishuman(target_mob) && preference_source && \
 							!HAS_TRAIT(src, TRAIT_INFERTILE) && !HAS_TRAIT(target_mob, TRAIT_INFERTILE))
+						*/
+						//VENUS REMOVAL END
+						//VENUS ADDITION START - Uses preference system (+ trait check)
+						var/client/impregnator_client = GET_CLIENT(src)
+						var/can_impregnate = impregnator_client?.prefs?.read_preference(/datum/preference/toggle/pregnancy/can_impregnate_others) || FALSE
+						if(ishuman(target_mob) && preference_source && can_impregnate && \
+							!HAS_TRAIT(src, TRAIT_INFERTILE) && !HAS_TRAIT(target_mob, TRAIT_INFERTILE))
+						//VENUS ADDITION END
 							var/genital_pass = FALSE
 							switch(interaction_inside)
 								if(ORGAN_SLOT_ANUS)

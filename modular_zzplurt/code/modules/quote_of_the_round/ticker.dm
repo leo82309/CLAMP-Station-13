@@ -52,7 +52,7 @@
 	embed.colour = "#[CONFIG_GET(string/roundend_embed_color)]"
 
 	// Author
-	embed.author = new("S.P.L.U.R.T. Round Reports")
+	embed.author = new("V.E.N.U.S. Round Reports") // VENUS EDIT - Changed to V.E.N.U.S.
 	embed.author.url = embed.url
 
 	// Title

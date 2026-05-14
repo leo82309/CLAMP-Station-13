@@ -138,7 +138,12 @@
 	desc = "A mush of sticky cobwebs and nasty looking eggs..."
 	icon_state = "nest_spider"
 	light_color = LIGHT_COLOR_BLOOD_MAGIC
-	monster_types = list(/mob/living/basic/spider/giant/hunter, /mob/living/basic/spider/giant/)
+	//VENUS EDIT START: Aggressive duct spider
+	// ORIGINAL: monster_types = list(/mob/living/basic/spider/giant/hunter, /mob/living/basic/spider/giant/)
+	monster_types = list(/mob/living/basic/spider/maintenance/hostile)
+	max_mobs = 8
+	spawn_cooldown = 15 SECONDS
+	//VENUS EDIT END
 	loot = list(/obj/item/spider_egg = 4)
 
 /obj/item/spider_egg
@@ -192,6 +197,18 @@
 	monster_types = list(/mob/living/basic/bee/toxin)
 	max_mobs = 6
 	color = LIGHT_COLOR_ELECTRIC_GREEN
+
+//VENUS ADDITION START: Cockroach egg spawner
+/obj/structure/mob_spawner/roach
+	name = "disgusting egg sacs"
+	desc = "These leathery egg cases are twitching and making soft chittering sounds from within..."
+	icon_state = "nest_eggs"
+	light_color = LIGHT_COLOR_ORANGE
+	monster_types = list(/mob/living/basic/cockroach/maintenance, /mob/living/basic/cockroach/sewer, /mob/living/basic/cockroach/bloodroach)
+	max_mobs = 8
+	spawn_cooldown = 6 SECONDS
+	loot = list(/obj/effect/decal/cleanable/insectguts)
+//VENUS ADDITION END
 
 /obj/structure/mob_spawner/snake
 	name = "disgusting eggs"

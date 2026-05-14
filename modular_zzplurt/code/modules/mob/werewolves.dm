@@ -77,12 +77,6 @@
 		ORGAN_SLOT_BREASTS = TRUE
 	)
 
-/mob/living/basic/werewolf/funwolf/mosley
-	name = "Mosley?"
-	desc = "Oh hey look it's the server best boy."
-	icon_state = "The_Mosley_idle"
-	icon_dead = "The_Mosley_dead"
-
 /mob/living/basic/werewolf/funwolf/hellhound
 	name = "Hellhound"
 	desc = "A hellish red beast from the pits of tartarus, looking to desecrate any virgins it comes across."

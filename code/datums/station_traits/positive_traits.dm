@@ -305,6 +305,7 @@
 		/datum/job/engineering_guard = /obj/item/organ/cyberimp/arm/toolkit/flash,
 		/datum/job/telecomms_specialist = /obj/item/organ/ears/cybernetic/xray,
 		// BUBBER EDIT END
+		/datum/job/explorer = /obj/item/organ/cyberimp/mouth/breathing_tube, // VENUS ADDITION - IRIS PORT (Explorer Job)
 	)
 
 /datum/station_trait/cybernetic_revolution/New()

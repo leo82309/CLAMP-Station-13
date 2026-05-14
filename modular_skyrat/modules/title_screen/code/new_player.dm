@@ -88,7 +88,27 @@
 		preferences.write_preference(GLOB.preference_entries[/datum/preference/toggle/be_antag], !preferences.read_preference(/datum/preference/toggle/be_antag))
 		client << output(preferences.read_preference(/datum/preference/toggle/be_antag), "title_browser:toggle_antag")
 		return
-
+	//VENUS ADDITION START - Antag encounter preference toggle
+	if(href_list["toggle_encounter"])
+		play_lobby_button_sound()
+		var/datum/preferences/preferences = client.prefs
+		var/datum/preference/preference_entry = GLOB.preference_entries[/datum/preference/choiced/antagonist_encounters]
+		var/current_pref = preferences.read_preference(preference_entry.type)
+		if (isnull(current_pref))
+			current_pref = ENCOUNTER_PREF_GREEN
+		var/next_pref
+		switch (current_pref)
+			if (ENCOUNTER_PREF_GREEN)
+				next_pref = ENCOUNTER_PREF_AMBER
+			if (ENCOUNTER_PREF_AMBER)
+				next_pref = ENCOUNTER_PREF_RED
+			else
+				next_pref = ENCOUNTER_PREF_GREEN
+		if (preferences.write_preference(preference_entry, next_pref))
+			preference_entry.apply_to_client_updated(client, preferences.read_preference(preference_entry.type))
+		client << output(get_title_encounter_pref_display(), "title_browser:set_encounter")
+		return
+	//VENUS ADDITION END
 	if(href_list["character_setup"])
 		play_lobby_button_sound()
 		var/datum/preferences/preferences = client.prefs
@@ -124,7 +144,9 @@
 
 		if(!unvetted_notified && !trigger_unvetted_warning())
 			return FALSE
-		ready = is_ready_to_play() ? PLAYER_NOT_READY : PLAYER_READY_TO_PLAY
+		ready = !ready
+		if(ready)
+			auto_deadmin_on_ready_or_latejoin() //VENUS ADDITION - Re-adds auto-deadmin for skyrat html lobby
 		client << output(ready, "title_browser:toggle_ready")
 		return
 
@@ -132,6 +154,7 @@
 		play_lobby_button_sound()
 		if(!unvetted_notified && !trigger_unvetted_warning())
 			return FALSE
+		auto_deadmin_on_ready_or_latejoin() //VENUS ADDITION - Re-adds auto-deadmin for skyrat html lobby
 		GLOB.latejoin_menu.ui_interact(usr)
 		return
 

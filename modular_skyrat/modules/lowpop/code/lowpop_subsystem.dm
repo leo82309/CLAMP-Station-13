@@ -1,5 +1,10 @@
-#define LOWPOP_ON_MESSAGE "Due to staffing issues, we have enacted the 'critically low staff' protocol. We will periodically use our high-intensity electron beam to recharge your SMES arrays."
-#define LOWPOP_OFF_MESSAGE "As the staffing issues have been resolved, we have resumed normal staffing protocol. Automatic SMES recharging will no longer occur."
+//VENUS EDIT START - More immersive announcements for lowpop measures
+// ORIGINAL:
+// #define LOWPOP_ON_MESSAGE "Due to staffing issues, we have enacted the 'critically low staff' protocol. We will periodically use our high-intensity electron beam to recharge your SMES arrays."
+// #define LOWPOP_OFF_MESSAGE "As the staffing issues have been resolved, we have resumed normal staffing protocol. Automatic SMES recharging will no longer occur."
+#define LOWPOP_ON_MESSAGE  "Automated low-crew protocol active. Central Command orbital array delivering periodic power pulses to station SMES. Essential systems remain online."
+#define LOWPOP_OFF_MESSAGE "Crew complement restored. Orbital power feed discontinued; local engineering systems will resume normal operation."
+// VENUS EDIT END
 
 // A subsystem for handling lowpop affairs.
 SUBSYSTEM_DEF(lowpop)

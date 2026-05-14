@@ -1308,6 +1308,98 @@
 		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
 	)
 
+// VENUS ADDITION START - Mining Cyborg PKA variants
+/datum/design/borg_upgrade_pka_railgun
+	name = "Mining Cyborg PKA: Railgun"
+	id = "borg_upgrade_pka_railgun"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/pka_variant/railgun
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 5 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+	)
+
+/datum/design/borg_upgrade_pka_shotgun
+	name = "Mining Cyborg PKA: Shotgun"
+	id = "borg_upgrade_pka_shotgun"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/pka_variant/shotgun
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 5 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+	)
+
+/datum/design/borg_upgrade_pka_shockwave
+	name = "Mining Cyborg PKA: Shockwave"
+	id = "borg_upgrade_pka_shockwave"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/pka_variant/shockwave
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 5 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+	)
+
+/datum/design/borg_upgrade_pka_repeater
+	name = "Mining Cyborg PKA: Repeater"
+	id = "borg_upgrade_pka_repeater"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/pka_variant/repeater
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 5 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+	)
+
+/datum/design/borg_upgrade_pka_pistol
+	name = "Mining Cyborg PKA: Pistol"
+	id = "borg_upgrade_pka_pistol"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/pka_variant/pistol
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT*3,
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 5 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+	)
+
+/datum/design/borg_upgrade_pka_grenade
+	name = "Mining Cyborg PKA: Grenade Launcher"
+	id = "borg_upgrade_pka_grenade"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/pka_variant/grenade
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT*5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT *3,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 6 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_MINING
+	)
+//VENUS ADDITION END
+
 /datum/design/borg_syndicate_module
 	name = "Illegal Modules"
 	id = "borg_syndicate_module"

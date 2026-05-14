@@ -93,6 +93,12 @@
 	else
 		. += span_warning("The fan is broken.")
 
+	//VENUS ADDITION START: Add a note about the vent's area
+	if(istype(get_area(src), /area/station/commons/dorms))
+		. += span_love("An engraving reads: \"❤ Filtered for your comfort ❤\"")
+		. += span_notice("This one seems to be protected against ventilation clogs.")
+	//VENUS ADDITION END
+
 /obj/machinery/atmospherics/components/unary/vent_pump/multitool_act(mob/living/user, obj/item/multitool/multi_tool)
 	if(istype(multi_tool.buffer, /obj/machinery/air_sensor))
 		var/obj/machinery/air_sensor/sensor = multi_tool.buffer

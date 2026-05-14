@@ -191,6 +191,12 @@
 	if((obj_flags & EMAGGED) && (isclosedturf(bumped_atom) || isliving(bumped_atom)))
 		detonate_bomb()
 		return
+	//VENUS ADDITION - Walk mode for wheelchairs.
+	if(bumped_atom.density && has_buckled_mobs())
+		var/mob/living/rider = buckled_mobs[1]
+		if(rider.move_intent == MOVE_INTENT_WALK) //Going slow prevents you from crashing.
+			return
+	//VENUS ADDITION END
 	// If the speed is higher than delay_multiplier throw the person on the wheelchair away
 	if(bumped_atom.density && speed > delay_multiplier && has_buckled_mobs())
 		var/mob/living/disabled = buckled_mobs[1]

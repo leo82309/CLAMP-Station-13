@@ -1,3 +1,5 @@
+//VENUS REMOVAL START: Disables the interlink/ghost bar area
+/*
 /// A file to help with making it possible to load the Interlink *modularly* instead of leaving it stuck in Z-2 where station should be and spawning all manner of bad behaviour.
 #define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
@@ -16,3 +18,5 @@
 #endif
 
 #undef INIT_ANNOUNCE
+*/
+//VENUS REMOVAL END

@@ -65,7 +65,7 @@
       animated tracers.
 2025-04-13:
   MosleyTheMalO:
-  - bugfix: attempts to fix undead quirk by editing its traits
+  # - bugfix: attempts to fix undead quirk by editing its traits #VENUS CHANGELOG REMOVAL (doesn't work, didn't pull changes)
   - rscadd: adds tabletide smite lol
 2025-04-17:
   MosleyTheMalO:

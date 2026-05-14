@@ -199,12 +199,27 @@
 		. += mutable_appearance(overlay_icon, "[base_state]_flickering")
 		return
 	if(low_power_mode || major_emergency || (local_area?.fire))
-		. += mutable_appearance(overlay_icon, "[base_state]_emergency")
+		//VENUS EDIT START: Makes emergency lights' overlay color match the emitted light color
+		//ORIGINAL: . += mutable_appearance(overlay_icon, "[base_state]_emergency")
+		var/mutable_appearance/emergency_overlay = mutable_appearance(overlay_icon, "[base_state]_emergency")
+		emergency_overlay.color = light?.light_color || bulb_colour
+		. += emergency_overlay
+		//VENUS EDIT END
 		return
 	if(nightshift_enabled)
-		. += mutable_appearance(overlay_icon, "[base_state]_nightshift")
+		//VENUS EDIT START: Makes nightshift lights' overlay color match the emitted light color
+		//ORIGINAL: . += mutable_appearance(overlay_icon, "[base_state]_nightshift")
+		var/mutable_appearance/nightshift_overlay = mutable_appearance(overlay_icon, "[base_state]_nightshift")
+		nightshift_overlay.color = light?.light_color || bulb_colour
+		. += nightshift_overlay
+		//VENUS EDIT END
 		return
-	. += mutable_appearance(overlay_icon, base_state)
+	//VENUS EDIT START: Makes normal lights' overlay color match the emitted light color
+	//ORIGINAL: . += mutable_appearance(overlay_icon, base_state)
+	var/mutable_appearance/normal_overlay = mutable_appearance(overlay_icon, base_state)
+	normal_overlay.color = light?.light_color || bulb_colour
+	. += normal_overlay
+	//VENUS EDIT END
 
 // Area sensitivity is traditionally tied directly to power use, as an optimization
 // But since we want it for fire reacting, we disregard that

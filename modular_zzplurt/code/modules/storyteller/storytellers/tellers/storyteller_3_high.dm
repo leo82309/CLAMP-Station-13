@@ -1,3 +1,5 @@
+//VENUS REMOVAL START
+/*
 /datum/storyteller/high
 	name = "High Chaos"
 	desc = "High Chaos will try to create the most combat focused events, while trying to avoid purely destructive ones. \
@@ -41,3 +43,5 @@
 
 /datum/storyteller_data/tracks/gamer/opfor
 	threshold_crewset = INFINITY
+*/
+//VENUS REMOVAL END

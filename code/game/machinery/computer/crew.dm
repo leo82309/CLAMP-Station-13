@@ -138,6 +138,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_BITRUNNER = 53,
 		JOB_CUSTOMS_AGENT = 54, // SKYRAT EDIT ADDITION
 		JOB_BLACKSMITH = 55,	// Bubber edit Addition!
+		JOB_EXPLORER = 56, // VENUS ADDITION - IRIS PORT (Explorer Job)
 		// 60+: Service
 		JOB_HEAD_OF_PERSONNEL = 60,
 		JOB_BARTENDER = 61,

@@ -43,7 +43,7 @@
 
 /obj/item/clothing/suit/goner/fake
 	name = "trencher coat replica"
-	desc = "A 90% replica of No Man's Land-type coat. Obviously won't protect you from the blastwave."
+	desc = "A 90% replica of No Man's Land-type coat."
 	armor_type = /datum/armor/none
 
 /obj/item/clothing/suit/goner/fake/Initialize(mapload)

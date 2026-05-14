@@ -33,18 +33,40 @@ SUBSYSTEM_DEF(decay)
 		/obj/structure/mob_spawner/spiders,
 		/obj/structure/mob_spawner/bush,
 		/obj/structure/mob_spawner/beehive,
-		/obj/structure/mob_spawner/rats
-		)
+		/obj/structure/mob_spawner/rats,
+		//VENUS ADDITION START - More mob spawners
+		/obj/structure/mob_spawner/roach,
+		/obj/structure/mob_spawner/beehive/toxic
+		//VENUS ADDITION END
+	)
 
 /datum/controller/subsystem/decay/Initialize()
+	//VENUS ADDITION START - Allow nests when decay disabled
+	var/spawn_nests = !CONFIG_GET(flag/ssdecay_disable_nests)
+	//VENUS ADDITION END
+
 	if(CONFIG_GET(flag/ssdecay_disabled))
 		message_admins("SSDecay was disabled in config.")
 		log_world("SSDecay was disabled in config.")
-		return SS_INIT_NO_NEED
+		// return SS_INIT_NO_NEED //VENUS EDIT - Commented out (look below)
+		//VENUS ADDITION START - Allow nests when decay disabled
+		if(spawn_nests)
+			message_admins("SSDecay was disabled in config, but SSDecay mob nests were enabled, so they will still spawn.")
+			// Continue execution to handle nest spawning
+		else
+			return SS_INIT_NO_NEED
+		//VENUS ADDITION END
 
 	if(SSmapping.current_map.map_name in station_filter)
 		message_admins("SSDecay was disabled due to map filter.")
 		log_world("SSDecay was disabled due to map filter.")
+		return SS_INIT_NO_NEED
+
+	// Putting this first so that it just doesn't waste time iterating through everything if it's not going to do anything anyway.
+	//VENUS EDIT - Original: if(prob(50)) - Changed to: if(!prob(CONFIG_GET(number/ssdecay_chance)))
+	if(!prob(CONFIG_GET(number/ssdecay_chance)))
+		message_admins("SSDecay will not interact with this round.")
+		log_world("SSDecay will not interact with this round.")
 		return SS_INIT_NO_NEED
 
 	for(var/area/iterating_area as anything in GLOB.areas)
@@ -64,10 +86,18 @@ SUBSYSTEM_DEF(decay)
 
 	var/severity_modifier = CONFIG_GET(number/ssdecay_intensity)
 	if(!severity_modifier || severity_modifier == 5)
-		severity_modifier = rand(1, 4)
+		severity_modifier = rand(1, 3) //VENUS EDIT: Changed rand max from 4 to 3
 
 	message_admins("SSDecay severity modifier set to [severity_modifier]")
 	log_world("SSDecay severity modifier set to [severity_modifier]")
+
+	//VENUS ADDITION START - Allow nests when decay disabled
+	if(spawn_nests)
+		do_nests()
+
+	if(CONFIG_GET(flag/ssdecay_disabled))
+		return SS_INIT_SUCCESS //Make sure we return now if decay is disabled
+	//VENUS ADDITION END
 
 	do_common()
 
@@ -111,11 +141,15 @@ SUBSYSTEM_DEF(decay)
 				if(!iterating_floor.Enter(spawned_web))
 					qdel(spawned_web)
 
+			//VENUS REMOVAL START - Remove old nest spawning code which is called by do_nests instead
+			/*
 			if(!CONFIG_GET(flag/ssdecay_disable_nests) && prob(NEST_PERCENT_CHANCE * severity_modifier) && prob(50))
 				var/spawner_to_spawn = pick(possible_nests)
 				var/obj/structure/mob_spawner/spawned_spawner = new spawner_to_spawn(iterating_floor)
 				if(!iterating_floor.Enter(spawned_spawner))
 					qdel(spawned_spawner)
+			*/
+			//VENUS REMOVAL END
 
 /datum/controller/subsystem/decay/proc/do_engineering()
 	for(var/area/station/engineering/iterating_engineering in possible_areas)
@@ -144,6 +178,17 @@ SUBSYSTEM_DEF(decay)
 				var/obj/effect/decal/cleanable/vomit/spawned_vomit = new (iterating_floor)
 				if(!iterating_floor.Enter(spawned_vomit))
 					qdel(spawned_vomit)
+
+//VENUS ADDITION START - Separate nest spawning function
+/datum/controller/subsystem/decay/proc/do_nests()
+	for(var/area/station/maintenance/iterating_maintenance in possible_areas)
+		for(var/turf/open/iterating_floor in iterating_maintenance)
+			if(prob(NEST_PERCENT_CHANCE * severity_modifier) && prob(50))
+				var/spawner_to_spawn = pick(possible_nests)
+				var/obj/structure/mob_spawner/spawned_spawner = new spawner_to_spawn(iterating_floor)
+				if(!iterating_floor.Enter(spawned_spawner))
+					qdel(spawned_spawner)
+//VENUS ADDITION END
 
 #undef WALL_RUST_PERCENT_CHANCE
 #undef FLOOR_DIRT_PERCENT_CHANCE

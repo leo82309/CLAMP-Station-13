@@ -672,7 +672,6 @@
 		else if(health > HEALTH_THRESHOLD_NEARDEATH)
 			REMOVE_TRAIT(src, TRAIT_SIXTHSENSE, "near-death")
 
-
 /mob/living/carbon/update_stat()
 	if(HAS_TRAIT(src, TRAIT_GODMODE))
 		return

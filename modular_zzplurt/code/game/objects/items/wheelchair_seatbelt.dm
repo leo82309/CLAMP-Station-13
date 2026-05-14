@@ -71,6 +71,12 @@
 
 /obj/vehicle/ridden/wheelchair/Bump(atom/A)
 	. =	..()
+	//VENUS ADDITION - Walk mode for wheelchairs.
+	if(has_buckled_mobs())
+		var/mob/living/rider = buckled_mobs[1]
+		if(rider.move_intent == MOVE_INTENT_WALK) //Going slow prevents you from crashing.
+			return
+	//VENUS ADDITION END
 	if(world.time <	last_stamina_damage_time + stamina_damage_cooldown)
 		return
 	last_stamina_damage_time = world.time

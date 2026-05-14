@@ -13,6 +13,9 @@
 		/area/station/cargo/miningfoundry/event_protected,
 		/area/loopstation/radshelter,
 		/area/ruin/unpowered/primitive_catgirl_den,
+		//VENUS ADDITION START: (Protect dorms from radiation)
+		/area/station/commons/dorms,
+		//VENUS ADDITION END
 	))
 	. = ..()
 

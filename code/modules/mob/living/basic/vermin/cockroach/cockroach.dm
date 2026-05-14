@@ -244,3 +244,10 @@
 	minion_path = null
 	gold_core_spawnable = NO_SPAWN
 
+//VENUS ADDITION START: maintenance cockroach
+/mob/living/basic/cockroach/maintenance
+	name = "maintenance cockroach"
+	desc = "A particularly nasty cockroach that's adapted to the hostile environment of maintenance tunnels. It's definitely more bitey than its cousins."
+	ai_controller = /datum/ai_controller/basic_controller/cockroach/aggro
+//VENUS ADDITION END
+

@@ -74,6 +74,21 @@
 	spawning = 1
 	friction = 0.75
 
+//VENUS ADDITION START - Vape cloud on exhale
+/particles/smoke/cig/big/vape
+	// Whiter, bigger, floatier vapour
+	gravity = list(0, 0.3, 0)
+	velocity = list(0, 0.05, 0)
+	lifespan = 3 SECONDS
+	fade = 3 SECONDS
+	grow = 0.07
+	count = 2
+	spawning = 1
+	scale = 1
+	friction = 0.5
+	color = null
+//VENUS ADDITION END
+
 /particles/smoke/ash
 	icon_state = list("ash_1" = 2, "ash_2" = 2, "ash_3" = 1, "smoke_1" = 3, "smoke_2" = 2)
 	count = 500

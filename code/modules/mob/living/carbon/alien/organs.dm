@@ -23,6 +23,12 @@
 	/// The rate this organ regenerates plasma at per second.
 	var/plasma_rate = 5
 
+//VENUS ADDITION START: Thin Plasma Vessel (Can't plant weeds)
+/obj/item/organ/alien/plasmavessel/thin
+	name = "thin plasma vessel"
+	actions_types = list(/datum/action/cooldown/alien/transfer)
+//VENUS ADDITION END
+
 /obj/item/organ/alien/plasmavessel/large
 	name = "large plasma vessel"
 	icon_state = "plasma_large"

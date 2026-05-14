@@ -14,6 +14,10 @@
 	name = "strange rock"
 	desc = "A mysterious, strange rock that has the potential to have a wonderful item. Also possible for it to have our disposed garbage."
 	icon_state = "rock"
+	//VENUS ADDITION START: Sounds for xenoarch rocks
+	pickup_sound = SFX_STONE_PICKUP
+	drop_sound = SFX_STONE_DROP
+	//VENUS ADDITION END
 
 	///The max depth a strange rock can be
 	var/max_depth
@@ -124,6 +128,7 @@
 	if(istype(attacking_item, /obj/item/xenoarch/hammer))
 		var/obj/item/xenoarch/hammer/xeno_hammer = attacking_item
 		to_chat(user, span_notice("You begin carefully using your hammer."))
+		playsound(src, SFX_ROCK_TAP, 50, TRUE) //VENUS ADDITION - Sound for hammering
 		if(!do_after(user, xeno_hammer.dig_speed * skill_modifier, target = src))
 			to_chat(user, span_warning("You interrupt your careful planning, damaging the rock in the process!"))
 			dug_depth += rand(1,5)
@@ -145,6 +150,7 @@
 	if(istype(attacking_item, /obj/item/xenoarch/brush))
 		var/obj/item/xenoarch/brush/xeno_brush = attacking_item
 		to_chat(user, span_notice("You begin carefully using your brush."))
+		playsound(src, pick('modular_zzvenus/sound/effects/scrubbing/scrubbing1.ogg','modular_zzvenus/sound/effects/scrubbing/scrubbing2.ogg'), 50, TRUE, frequency = clamp(50 / (xeno_brush.dig_speed * skill_modifier), 0.33, 3)) //VENUS ADDITION - Sound for brushing
 		if(!do_after(user, xeno_brush.dig_speed * skill_modifier, target = src))
 			to_chat(user, span_warning("You interrupt your careful planning, damaging the rock in the process!"))
 			dug_depth += rand(1,5)
@@ -200,6 +206,7 @@
 	mineralAmt = 1
 	icon = MAP_SWITCH('modular_skyrat/modules/liquids/icons/turf/smoothrocks.dmi', 'modular_skyrat/modules/xenoarch/icons/mining.dmi')
 	scan_state = "rock_Strange"
+	scan_icon = 'modular_skyrat/modules/xenoarch/icons/ore_visuals.dmi' //VENUS ADDITION - Make sure strange rocks have a scan icon
 	mineralType = /obj/item/xenoarch/strange_rock
 
 /turf/closed/mineral/strange_rock/volcanic

@@ -81,10 +81,10 @@
 		to_chat(preferences.parent, span_warning("This item is for donators only."))
 		return
 	// SKYRAT EDIT END
-	// SPLURT EDIT START: Donator tier check
-	if(selected_item.donator_tier && GLOB.donator_list[preferences?.parent?.ckey] < selected_item.donator_tier)
-		to_chat(preferences.parent, span_warning("Tier [selected_item.donator_tier] donator access required."))
-		return
+	// SPLURT EDIT START: Donator tier check //VENUS EDIT: Removed donator tier check
+	// if(selected_item.donator_tier && GLOB.donator_list[preferences?.parent?.ckey] < selected_item.donator_tier)
+	// 	to_chat(preferences.parent, span_warning("Tier [selected_item.donator_tier] donator access required."))
+	// 	return
 	// SPLURT EDIT END
 
 	LAZYSET(loadout, selected_item.item_path, list())

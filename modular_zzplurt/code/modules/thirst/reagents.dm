@@ -175,7 +175,7 @@
 		return
 	var/thirst_rate = THIRST_FACTOR
 	thirst_rate *= H.physiology.thirst_mod
-	H.adjust_thirst(-thirst_rate)
+	H.adjust_thirst(-thirst_rate * seconds_per_tick)
 
 /datum/reagent/consumable/metabolize_reagent(mob/living/carbon/M)
 	. = ..()

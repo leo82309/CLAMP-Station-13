@@ -80,6 +80,8 @@ SUBSYSTEM_DEF(persistence)
 	load_tram_counter()
 	load_adventures()
 	load_storyteller_type() //BUBBER EDIT ADD - Storyteller
+	load_cleanables() //VENUS ADDITION - Persistent cleanables
+	load_trash() //VENUS ADDITION - Persistent trash
 	return SS_INIT_SUCCESS
 
 ///Collects all data to persist.
@@ -99,6 +101,8 @@ SUBSYSTEM_DEF(persistence)
 			save_tram_history(transport.specific_transport_id)
 		save_tram_counter()
 	save_panic_bunker() //SKYRAT EDIT ADDITION - PANICBUNKER
+	save_cleanables() //VENUS ADDITION - Persistent cleanables
+	save_trash() //VENUS ADDITION - Persistent trash
 
 ///Loads up Poly's speech buffer.
 /datum/controller/subsystem/persistence/proc/load_poly()

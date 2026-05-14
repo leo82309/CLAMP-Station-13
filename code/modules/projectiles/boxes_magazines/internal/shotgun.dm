@@ -40,6 +40,11 @@
 	name = "double-barrel shotgun internal magazine (slugs)"
 	ammo_type = /obj/item/ammo_casing/shotgun
 
+//VENUS ADDITION START - IRIS PORT (Explorer Job)
+/obj/item/ammo_box/magazine/internal/shot/dual/buckshot
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+//VENUS ADDITION END - IRIS PORT (Explorer Job)
+
 /obj/item/ammo_box/magazine/internal/shot/dual/breacherslug
 	name = "double-barrel shotgun internal magazine (breacher)"
 	ammo_type = /obj/item/ammo_casing/shotgun/breacher

@@ -58,7 +58,7 @@
 
 #define MUNDANE_MIN_POP 0
 #define MODERATE_MIN_POP 0
-#define MAJOR_MIN_POP 20
+#define MAJOR_MIN_POP 0 //VENUS EDIT - Original: 20 (Config doesn't work at time of this comment)
 #define CREWSET_MIN_POP 0
 #define GHOSTSET_MIN_POP 0
 

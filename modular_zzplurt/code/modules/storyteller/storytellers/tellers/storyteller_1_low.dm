@@ -1,3 +1,5 @@
+//VENUS REMOVAL START
+/*
 /datum/storyteller/low
 	name = "Low Chaos"
 	desc = "Low Chaos will be light on events compared to other storytellers, especially so on ones involving combat, destruction, or chaos. \
@@ -40,3 +42,5 @@
 
 /datum/storyteller_data/tracks/chill/opfor
 	threshold_crewset = INFINITY
+*/
+//VENUS REMOVAL END
