@@ -1,0 +1,174 @@
+#!/usr/bin/env bash
+
+## Copyright (c) 2020 Aleksej Komarov
+## SPDX-License-Identifier: MIT
+
+## Initial set-up
+## --------------------------------------------------------
+
+## Enable strict mode and stop on first error
+set -euo pipefail
+
+## Normalize current directory
+basedir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$basedir"
+
+## Bootstrap Node
+if [ "${TG_BOOTSTRAP_NODE_LINUX:-0}" = "1" ] || ! command -v node >/dev/null 2>&1; then
+  if [ -f "../tools/bootstrap/node" ]; then
+    source "../tools/bootstrap/node"
+  fi
+fi
+
+## Ensure corepack is updated to support modern package managers like bun
+if command -v npm >/dev/null 2>&1 && command -v corepack >/dev/null 2>&1; then
+  npm install -g corepack@latest >/dev/null 2>&1 || true
+  corepack enable yarn >/dev/null 2>&1 || true
+fi
+
+## Functions
+## --------------------------------------------------------
+
+yarn_cmd() {
+  local yarn_release=""
+  for f in .yarn/releases/yarn-* ../.yarn/releases/yarn-*; do
+    if [ -f "$f" ]; then
+      yarn_release="$f"
+      break
+    fi
+  done
+
+  if [ -n "$yarn_release" ]; then
+    node "$yarn_release" "$@"
+  elif grep -q '"packageManager".*bun' package.json 2>/dev/null; then
+    if command -v bun >/dev/null 2>&1; then
+      bun "$@"
+    elif command -v npx >/dev/null 2>&1; then
+      npx bun "$@"
+    else
+      echo "Error: bun is required but not found, and npx is unavailable."
+      exit 1
+    fi
+  elif command -v yarn >/dev/null 2>&1; then
+    yarn "$@"
+  elif command -v npx >/dev/null 2>&1; then
+    npx yarn "$@"
+  else
+    echo "Error: Package manager not found and no fallback bun/yarn/npx command was found."
+    exit 1
+  fi
+}
+
+remove_quiet() {
+  rm -rf "$@" >/dev/null 2>&1 || true
+}
+
+task_install() {
+  yarn_cmd install
+}
+
+## Runs webpack
+task_webpack() {
+  yarn_cmd run rspack "$@"
+}
+
+## Runs a development server
+task_dev_server() {
+  yarn_cmd node --experimental-modules "packages/tgui-dev-server/index.js" "$@"
+}
+
+## Run a linter through all packages
+task_lint() {
+  yarn_cmd run tsc
+  echo "tgui: type check passed"
+  yarn_cmd run eslint packages --ext ".js,.cjs,.ts,.tsx" "$@"
+  echo "tgui: eslint check passed"
+}
+
+task_test() {
+  yarn_cmd run jest
+}
+
+## Mr. Proper
+task_clean() {
+  ## Build artifacts
+  remove_quiet public/.tmp
+  remove_quiet public/*.map
+  remove_quiet public/*.hot-update.*
+  ## Yarn artifacts
+  remove_quiet .yarn/cache
+  remove_quiet .yarn/unplugged
+  remove_quiet .yarn/webpack
+  remove_quiet .yarn/build-state.yml
+  remove_quiet .yarn/install-state.gz
+  remove_quiet .yarn/install-target
+  remove_quiet .pnp.*
+  ## NPM artifacts
+  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+  remove_quiet package-lock.json
+}
+
+## Main
+## --------------------------------------------------------
+
+if [ $# -gt 0 ]; then
+  case "$1" in
+    --clean)
+      task_clean
+      exit 0
+      ;;
+    --build)
+      shift
+      task_install
+      task_webpack --mode=production "$@"
+      exit 0
+      ;;
+    --dev)
+      shift
+      task_install
+      task_dev_server "$@"
+      exit 0
+      ;;
+    --lint)
+      shift
+      task_install
+      task_lint "$@"
+      exit 0
+      ;;
+    --lint-harder)
+      shift
+      task_install
+      task_lint -c ".eslintrc-harder.yml" "$@"
+      exit 0
+      ;;
+    --fix)
+      shift
+      task_install
+      task_lint --fix "$@"
+      exit 0
+      ;;
+    --test)
+      shift
+      task_install
+      task_test "$@"
+      exit 0
+      ;;
+    --analyze)
+      task_install
+      task_webpack --mode=production --analyze
+      exit 0
+      ;;
+  esac
+fi
+
+## Make a production webpack build
+if [ $# -eq 0 ]; then
+  task_install
+  task_lint
+  task_webpack --mode=production
+  exit 0
+fi
+
+## Run webpack with custom flags
+task_install
+task_webpack "$@"
