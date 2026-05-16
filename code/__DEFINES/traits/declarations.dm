@@ -1599,6 +1599,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 ///Attached to objects currently on tables and such, allowing them to walk on other objects without the climbing delay
 #define TRAIT_ON_CLIMBABLE "on_climbable"
+///Attached to mobs that are crawling under objects via the crawl_under component
+#define TRAIT_UNDER_CRAWLING "under_crawling"
 
 /// Allows a mob to perform any operation on themselves (with a penalty), where normally only specific operations allow self-surgery.
 #define TRAIT_SELF_SURGERY "self_surgery"

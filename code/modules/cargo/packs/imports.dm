@@ -317,7 +317,7 @@
 	order_flags = ORDER_CONTRABAND
 	contains = list(/obj/item/weaponcrafting/giant_wrench)
 	crate_name = "unknown parts crate"
-Removal End */
+
 
 /datum/supply_pack/imports/materials_market
 	name = "Galactic Materials Market Crate"
@@ -332,7 +332,7 @@ Removal End */
 	)
 	crate_name = "materials market crate"
 	crate_type = /obj/structure/closet/crate/cargo
-Removal End */
+
 
 /datum/supply_pack/imports/floortilecamo
 	name = "Floor-tile Camouflage Uniform"

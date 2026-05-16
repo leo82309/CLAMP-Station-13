@@ -1,3 +1,12 @@
+/// Map template for ghost cafe hotel rooms with optional landing coordinates and access restrictions.
+/datum/map_template/ghost_cafe_rooms
+	/// List of (x, y) landing coordinates relative to the bottom-left of the room.
+	var/list/landing_coords
+	/// Donator tier required to use this template.
+	var/donator_tier = 0
+	/// List of ckeys that are whitelisted for this template; empty = no restriction.
+	var/list/ckeywhitelist = list()
+
 SUBSYSTEM_DEF(hilbertshotel)
 	name = "Hilbert's Hotel"
 	flags = SS_NO_FIRE

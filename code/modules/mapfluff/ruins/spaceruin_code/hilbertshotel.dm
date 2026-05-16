@@ -16,6 +16,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	var/storageTurf
 	//Lore Stuff
 	var/ruinSpawned = FALSE
+	var/is_ghost_cafe = FALSE
 
 /obj/item/hilbertshotel/Initialize(mapload)
 	. = ..()
@@ -503,6 +504,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	item_flags = ABSTRACT
 	var/roomNumber
+	var/room_number
 	var/obj/item/hilbertshotel/parentSphere
 
 /obj/item/abstracthotelstorage/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)

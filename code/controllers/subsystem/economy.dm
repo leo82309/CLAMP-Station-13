@@ -52,6 +52,8 @@ SUBSYSTEM_DEF(economy)
 	 * Added to any time when player accounts purchase something.
 	 */
 	var/list/audit_log = list()
+	/// Whether anarcho-capitalist mode is active.
+	var/full_ancap = FALSE
 
 	/// Number of mail items generated.
 	var/mail_waiting = 0
