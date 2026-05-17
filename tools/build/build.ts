@@ -113,6 +113,10 @@ export const IconCutterTarget = new Juke.Target({
       `modular_zubbers/icons/**/*.png.toml`,
       `modular_zubbers/icons/**/*.dmi.toml`,
       // BUBBER EDIT END
+      // CLAMP EDIT ADDITION START: Modular iconcutter
+      `modular_clamp/icons/**/*.png.toml`,
+      `modular_clamp/icons/**/*.dmi.toml`,
+      // CLAMP EDIT END
       cutter_path,
     ];
     // Alright we're gonna search out any existing toml files and convert
@@ -139,6 +143,10 @@ export const IconCutterTarget = new Juke.Target({
       ...Juke.glob(`modular_zubbers/icons/**/*.png.toml`),
       ...Juke.glob(`modular_zubbers/icons/**/*.dmi.toml`),
       // BUBBER EDIT END
+      // CLAMP EDIT ADDITION START: Modular iconcutter
+      ...Juke.glob(`modular_clamp/icons/**/*.png.toml`),
+      ...Juke.glob(`modular_clamp/icons/**/*.dmi.toml`),
+      // CLAMP EDIT END
     ];
     return folders
       .map((file) => file.replace(`.png.toml`, '.dmi'))
@@ -159,6 +167,14 @@ export const IconCutterTarget = new Juke.Target({
       'modular_zubbers/icons',
     ]);
     // BUBBER EDIT END
+    // CLAMP EDIT ADDITION START: Modular iconcutter
+    await Juke.exec(cutter_path, [
+      '--dont-wait',
+      '--templates',
+      'cutter_templates',
+      'modular_clamp/icons',
+    ]);
+    // CLAMP EDIT END
   },
 });
 
@@ -202,6 +218,7 @@ export const DmTarget = new Juke.Target({
     'modular_skyrat/**', ///SKYRAT EDIT ADDITION - Making the CBT work
     'modular_zubbers/**', ///BUBBER EDIT ADDITION - Making the CBT work
     'modular_zzplurt/**', ///SPLURT EDIT ADDITION - Making the CBT work
+    'modular_clamp/**', ///CLAMP EDIT ADDITION - Making the CBT work
     'sound/**',
     'tgui/public/tgui.html',
     `${DME_NAME}.dme`,

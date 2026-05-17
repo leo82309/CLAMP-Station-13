@@ -4,8 +4,6 @@
 	color = "#18150B" // Dark coffee color
 	boozepwr = 5
 	taste_description = "boiled dirt and cheap whiskey"
-	glass_name = "Joe"
-	glass_desc = "The lights, the smoke, the grime... the station itself felt alive that day when I stepped into my office, mug in hand."
 	nutriment_factor = 0
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	metabolized_traits = list(TRAIT_STIMULATED)
