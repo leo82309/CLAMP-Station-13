@@ -113,7 +113,7 @@ COPY --chown=tgstation:tgstation modular_zzvenus ./modular_zzvenus
 COPY --chown=tgstation:tgstation modular_zubbers ./modular_zubbers
 COPY --chown=tgstation:tgstation modular_zzplurt ./modular_zzplurt
 COPY --chown=tgstation:tgstation modular_nova ./modular_nova
-#COPY --chown=tgstation:tgstation modular_clamp ./modular_clamp
+COPY --chown=tgstation:tgstation modular_clamp ./modular_clamp
 
 COPY --chown=tgstation:tgstation sound ./sound
 COPY --chown=tgstation:tgstation html ./html
