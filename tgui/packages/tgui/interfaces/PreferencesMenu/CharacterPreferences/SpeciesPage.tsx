@@ -267,12 +267,6 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
     },
   );
 
-  // Humans are always the top of the list
-  const humanIndex = species.findIndex(([species]) => species === 'human');
-  const swapWith = species[0];
-  species[0] = species[humanIndex];
-  species[humanIndex] = swapWith;
-
   /* BUBBER EDIT START - SPECIES LIST SORTING */
   species.sort(([keyA, speciesA], [keyB, speciesB]) => {
     // Human first
@@ -285,13 +279,17 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
     }
 
     // Otherwise sort by lore length descending
-    return speciesB.lore.length - speciesA.lore.length;
+    return (speciesB.lore?.length || 0) - (speciesA.lore?.length || 0);
   });
   /* BUBBER EDIT END - SPECIES LIST SORTING */
 
-  const currentSpecies = species.filter(([speciesKey]) => {
+  const currentSpeciesMatch = species.filter(([speciesKey]) => {
     return speciesKey === data.character_preferences.misc.species;
-  })[0][1];
+  });
+  
+  const currentSpecies = currentSpeciesMatch.length > 0 
+    ? currentSpeciesMatch[0][1] 
+    : species[0][1];
 
   return (
     <Stack vertical fill>
@@ -354,10 +352,10 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                       {/* SKYRAT EDIT CHANGE START - Adds maxHeight, scrollable*/}
                       <Section maxHeight="14vh" overflowY="auto">
                         {/* SKYRAT EDIT CHANGE END */}
-                        {currentSpecies.desc.map((text, index) => (
+                        {(currentSpecies.desc || []).map((text, index) => (
                           <Box key={index} maxWidth="100%">
                             {text}
-                            {index !== currentSpecies.desc.length - 1 && (
+                            {index !== (currentSpecies.desc || []).length - 1 && (
                               <>
                                 <br />
                                 <br />
@@ -389,10 +387,10 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                     maxHeight="45vh"
                     mr={-1} /* SKYRAT EDIT END */
                   >
-                    {currentSpecies.lore.map((text, index) => (
+                    {(currentSpecies.lore || []).map((text, index) => (
                       <Box key={index} maxWidth="100%">
                         {text}
-                        {index !== currentSpecies.lore.length - 1 && (
+                        {index !== (currentSpecies.lore || []).length - 1 && (
                           <>
                             <br />
                             <br />

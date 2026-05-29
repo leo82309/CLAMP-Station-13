@@ -265,3 +265,6 @@ rust_g64.dll
 # Docker Export
 
 clampstation.tar
+# Gemini .md files
+Gemini.md
+agent.md
