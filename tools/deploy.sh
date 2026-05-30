@@ -54,3 +54,15 @@ source modular_zzplurt/tools/deploy_splurt.sh
 # VENUS EDIT ADDITION BEGIN - Call our deploy too
 source modular_zzvenus/tools/deploy_venus.sh
 # VENUS EDIT ADDITION END - Call our deploy too
+
+# CLAMP EDIT ADDITION BEGIN - Call our deploy too
+if [ -f "modular_clamp/tools/deploy_clamp.sh" ]; then
+    source modular_clamp/tools/deploy_clamp.sh
+fi
+# CLAMP EDIT ADDITION END - Call our deploy too
+
+# NOVA EDIT ADDITION BEGIN - Call our deploy too
+if [ -f "modular_nova/tools/deploy_nova.sh" ]; then
+    source modular_nova/tools/deploy_nova.sh
+fi
+# NOVA EDIT ADDITION END - Call our deploy too

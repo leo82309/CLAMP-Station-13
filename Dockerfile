@@ -119,6 +119,7 @@ COPY --chown=tgstation:tgstation sound ./sound
 COPY --chown=tgstation:tgstation html ./html
 COPY --chown=tgstation:tgstation strings ./strings
 COPY --chown=tgstation:tgstation _maps ./_maps
+COPY --chown=tgstation:tgstation icons ./icons
 
 COPY --chown=tgstation:tgstation libdreamluau.so ./libdreamluau.so
 
