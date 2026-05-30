@@ -333,6 +333,8 @@
 	crate_name = "materials market crate"
 	crate_type = /obj/structure/closet/crate/cargo
 
+// BUBBER EDIT - Removal End
+// VENUS EDIT: RE-ENABLED End
 
 /datum/supply_pack/imports/floortilecamo
 	name = "Floor-tile Camouflage Uniform"

@@ -387,6 +387,57 @@ const VenusChangelogEntry = (props) => {
 };
 // VENUS EDIT ADDITION END
 
+// VENUS EDIT ADDITION: Changelog 4
+const VenusChangelogEntry = (props) => {
+  const { author, changes } = props;
+
+  return (
+    <Stack.Item mb={-1} pb={1} key={author}>
+      <Box>
+        <h4>
+          <Image verticalAlign="bottom" src={resolveAsset('venus_16.png')} />{' '}
+          {author} changed:
+        </h4>
+      </Box>
+      <Box ml={3} mt={-0.2}>
+        <Table>
+          {changes.map((change) => {
+            const changeType = Object.keys(change)[0];
+            return (
+              <Table.Row key={changeType + change[changeType]}>
+                <Table.Cell
+                  className={classes([
+                    'Changelog__Cell',
+                    'Changelog__Cell--Icon',
+                  ])}
+                >
+                  <Icon
+                    color={
+                      icons[changeType]
+                        ? icons[changeType].color
+                        : icons['unknown'].color
+                    }
+                    name={
+                      icons[changeType]
+                        ? icons[changeType].icon
+                        : icons['unknown'].icon
+                    }
+                    verticalAlign="middle"
+                  />
+                </Table.Cell>
+                <Table.Cell className="Changelog__Cell">
+                  {change[changeType]}
+                </Table.Cell>
+              </Table.Row>
+            );
+          })}
+        </Table>
+      </Box>
+    </Stack.Item>
+  );
+};
+// VENUS EDIT ADDITION END
+
 export const BubberChangelog = (props) => {
   const { data } = useBackend();
   const { dates } = data;
