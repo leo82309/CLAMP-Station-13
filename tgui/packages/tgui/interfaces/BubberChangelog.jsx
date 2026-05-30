@@ -344,7 +344,7 @@ const VenusChangelogEntry = (props) => {
     <Stack.Item mb={-1} pb={1} key={author}>
       <Box>
         <h4>
-          <Image verticalAlign="bottom" src={resolveAsset('venus_16.png')} />{' '}
+          <Image verticalAlign="bottom" src={resolveAsset('clamp_16.png')} />{' '}
           {author} changed:
         </h4>
       </Box>
@@ -395,7 +395,7 @@ const VenusChangelogEntry = (props) => {
     <Stack.Item mb={-1} pb={1} key={author}>
       <Box>
         <h4>
-          <Image verticalAlign="bottom" src={resolveAsset('venus_16.png')} />{' '}
+          <Image verticalAlign="bottom" src={resolveAsset('clamp_16.png')} />{' '}
           {author} changed:
         </h4>
       </Box>
@@ -471,7 +471,7 @@ export const BubberChangelog = (props) => {
       fetch(resolveAsset(`${date}.yml`)),
       fetch(resolveAsset(`bubber_${date}.yml`)),
       fetch(resolveAsset(`splurt_${date}.yml`)), // SPLURT EDIT ADDITION: Changelog 3
-      fetch(resolveAsset(`venus_${date}.yml`)), // VENUS EDIT ADDITION: Changelog 4
+      fetch(resolveAsset(`clamp_${date}.yml`)), // CLAMP EDIT ADDITION: Changelog 4
     ]).then(async (links) => {
       const result = await links[0].text();
       const bubberResult = await links[1].text();
