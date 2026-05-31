@@ -51,13 +51,7 @@ SUBSYSTEM_DEF(player_ranks)
 	if(!istype(user))
 		CRASH("Invalid user type provided to is_donator(), expected 'client' and obtained '[user ? user.type : "null"]'.")
 
-	if(GLOB.donator_list[user.ckey])
-		return TRUE
-
-	if(admin_bypass && is_admin(user))
-		return TRUE
-
-	return FALSE
+	return TRUE
 
 
 /**
@@ -122,10 +116,9 @@ SUBSYSTEM_DEF(player_ranks)
 	if(!prefs || !prefs.parent)
 		return
 
-	prefs.unlock_content = !!prefs.parent.IsByondMember()
+	prefs.unlock_content = 1
 	prefs.donator_status = is_donator(prefs.parent)
-	if(prefs.unlock_content || prefs.donator_status)
-		prefs.max_save_slots = 50
+	prefs.max_save_slots = 50
 
 
 /// Handles loading mentors either via SQL or using the legacy system,

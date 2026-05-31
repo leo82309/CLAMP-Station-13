@@ -62,7 +62,8 @@ SUBSYSTEM_DEF(automapper)
 		var/map_file = selected_template["directory"] + pick(selected_template["map_files"])
 
 		if(!fexists(map_file))
-			CRASH("[template] could not find map file [map_file]!")
+			stack_trace("[template] could not find map file [map_file]!")
+			continue
 
 		var/datum/map_template/automap_template/map = new(map_file, template, required_map, load_turf)
 		preloaded_map_templates += map

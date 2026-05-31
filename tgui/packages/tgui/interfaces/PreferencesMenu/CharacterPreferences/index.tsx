@@ -151,16 +151,7 @@ export function CharacterPreferenceWindow(props) {
             />
             {/* BUBBER EDIT ADDITION END */}
           </Stack.Item>
-          {!data.content_unlocked && (
-            <Stack.Item grow align="center" mb={-1}>
-              <NoticeBox color="grey">
-                <a href="https://ko-fi.com/venus_station/tiers">
-                  Become a VENUS Member to unlock more character slots and other
-                  members-only benefits!
-                </a>
-              </NoticeBox>
-            </Stack.Item>
-          )}
+
         </Stack>
       </Stack.Item>
       <Stack.Divider />

@@ -160,7 +160,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		ui = new(user, src, "PreferencesMenu")
 		ui.set_autoupdate(FALSE)
 		ui.open()
-		character_preview_view.display_to(user, ui.window)
+		character_preview_view?.display_to(user, ui.window)
 
 /datum/preferences/ui_state(mob/user)
 	return GLOB.always_state
@@ -205,7 +205,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	data["character_profiles"] = create_character_profiles()
 
-	data["character_preview_view"] = character_preview_view.assigned_map
+	data["character_preview_view"] = character_preview_view?.assigned_map
 	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
 
@@ -272,7 +272,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			character_preview_view.dir = turn(character_preview_view.dir, -90)
 			*/ // ORIGINAL END - SKYRAT EDIT START:
 			var/backwards = params["backwards"]
-			character_preview_view.setDir(turn(character_preview_view.dir, backwards ? 90 : -90))
+			if(character_preview_view)
+				character_preview_view.setDir(turn(character_preview_view.dir, backwards ? 90 : -90))
 			// SKYRAT EDIT END
 
 			return TRUE
@@ -331,7 +332,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		//SKYRAT EDIT ADDITION
 		if("update_preview")
 			preview_pref = params["updated_preview"]
-			character_preview_view.update_body()
+			character_preview_view?.update_body()
 			return TRUE
 
 		//BUBBER EDIT ADDITION START: Background Selection
@@ -736,21 +737,5 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	return default_randomization
 
 /datum/preferences/proc/refresh_membership()
-	var/byond_member = parent.IsByondMember()
-	if(isnull(byond_member)) // Connection failure, retry once
-		byond_member = parent.IsByondMember()
-		var/static/admins_warned = FALSE
-		if(!admins_warned)
-			admins_warned = TRUE
-			message_admins("BYOND membership lookup had a connection failure for a user. This is most likely an issue on the BYOND side but if this consistently happens you should bother your server operator to look into it.")
-		if(isnull(byond_member)) // Retrying didn't work, warn the user
-			log_game("BYOND membership lookup for [parent.ckey] failed due to a connection error.")
-		else
-			log_game("BYOND membership lookup for [parent.ckey] failed due to a connection error but succeeded after retry.")
-
-	if(isnull(byond_member))
-		to_chat(parent, span_warning("There's been a connection failure while trying to check the status of your BYOND membership. Reconnecting may fix the issue, or BYOND could be experiencing downtime."))
-
-	unlock_content = !!byond_member
-	if(unlock_content)
-		max_save_slots = 8
+	unlock_content = 1
+	max_save_slots = 50
