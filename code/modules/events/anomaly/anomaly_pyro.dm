@@ -1,6 +1,9 @@
 /datum/round_event_control/anomaly/anomaly_pyro
 	name = "Anomaly: Pyroclastic"
 	typepath = /datum/round_event/anomaly/anomaly_pyro
+	min_eng_crew = 1
+	require_all_players_active = TRUE
+
 
 	max_occurrences = 5
 	weight = 20

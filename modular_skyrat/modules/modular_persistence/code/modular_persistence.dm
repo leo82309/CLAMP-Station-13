@@ -102,9 +102,9 @@ GLOBAL_LIST_INIT(modular_persistence_ignored_vars, list(
 /datum/modular_persistence/proc/save_data(ckey)
 	ckey = replacetext(ckey || owner.owner?.ckey || owner.brainmob?.ckey, "@", "")
 	if(!owner.owner && !owner.brainmob)
-		CRASH("Modular persistence save called on a brain with no owning mob or brainmob! How did this happen?! (\ref[owner], [owner])")
+		return
 	if(!ckey)
-		CRASH("Modular persistence save called on a brain with no ckey! How did this happen?! (\ref[owner], [owner])")
+		return
 
 	var/json_file = file("data/player_saves/[ckey[1]]/[ckey]/modular_persistence.json")
 	var/list/json = fexists(json_file) ? json_decode(file2text(json_file)) : list()

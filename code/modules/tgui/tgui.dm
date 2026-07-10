@@ -267,19 +267,19 @@
 		"status" = status,
 		"interface" = list(
 			"name" = interface,
-			"layout" = user.client.prefs.read_preference(src_object.layout_prefs_used),
+			"layout" = user.client?.prefs?.read_preference(src_object.layout_prefs_used),
 		),
 		"refreshing" = refreshing,
 		"window" = list(
 			"key" = window_key,
 			"size" = window_size,
-			"locked" = user.client.prefs.read_preference(/datum/preference/toggle/tgui_lock),
-			"scale" = user.client.prefs.read_preference(/datum/preference/toggle/ui_scale),
+			"locked" = user.client?.prefs?.read_preference(/datum/preference/toggle/tgui_lock),
+			"scale" = user.client?.prefs?.read_preference(/datum/preference/toggle/ui_scale),
 		),
 		"client" = list(
-			"ckey" = user.client.ckey,
-			"address" = user.client.address,
-			"computer_id" = user.client.computer_id,
+			"ckey" = user.client?.ckey,
+			"address" = user.client?.address,
+			"computer_id" = user.client?.computer_id,
 		),
 		"user" = list(
 			"name" = "[user]",

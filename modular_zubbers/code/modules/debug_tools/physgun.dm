@@ -238,6 +238,8 @@
 	STOP_PROCESSING(SSfastprocess, src)
 	handled_atom.remove_filter("physgun")
 	UnregisterSignal(physgun_catcher, COMSIG_CLICK)
+	if(physgun_user)
+		UnregisterSignal(physgun_user, COMSIG_MOB_CLICKON)
 	physgun_catcher = null
 	physgun_user.clear_fullscreen("physgun_effect")
 	handled_atom.pixel_x = initial(handled_atom.pixel_x)

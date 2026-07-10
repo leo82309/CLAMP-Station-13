@@ -479,8 +479,12 @@
 	var/heat_cap = 0
 
 	for(var/turf/open/group_member as anything in turf_list)
+		if(!istype(group_member))
+			continue
 		//Cache?
 		var/datum/gas_mixture/turf/mix = group_member.air
+		if(!mix)
+			continue
 		if (roundstart)
 			if(istype(group_member.air, /datum/gas_mixture/immutable))
 				imumutable_in_group = TRUE

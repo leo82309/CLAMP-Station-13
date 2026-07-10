@@ -1,8 +1,10 @@
 /datum/round_event_control/radiation_leak
 	name = "Radiation Leak"
 	description = "A radiation leak happens somewhere on the station, emanating radiation around a machine in the area. \
-		Engineering can stop the leak by using certain tools on it."
+		It can be cleansed by using a geiger counter on the source of the leak."
 	typepath = /datum/round_event/radiation_leak
+	require_all_players_active = TRUE
+	min_eng_crew = 1
 	weight = 15
 	max_occurrences = 3
 	category = EVENT_CATEGORY_ENGINEERING

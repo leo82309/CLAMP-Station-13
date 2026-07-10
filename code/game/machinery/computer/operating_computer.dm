@@ -63,7 +63,7 @@
 	return ..()
 
 /obj/machinery/computer/operating/multitool_act(mob/living/user, obj/item/multitool/tool)
-	if(!QDELETED(tool.buffer) && istype(tool.buffer, /datum/techweb))
+	if(istype(tool) && !QDELETED(tool.buffer) && istype(tool.buffer, /datum/techweb))
 		linked_techweb = tool.buffer
 	return TRUE
 

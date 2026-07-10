@@ -82,6 +82,12 @@ map voidraptor
 	webmap_url https://webmap.affectedarc07.co.uk/maps/bubber/voidraptor/
 endmap
 
+# CLAMP-specific modular maps.
+
+map beach_resort
+	votable
+endmap
+
 # Debug-only maps.
 
 map gateway_test
@@ -93,5 +99,5 @@ endmap
 map runtimestation
 endmap
 
-map eventmap
-endmap
+# map eventmap
+# endmap

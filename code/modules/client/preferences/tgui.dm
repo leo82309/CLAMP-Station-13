@@ -71,7 +71,7 @@
 	default_value = FALSE
 
 /datum/preference/toggle/tgui_say_light_mode/apply_to_client(client/client)
-	client.tgui_say?.load()
+	client?.tgui_say?.load()
 
 /datum/preference/toggle/ui_scale
 	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
@@ -84,4 +84,4 @@
 		return
 
 	INVOKE_ASYNC(client, TYPE_VERB_REF(/client, refresh_tgui))
-	client.tgui_say?.load()
+	client?.tgui_say?.load()

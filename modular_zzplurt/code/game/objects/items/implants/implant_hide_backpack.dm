@@ -56,6 +56,8 @@
 /datum/action/item_action/hide_backpack/proc/adjust_trait(state)
 	// Set owner
 	var/mob/living/carbon/human/action_owner = owner
+	if(!action_owner)
+		return
 
 	// Toggle trait status
 	if(state)
@@ -70,6 +72,8 @@
 /datum/action/item_action/hide_backpack/Trigger(trigger_flags)
 	// Set owner
 	var/mob/living/carbon/human/action_owner = owner
+	if(!action_owner)
+		return
 
 	// Update active status
 	ability_active = !ability_active

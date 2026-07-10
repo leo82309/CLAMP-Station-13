@@ -15,8 +15,8 @@
 	RegisterSignal(quirk_holder, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
 /datum/quirk/hypnotic/post_add()
-	hypnotic_text = quirk_holder.client.prefs.read_preference(/datum/preference/text/hypnotic_text)
-	hypnotic_color = quirk_holder.client.prefs.read_preference(/datum/preference/choiced/hypnotic_span)
+	hypnotic_text = quirk_holder.client?.prefs?.read_preference(/datum/preference/text/hypnotic_text)
+	hypnotic_color = quirk_holder.client?.prefs?.read_preference(/datum/preference/choiced/hypnotic_span)
 
 /datum/quirk/hypnotic/remove()
 	UnregisterSignal(quirk_holder, COMSIG_ATOM_EXAMINE)
@@ -27,7 +27,7 @@
 	var/mob/living/examinee = source
 	if(!istype(user))
 		return
-	if(!(examinee.client.prefs.read_preference(/datum/preference/toggle/erp/hypnosis)))
+	if(!(examinee.client?.prefs?.read_preference(/datum/preference/toggle/erp/hypnosis)))
 		return
 	if(user.stat == DEAD)
 		return

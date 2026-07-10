@@ -160,11 +160,12 @@
 
 /obj/item/ammo_casing/energy/laser/plasma_glob/ready_proj(atom/target, mob/living/user, quiet, zone_override, atom/fired_from)
 	var/obj/item/gun/ballistic/automatic/pistol/plasma_marksman/gun = fired_from
-	if(istype(gun) && gun.overclocking)
-		loaded_projectile.name = "overcharged plasma globule"
-		loaded_projectile.icon_state = "plasma_glob_super"
-		loaded_projectile.weak_against_armour = FALSE
-	gun.update_projspeed(user)
+	if(istype(gun))
+		if(gun.overclocking && loaded_projectile)
+			loaded_projectile.name = "overcharged plasma globule"
+			loaded_projectile.icon_state = "plasma_glob_super"
+			loaded_projectile.weak_against_armour = FALSE
+		gun.update_projspeed(user)
 	. = ..()
 
 /obj/item/gun/ballistic/automatic/pistol/plasma_marksman/proc/shakeit()

@@ -38,6 +38,17 @@
 	/// Flags dictating whether this event should be run on certain kinds of map
 	var/map_flags = NONE
 
+	/// Minimum number of security crew required to spawn this event
+	var/min_sec_crew = 0
+	/// Minimum number of engineering crew required to spawn this event
+	var/min_eng_crew = 0
+	/// Minimum number of medical crew required to spawn this event
+	var/min_med_crew = 0
+	/// Minimum number of head crew required to spawn this event
+	var/min_head_crew = 0
+	/// If TRUE, this event will NOT spawn if there is any SSD/AFK player currently alive in the round.
+	var/require_all_players_active = FALSE
+
 /datum/round_event_control/New()
 	if(!length(admin_setup))
 		return
@@ -76,6 +87,21 @@
 		return FALSE
 	if(players_amt < min_players)
 		return FALSE
+	if(SSgamemode)
+		if(SSgamemode.sec_crew < min_sec_crew)
+			return FALSE
+		if(SSgamemode.eng_crew < min_eng_crew)
+			return FALSE
+		if(SSgamemode.med_crew < min_med_crew)
+			return FALSE
+		if(SSgamemode.head_crew < min_head_crew)
+			return FALSE
+	if(require_all_players_active)
+		for(var/mob/player_mob as anything in GLOB.alive_player_list)
+			if(!player_mob.mind)
+				continue
+			if(!player_mob.client || player_mob.client.is_afk())
+				return FALSE
 	if(holidayID && !check_holidays(holidayID))
 		return FALSE
 	if(EMERGENCY_ESCAPED_OR_ENDGAMED)

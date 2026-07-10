@@ -271,6 +271,9 @@ GLOBAL_LIST_INIT(gaslist_cache, init_gaslist_cache())
 	for(var/gas_id in gas_list)
 		assert_gas(gas_id)
 		other.assert_gas(gas_id)
+		if(!volume || !other.volume || !temperature || !other.temperature)
+			return FALSE
+
 		//math is under the assumption temperatures are equal
 		if(abs(gases[gas_id][MOLES] / volume - other.gases[gas_id][MOLES] / other.volume) > min_p_delta / (R_IDEAL_GAS_EQUATION * temperature))
 			. = TRUE

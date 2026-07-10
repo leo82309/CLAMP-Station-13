@@ -96,10 +96,10 @@
 	// No preference set
 	else
 		// Pick a random crew member's name
-		var/datum/record/crew/random_crew = pick(GLOB.manifest.general)
+		var/datum/record/crew/random_crew = length(GLOB.manifest.general) ? pick(GLOB.manifest.general) : null
 
 		// Set deity to that name
-		pref_deity = random_crew?.name
+		pref_deity = random_crew?.name || DEFAULT_DEITY
 
 /datum/quirk/cursed_blood/remove()
 	// Unregister reagent interactions

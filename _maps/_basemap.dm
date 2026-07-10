@@ -35,6 +35,9 @@
 		#include "map_files\BoxStation\BoxStation.dmm"
 		#include "map_files\Ouroboros\Ouroboros.dmm"
 		// BUBBER EDIT ADDITION END
+		// CLAMP EDIT ADDITION START
+		#include "..\modular_clamp\maps\beach_resort\beach_resort.dmm"
+		// CLAMP EDIT ADDITION END
 	#endif
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"

@@ -13181,6 +13181,7 @@
 	dir = 5
 	},
 /obj/structure/table/glass,
+/obj/machinery/requests_console/auto_name/directional/north,
 /obj/effect/mapping_helpers/requests_console/ore_update,
 /obj/item/storage/box/beakers{
 	pixel_x = 2;

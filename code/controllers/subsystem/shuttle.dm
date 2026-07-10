@@ -468,10 +468,12 @@ SUBSYSTEM_DEF(shuttle)
 
 /// Can this user recall the emergency shuttle? Returns TRUE if they can, otherwise returns FALSE.
 /datum/controller/subsystem/shuttle/proc/can_recall(mob/user)
+	if(!user)
+		return FALSE
 	if(isnull(emergency) || emergency.mode != SHUTTLE_CALL)
 		return FALSE
 
-	var/is_admin = !!user.client?.holder
+	var/is_admin = !!user?.client?.holder
 	if(is_admin)
 		return admin_recall(user)
 
@@ -547,9 +549,9 @@ SUBSYSTEM_DEF(shuttle)
 	for(var/thing in GLOB.shuttle_caller_list)
 		if(isAI(thing))
 			var/mob/living/silicon/ai/AI = thing
-			if(AI.deployed_shell && !AI.deployed_shell.client)
+			if(AI.deployed_shell && !AI.deployed_shell?.client)
 				continue
-			if(AI.stat || !AI.client)
+			if(AI?.stat || !AI?.client)
 				continue
 		else if(istype(thing, /obj/machinery/computer/communications))
 			var/obj/machinery/computer/communications/C = thing

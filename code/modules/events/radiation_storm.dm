@@ -1,6 +1,7 @@
 /datum/round_event_control/radiation_storm
 	name = "Radiation Storm"
 	typepath = /datum/round_event/radiation_storm
+	require_all_players_active = TRUE
 	max_occurrences = 1
 	category = EVENT_CATEGORY_SPACE
 	//VENUS EDIT START: (Changed description to reflect that dorms and maintenance are best shielded from radiation)

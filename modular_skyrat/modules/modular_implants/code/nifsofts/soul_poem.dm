@@ -137,6 +137,8 @@
 	if(host == entered)
 		return FALSE
 
+	if(!parent_nifsoft)
+		return FALSE
 	var/datum/nifsoft/soul_poem/receiving_nifsoft = parent_nifsoft.resolve()
 	if(!receiving_nifsoft || (!receiving_nifsoft.transmitting_data && !receiving_nifsoft.receiving_data))
 		return FALSE

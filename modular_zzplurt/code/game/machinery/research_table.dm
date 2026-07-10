@@ -116,7 +116,10 @@
 	for(var/obj/item/stock_parts/part in component_parts)
 		tier += part.rating
 		parts++
-	tier /= parts
+	if(parts > 0)
+		tier /= parts
+	else
+		tier = 1
 
 /obj/machinery/research_table/proc/on_climax(mob/living/carbon/buckled_mob, mob/living/partner, interaction_position, manual)
 	if(!configured)
