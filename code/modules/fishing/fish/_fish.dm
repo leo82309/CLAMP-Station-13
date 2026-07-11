@@ -943,6 +943,9 @@ GLOBAL_LIST_INIT(fish_compatible_fluid_types, list(
 		sate_hunger()
 		return
 
+	if(!length(fed_reagents.reagent_list))
+		return
+
 	var/datum/reagent/wrong_reagent = pick(fed_reagents.reagent_list)
 	if(!wrong_reagent)
 		return

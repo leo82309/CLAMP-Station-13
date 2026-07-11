@@ -372,6 +372,7 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	to_chat(user, span_notice("You peek through the door's bluespace peephole..."))
 	user.reset_perspective(parentSphere)
 	var/datum/action/peephole_cancel/PHC = new
+	PHC.door = src
 	user.overlay_fullscreen("remote_view", /atom/movable/screen/fullscreen/impaired, 1)
 	PHC.Grant(user)
 	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(check_eye))
@@ -388,13 +389,15 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	name = "Cancel View"
 	desc = "Stop looking through the bluespace peephole."
 	button_icon_state = "cancel_peephole"
+	var/turf/closed/indestructible/hoteldoor/door
 
 /datum/action/peephole_cancel/Trigger(mob/clicker, trigger_flags)
 	. = ..()
 	to_chat(owner, span_warning("You move away from the peephole."))
 	owner.reset_perspective()
 	owner.clear_fullscreen("remote_view", 0)
-	UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
+	if(door)
+		door.UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	qdel(src)
 
 // Despite using the ruins.dmi, hilbertshotel is not a ruin

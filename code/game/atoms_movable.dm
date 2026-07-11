@@ -1354,7 +1354,8 @@
 	. = FALSE
 
 	if(QDELETED(src))
-		CRASH("Qdeleted thing being thrown around.")
+		stack_trace("Qdeleted thing being thrown around.")
+		return FALSE
 
 	if (!target || speed <= 0)
 		return
@@ -1829,6 +1830,8 @@
  * If exact match is set, then all our factions must match exactly
  */
 /atom/movable/proc/faction_check_atom(atom/movable/target, exact_match)
+	if(!istype(target, /atom))
+		return FALSE
 	if(exact_match)
 		var/list/allies_src = LAZYCOPY(allies)
 		var/list/allies_target = LAZYCOPY(target.allies)
