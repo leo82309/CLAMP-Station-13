@@ -107,3 +107,4 @@
 
 /obj/item/gun/ballistic/automatic/pistol/trappiste/no_mag
 	spawnwithmagazine = FALSE
+

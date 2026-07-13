@@ -195,7 +195,7 @@
 		/obj/effect/spawner/random/engineering/vending_restock/engineering = 6,
 		/obj/effect/spawner/random/engineering/vending_restock/medical = 3,
 		/obj/item/vending_refill/cart = 1,
-		/obj/item/vending_refill/clothing = 1,
+// 		/obj/item/vending_refill/clothing = 1,
 		/obj/item/vending_refill/autodrobe = 1,
 		/obj/item/vending_refill/security = 1,
 		/obj/item/vending_refill/custom = 1,

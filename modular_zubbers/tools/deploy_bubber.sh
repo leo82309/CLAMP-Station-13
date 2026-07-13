@@ -14,19 +14,19 @@ mkdir -p \
 	$1/modular_skyrat/modules/GAGS/nsfw/json_configs \
 	$1/modular_zubbers/code/datums/greyscale/json_configs
 
-cp -r modular_skyrat/modules/aesthetics/* $1/modular_skyrat/modules/aesthetics/ # the aesthetics module doesnt use an icon folder but it does contain DMIs. God has abandoned us
-cp -r modular_skyrat/modules/GAGS/json_configs/* $1/modular_skyrat/modules/GAGS/json_configs/
-cp -r modular_skyrat/modules/GAGS/nsfw/json_configs/* $1/modular_skyrat/modules/GAGS/nsfw/json_configs/
-cp -r modular_zubbers/code/datums/greyscale/json_configs/* $1/modular_zubbers/code/datums/greyscale/json_configs/
+cp -r modular_skyrat/modules/aesthetics/. $1/modular_skyrat/modules/aesthetics/ 2>/dev/null || true # the aesthetics module doesnt use an icon folder but it does contain DMIs. God has abandoned us
+cp -r modular_skyrat/modules/GAGS/json_configs/. $1/modular_skyrat/modules/GAGS/json_configs/ 2>/dev/null || true
+cp -r modular_skyrat/modules/GAGS/nsfw/json_configs/. $1/modular_skyrat/modules/GAGS/nsfw/json_configs/ 2>/dev/null || true
+cp -r modular_zubbers/code/datums/greyscale/json_configs/. $1/modular_zubbers/code/datums/greyscale/json_configs/ 2>/dev/null || true
 
 for icondir in ${directories_skyrat[@]}
 do
     mkdir -p $1/$icondir
-	cp -r $icondir/* $1/$icondir/
+	cp -r $icondir/. $1/$icondir/ 2>/dev/null || true
 done
 
 for icondir in ${directories_zubbers[@]}
 do
     mkdir -p $1/$icondir
-	cp -r $icondir/* $1/$icondir/
+	cp -r $icondir/. $1/$icondir/ 2>/dev/null || true
 done

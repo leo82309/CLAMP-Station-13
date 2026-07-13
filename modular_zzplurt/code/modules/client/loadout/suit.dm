@@ -1,6 +1,6 @@
 /datum/loadout_item/suit/duster
 	name = "Oilskin duster"
-	item_path = /obj/item/clothing/suit/jacket/duster
+// 	item_path = /obj/item/clothing/suit/jacket/duster
 
 // Suggestion #183
 /datum/loadout_item/suit/dracula
@@ -15,23 +15,23 @@
 //
 /datum/loadout_item/suit/jacketyellow
 	name = "Yellow Jacket"
-	item_path = /obj/item/clothing/suit/toggle/rp_jacket
+// 	item_path = /obj/item/clothing/suit/toggle/rp_jacket
 
 /datum/loadout_item/suit/jacketorange
 	name = "Orange Jacket"
-	item_path = /obj/item/clothing/suit/toggle/rp_jacket/orange
+// 	item_path = /obj/item/clothing/suit/toggle/rp_jacket/orange
 
 /datum/loadout_item/suit/jacketred
 	name = "Red Jacket"
-	item_path = /obj/item/clothing/suit/toggle/rp_jacket/red
+// 	item_path = /obj/item/clothing/suit/toggle/rp_jacket/red
 
 /datum/loadout_item/suit/jacketpurple
 	name = "Purple Jacket"
-	item_path = /obj/item/clothing/suit/toggle/rp_jacket/purple
+// 	item_path = /obj/item/clothing/suit/toggle/rp_jacket/purple
 
 /datum/loadout_item/suit/jacketwhite
 	name = "White Jacket"
-	item_path = /obj/item/clothing/suit/toggle/rp_jacket/white
+// 	item_path = /obj/item/clothing/suit/toggle/rp_jacket/white
 
 /datum/loadout_item/suit/baroness
 	name = "Baroness Dress"
@@ -43,7 +43,7 @@
 
 /datum/loadout_item/suit/tunnelfox
 	name = "tunnel fox jacket"
-	item_path = /obj/item/clothing/suit/toggle/tunnelfox
+// 	item_path = /obj/item/clothing/suit/toggle/tunnelfox
 
 /datum/loadout_item/suit/invisijacket
 	name = "invisifiber jacket"

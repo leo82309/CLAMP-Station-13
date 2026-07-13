@@ -180,20 +180,20 @@
 /obj/machinery/vending/wardrobe/cargo_wardrobe
 	zubbers_products = list(
 		/obj/item/clothing/glasses/hud/gun_permit = 5, //from company imports module
-		/obj/item/clothing/head/caligram_cap_tan = 3,
+// 		/obj/item/clothing/head/caligram_cap_tan = 3,
 		/obj/item/clothing/head/playbunnyears/bitrunner = 3,
 		/obj/item/clothing/head/playbunnyears/cargo = 3,
 		/obj/item/clothing/head/playbunnyears/mailman = 1,
 		/obj/item/clothing/neck/tie/bunnytie/bitrunner = 3,
 		/obj/item/clothing/neck/tie/bunnytie/cargo = 3,
 		/obj/item/clothing/neck/tie/bunnytie/mailman = 1,
-		/obj/item/clothing/suit/jacket/caligram_parka_tan = 3,
+// 		/obj/item/clothing/suit/jacket/caligram_parka_tan = 3,
 		/obj/item/clothing/suit/jacket/tailcoat/bitrunner = 3,
 		/obj/item/clothing/suit/jacket/tailcoat/cargo = 3,
 		/obj/item/clothing/suit/toggle/jacket/supply = 3,
 		/obj/item/clothing/suit/toggle/jacket/zubber/bomber/cargo = 3,
 		/obj/item/clothing/suit/toggle/jacket/zubber/bomber/cargo/smith = 3,
-		/obj/item/clothing/under/jumpsuit/caligram_fatigues_tan = 3,
+// 		/obj/item/clothing/under/jumpsuit/caligram_fatigues_tan = 3,
 		/obj/item/clothing/under/rank/cargo/bitrunner/bunnysuit = 3,
 		/obj/item/clothing/under/rank/cargo/cargo_bunnysuit = 3,
 		/obj/item/clothing/under/rank/cargo/mailman_bunnysuit = 1,

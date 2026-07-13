@@ -44,7 +44,6 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/vending_refill/boozeomat = 1,
 		/obj/item/vending_refill/cart = 1,
 		/obj/item/vending_refill/cigarette = 1,
-		/obj/item/vending_refill/clothing = 1,
 		/obj/item/vending_refill/coffee = 1,
 		/obj/item/vending_refill/cola = 1,
 		/obj/item/vending_refill/custom = 5,

@@ -171,3 +171,40 @@
 	desc = "Stupid. Ugly. Out of date. If I can't find something nice to wear I'm not going."
 	icon_state = "/obj/item/clothing/under/costume/skyrat/christmas/croptop/green"
 	greyscale_colors = "#1a991a#c4c2c2"
+
+/obj/item/clothing/under/camo/gags
+	name = "camouflage jumpsuit"
+	desc = "The space mall ninja fears the space mall soldier."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/solfed/marines"
+	post_init_icon_state = "solfed_camo"
+	worn_icon_state = "solfed_camo"
+	worn_icon_digi = "solfed_camo"
+	greyscale_config = /datum/greyscale_config/solfedcamo
+	greyscale_config_worn = /datum/greyscale_config/solfedcamo/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/solfedcamo/worn/digi
+	greyscale_colors = "#4d4d4d#333333#292929"
+	can_adjust = FALSE
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
+/obj/item/clothing/under/costume/nova/bathrobe
+	name = "bathrobe"
+	desc = "A warm fluffy bathrobe, perfect for relaxing after finally getting clean."
+	icon = 'icons/map_icons/clothing/under/costume.dmi'
+	icon_state = "/obj/item/clothing/under/costume/nova/bathrobe"
+	post_init_icon_state = "robes"
+	worn_icon = 'modular_skyrat/modules/GAGS/icons/suit/suit.dmi'
+	worn_icon_teshari = 'modular_skyrat/modules/GAGS/icons/suit/suit_teshari.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+// 	bodyshapes_with_variations = NONE
+	greyscale_colors = "#ffffff"
+	greyscale_config = /datum/greyscale_config/bathrobe
+	greyscale_config_worn = /datum/greyscale_config/bathrobe/worn
+	greyscale_config_worn_teshari = /datum/greyscale_config/bathrobe/worn/teshari
+	greyscale_config_worn_better_vox = /datum/greyscale_config/bathrobe/worn/newvox
+	greyscale_config_worn_vox = /datum/greyscale_config/bathrobe/worn/oldvox
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	greyscale_colors = "#434d7a" //THATS RIGHT, FUCK YOU! THE BATHROBE CAN BE RECOLORED!
+	flags_1 = IS_PLAYER_COLORABLE_1
+

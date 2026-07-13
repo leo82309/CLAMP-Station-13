@@ -118,3 +118,103 @@
 	greyscale_colors = "#8b2c2c#222227#222227#fbc056"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/pants/nova/jeans_ripped
+	name = "ripped jeans"
+	desc = "A nondescript pair of tough jeans, with several rips and tears. The staple pants choice of both rebels and the poor."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/jeans_ripped"
+	post_init_icon_state = "jeans_ripped"
+	greyscale_config = /datum/greyscale_config/jeans_ripped //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
+	greyscale_config_worn = /datum/greyscale_config/jeans_ripped/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/jeans_ripped/worn/digi
+	greyscale_colors = "#787878#723E0E#4D7EAC"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = TRUE
+
+
+/obj/item/clothing/under/pants/nova/kilt
+	name = "recolorable kilt"
+	desc = "A kilt and buttondown, adorned with a tartan sash. It is NOT a skirt."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/kilt"
+	post_init_icon_state = "kilt"
+	greyscale_config = /datum/greyscale_config/kilt
+	greyscale_config_worn = /datum/greyscale_config/kilt/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/kilt/worn/digi
+	greyscale_colors = "#FFFFFF#365736#d9e6e5"
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	flags_1 = IS_PLAYER_COLORABLE_1
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_DIGITIGRADE_MASK
+
+
+/obj/item/clothing/under/pants/nova/shorted_overall
+	name = "shortened overalls"
+	desc = "A Shortened pair of denim overalls to show off your legs and adorability. The Clothing tag labeled 'DarkRilo Apperel'"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/shorted_overall"
+	post_init_icon_state = "shorted_overall"
+	greyscale_config = /datum/greyscale_config/overalls/shorted_overall
+	greyscale_config_worn = /datum/greyscale_config/overalls/shorted_overall/worn
+	greyscale_colors = "#cccccc"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN|LEGS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+// 	bodyshapes_with_variations = NONE
+	can_adjust = FALSE
+
+
+/obj/item/clothing/under/pants/nova/wide_leg
+	name = "wide legged pants"
+	desc = "An airy pair of wide-legged pants with a reasonably high waist."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/wide_leg"
+	post_init_icon_state = "wide_leg"
+	greyscale_config = /datum/greyscale_config/wide_leg //The naming conventions behind the icons/configs here are a travesty, and I'm very sorry.
+	greyscale_config_worn = /datum/greyscale_config/wide_leg/worn	//It will happen again.
+	greyscale_config_worn_digi = /datum/greyscale_config/wide_leg/worn/digi
+	greyscale_colors = "#ba917d"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER
+
+
+/obj/item/clothing/under/pants/nova/yoga
+	name = "yoga pants"
+	desc = "Breathable and stretchy, perfect for exercising comfortably!"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/nova/yoga"
+	post_init_icon_state = "yoga_pants"
+	greyscale_config = /datum/greyscale_config/yoga_pants //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
+	greyscale_config_worn = /datum/greyscale_config/yoga_pants/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/yoga_pants/worn/digi
+	greyscale_colors = "#3d3d3d" //Having all the configs for a single color feels wrong. This is wrong.
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
+/obj/item/clothing/under/shorts/nova/shortershorts
+	name = "shorter shorts"
+	desc = "Show those legs off with these even shorter shorts!"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shorts/nova/shortershorts"
+	post_init_icon_state = "shortershorts"
+	greyscale_config = /datum/greyscale_config/shortershorts
+	greyscale_config_worn = /datum/greyscale_config/shortershorts/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/shortershorts/worn/digi
+	greyscale_colors = "#787878#723E0E#202020"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
+/obj/item/clothing/under/shorts/nova/shorts_ripped
+	name = "ripped shorts"
+	desc = "A nondescript pair of tough jean shorts, with the ends of the pantlegs frayed and torn. No one will ever know if this was done intentionally."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shorts/nova/shorts_ripped"
+	post_init_icon_state = "shorts_ripped"
+	greyscale_config = /datum/greyscale_config/shorts_ripped //These configs are defined in the GAGS module for now; the icons and item will remain in these files.
+	greyscale_config_worn = /datum/greyscale_config/shorts_ripped/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/shorts_ripped/worn/digi
+	greyscale_config_worn_teshari = /datum/greyscale_config/shorts_ripped/worn/teshari
+	greyscale_colors = "#787878#723E0E#202020"
+	flags_1 = IS_PLAYER_COLORABLE_1
+

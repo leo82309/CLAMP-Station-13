@@ -6,7 +6,7 @@
 			"products" = list(
 				/obj/item/clothing/neck/human_petcollar/locked/ringbell = 8,
 				/obj/item/clothing/neck/inferno_collar = 8,
-				/obj/item/clothing/neck/flower_collar = 8,
+// 				/obj/item/clothing/neck/flower_collar = 8,
 				/obj/item/clothing/mask/bridle = 8,
 			)
 		),

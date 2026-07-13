@@ -134,7 +134,7 @@
 
 /datum/loadout_item/mask/gas/nightlight_mask/alldono
 	name = "Commercial FIR-36 Rebreather"
-	item_path = /obj/item/clothing/mask/gas/nightlight/alldono
+// 	item_path = /obj/item/clothing/mask/gas/nightlight/alldono
 
 /datum/loadout_item/mask/gas/nightlight_mask
 	name = "'Royez' Half-Face Rebreather"

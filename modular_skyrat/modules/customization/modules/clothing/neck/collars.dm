@@ -25,8 +25,8 @@
 	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/human_petcollar"
 	post_init_icon_state = "pet"
-	greyscale_config = /datum/greyscale_config/collar/pet
-	greyscale_config_worn = /datum/greyscale_config/collar/pet/worn
+// 	greyscale_config = /datum/greyscale_config/collar/pet
+// 	greyscale_config_worn = /datum/greyscale_config/collar/pet/worn
 	greyscale_colors = "#44BBEE#FFCC00"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = UNDER_SUIT_LAYER
@@ -51,8 +51,8 @@
 	name = "leather pet collar"
 	icon_state = "/obj/item/clothing/neck/human_petcollar/leather"
 	post_init_icon_state = "leather"
-	greyscale_config = /datum/greyscale_config/collar/leather
-	greyscale_config_worn = /datum/greyscale_config/collar/leather/worn
+// 	greyscale_config = /datum/greyscale_config/collar/leather
+// 	greyscale_config_worn = /datum/greyscale_config/collar/leather/worn
 	greyscale_colors = "#222222#888888#888888"
 
 /obj/item/clothing/neck/human_petcollar/choker
@@ -60,8 +60,8 @@
 	desc = "Quite fashionable... if you're somebody who's just read their first BDSM-themed erotica novel."
 	icon_state = "/obj/item/clothing/neck/human_petcollar/choker"
 	post_init_icon_state = "choker"
-	greyscale_config = /datum/greyscale_config/collar/choker
-	greyscale_config_worn = /datum/greyscale_config/collar/choker/worn
+// 	greyscale_config = /datum/greyscale_config/collar/choker
+// 	greyscale_config_worn = /datum/greyscale_config/collar/choker/worn
 	greyscale_colors = "#222222"
 
 /obj/item/clothing/neck/human_petcollar/thinchoker
@@ -69,8 +69,8 @@
 	desc = "Like the normal one, but thinner!"
 	icon_state = "/obj/item/clothing/neck/human_petcollar/thinchoker"
 	post_init_icon_state = "thinchoker"
-	greyscale_config = /datum/greyscale_config/collar/thinchoker
-	greyscale_config_worn = /datum/greyscale_config/collar/thinchoker/worn
+// 	greyscale_config = /datum/greyscale_config/collar/thinchoker
+// 	greyscale_config_worn = /datum/greyscale_config/collar/thinchoker/worn
 	greyscale_colors = "#222222"
 
 /obj/item/key/collar
@@ -110,8 +110,8 @@
 	desc = "A loud and annoying collar for your little kitten!"
 	icon_state = "/obj/item/clothing/neck/human_petcollar/locked/bell"
 	post_init_icon_state = "bell"
-	greyscale_config = /datum/greyscale_config/collar/bell
-	greyscale_config_worn = /datum/greyscale_config/collar/bell/worn
+// 	greyscale_config = /datum/greyscale_config/collar/bell
+// 	greyscale_config_worn = /datum/greyscale_config/collar/bell/worn
 	greyscale_colors = "#663300#FFCC00"
 
 /obj/item/clothing/neck/human_petcollar/locked/choker
@@ -119,8 +119,8 @@
 	desc = "Quite fashionable... if you're somebody who's just read their first BDSM-themed erotica novel."
 	icon_state = "/obj/item/clothing/neck/human_petcollar/locked/choker"
 	post_init_icon_state = "choker"
-	greyscale_config = /datum/greyscale_config/collar/choker
-	greyscale_config_worn = /datum/greyscale_config/collar/choker/worn
+// 	greyscale_config = /datum/greyscale_config/collar/choker
+// 	greyscale_config_worn = /datum/greyscale_config/collar/choker/worn
 	greyscale_colors = "#222222"
 
 /obj/item/clothing/neck/human_petcollar/locked/cow
@@ -128,8 +128,8 @@
 	desc = "Don't fear the reaper, now your pet doesn't have to."
 	icon_state = "/obj/item/clothing/neck/human_petcollar/locked/cow"
 	post_init_icon_state = "cow"
-	greyscale_config = /datum/greyscale_config/collar/cow
-	greyscale_config_worn = /datum/greyscale_config/collar/cow/worn
+// 	greyscale_config = /datum/greyscale_config/collar/cow
+// 	greyscale_config_worn = /datum/greyscale_config/collar/cow/worn
 	greyscale_colors = "#663300#FFCC00"
 
 /obj/item/clothing/neck/human_petcollar/locked/cross
@@ -137,8 +137,8 @@
 	desc = "A religious punishment, probably."
 	icon_state = "/obj/item/clothing/neck/human_petcollar/locked/cross"
 	post_init_icon_state = "cross"
-	greyscale_config = /datum/greyscale_config/collar/cross
-	greyscale_config_worn = /datum/greyscale_config/collar/cross/worn
+// 	greyscale_config = /datum/greyscale_config/collar/cross
+// 	greyscale_config_worn = /datum/greyscale_config/collar/cross/worn
 	greyscale_colors = "#663300#FFCC00"
 
 /obj/item/clothing/neck/human_petcollar/locked/holo
@@ -146,16 +146,16 @@
 	desc = "A collar with holographic information. Like a microchip, but around the neck."
 	icon_state = "/obj/item/clothing/neck/human_petcollar/locked/holo"
 	post_init_icon_state = "holo"
-	greyscale_config = /datum/greyscale_config/collar/holo
-	greyscale_config_worn = /datum/greyscale_config/collar/holo/worn
+// 	greyscale_config = /datum/greyscale_config/collar/holo
+// 	greyscale_config_worn = /datum/greyscale_config/collar/holo/worn
 	greyscale_colors = "#292929#3399FF"
 
 /obj/item/clothing/neck/human_petcollar/locked/leather
 	name = "leather pet collar"
 	icon_state = "/obj/item/clothing/neck/human_petcollar/locked/leather"
 	post_init_icon_state = "leather"
-	greyscale_config = /datum/greyscale_config/collar/leather
-	greyscale_config_worn = /datum/greyscale_config/collar/leather/worn
+// 	greyscale_config = /datum/greyscale_config/collar/leather
+// 	greyscale_config_worn = /datum/greyscale_config/collar/leather/worn
 	greyscale_colors = "#222222#888888#888888"
 
 /obj/item/clothing/neck/human_petcollar/locked/spike
@@ -163,6 +163,6 @@
 	desc = "A collar for a moody pet. Or a pitbull."
 	icon_state = "/obj/item/clothing/neck/human_petcollar/locked/spike"
 	post_init_icon_state = "spike"
-	greyscale_config = /datum/greyscale_config/collar/spike
-	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
+// 	greyscale_config = /datum/greyscale_config/collar/spike
+// 	greyscale_config_worn = /datum/greyscale_config/collar/spike/worn
 	greyscale_colors = "#292929#C0C0C0"

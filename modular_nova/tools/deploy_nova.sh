@@ -8,5 +8,5 @@ directories_nova=( $(find modular_nova/ -type d -name "icons" 2>/dev/null) )
 for icondir in ${directories_nova[@]}
 do
     mkdir -p $1/$icondir
-	cp -r $icondir/* $1/$icondir/
+	cp -r $icondir/. $1/$icondir/ 2>/dev/null || true
 done

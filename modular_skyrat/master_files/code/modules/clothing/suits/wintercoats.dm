@@ -68,3 +68,12 @@
 
 /obj/item/clothing/head/hooded/winterhood/skyrat/christmas/green
 	icon_state = "hood_christmas_green"
+
+/obj/item/clothing/suit/hooded/wintercoat/nova
+	name = "assistant's formal winter coat"
+	desc = "A dark gray winter coat with bronze-gold detailing, and a zipper in the shape of a toolbox."
+	icon = 'modular_skyrat/master_files/icons/obj/clothing/suits/wintercoat.dmi'
+	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/wintercoat.dmi'
+	icon_state = "coataformal"
+// 	hoodtype = /obj/item/clothing/head/hooded/winterhood/nova
+

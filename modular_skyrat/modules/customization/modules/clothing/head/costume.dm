@@ -101,7 +101,21 @@
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/maid_headband"
 	post_init_icon_state = "maid_headband"
-	greyscale_config = /datum/greyscale_config/bubber_maid_headband
-	greyscale_config_worn = /datum/greyscale_config/bubber_maid_headband/worn
+// 	greyscale_config = /datum/greyscale_config/bubber_maid_headband
+// 	greyscale_config_worn = /datum/greyscale_config/bubber_maid_headband/worn
 	greyscale_colors = "#edf9ff"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/costume/nova/papakha
+	name = "papakha"
+	desc = "A big wooly clump of fur designed to go on your head."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/costume/nova/papakha"
+	post_init_icon_state = "papakha"
+	greyscale_config = /datum/greyscale_config/papakha
+	greyscale_config_worn = /datum/greyscale_config/papakha/worn
+	greyscale_colors = "#222222"
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
+

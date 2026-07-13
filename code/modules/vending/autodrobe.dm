@@ -52,9 +52,8 @@ GLOBAL_LIST_INIT(autodrobe_costumes_items, list(
 	/obj/item/clothing/glasses/surgerygoggles = 3,
 	/obj/item/clothing/gloves/longrubbergloves = 3,
 	/obj/item/clothing/head/anubite = 3,
-	/obj/item/clothing/head/avipilot = 3,
+	/obj/item/clothing/head/costume/ushanka/avipilot = 3,
 	/obj/item/clothing/head/costume/kabuto = 5,
-	/obj/item/clothing/head/costume/strigihat = 3,
 	/obj/item/clothing/head/drake_skull = 3,
 	/obj/item/clothing/head/playbunnyears = 6,
 	/obj/item/clothing/head/playbunnyears/british = 6,
@@ -156,7 +155,6 @@ GLOBAL_LIST_INIT(autodrobe_entretainers_items, list(
 	/obj/item/clothing/suit/jacket/tailcoat/clown = 3,
 	/obj/item/clothing/suit/jacket/tailcoat/mime = 3,
 	/obj/item/clothing/under/rank/civilian/clown/jesteralt = 1,
-	/obj/item/clothing/under/bubbly_clown/skirt = 3,
 	/obj/item/clothing/under/rank/civilian/bubber/clown/jester = 3,
 	/obj/item/clothing/under/rank/civilian/bubber/clown/skirt = 3,
 	/obj/item/clothing/under/rank/civilian/bubber/clown/skirt/clussy = 3,
@@ -236,7 +234,7 @@ GLOBAL_LIST_INIT(autodrobe_service_items, list(
 	/obj/item/clothing/gloves/maid_arm_covers = 1,
 	/obj/item/clothing/head/maid_headband = 1,
 	/obj/item/clothing/neck/maid_neck_cover = 1,
-	/obj/item/clothing/under/maid_costume = 1,
+// 	/obj/item/clothing/under/maid_costume = 1,
 	// BUBBER EDIT ADDITION END - Extra stuff
 ))
 
@@ -262,7 +260,7 @@ GLOBAL_LIST_INIT(autodrobe_other_items, list(
 	/obj/item/clothing/suit/costume/irs = 5,
 	/obj/item/clothing/suit/hooded/wintercoat/skyrat/christmas = 5,
 	/obj/item/clothing/suit/hooded/wintercoat/skyrat/christmas/green = 5,
-	/obj/item/clothing/suit/trenchblack = 5,
+// 	/obj/item/clothing/suit/trenchblack = 5,
 	/obj/item/clothing/suit/trenchbrown = 5,
 	/obj/item/clothing/under/costume/skyrat/christmas = 5,
 	/obj/item/clothing/under/costume/skyrat/christmas/croptop = 5,

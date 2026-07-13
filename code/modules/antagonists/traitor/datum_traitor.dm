@@ -353,3 +353,4 @@
 	SSjob.equip_rank(new_character, new_character.mind.assigned_role, new_character.client)
 	new_character.mind.give_uplink(silent = TRUE, antag_datum = src)
 	return TRUE
+

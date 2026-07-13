@@ -653,3 +653,4 @@
 	attack_verb_continuous = list("beeps", "washes", "mops", "squirts", "soaps")
 	attack_verb_simple = list("beep", "wash", "mop", "squirt", "soap")
 	squeak_override = list('sound/machines/beep/twobeep.ogg' = 1)
+

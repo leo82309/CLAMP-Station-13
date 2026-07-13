@@ -1,102 +1,67 @@
-/obj/item/clothing/suit/jacket/duster
-	name = "Oilskin duster"
-	desc = "A Long Duster coat with the iconic shoulder cape, Commonly used for rainy days and dusty dry days by cowboys."
-	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
-	icon_state = "duster"
-	body_parts_covered = CHEST|GROIN|ARMS|LEGS
-	cold_protection = CHEST|GROIN|ARMS|LEGS
+// Towa's Croptop Bomber Jacket (DarkRilo)
 
-/obj/item/clothing/suit/toggle/rp_jacket
-	name = "Yellow Jacket"
-	desc = "A yellow jacket with a fluffy collar."
-	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
-	icon_state = "jacket_yellow"
-	body_parts_covered = CHEST|ARMS
-	cold_protection = CHEST|ARMS
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
+	name = "croptop bomber jacket"
+	desc = "This stylish jacket, often worn by folk who have a good sense of style is in fact warm despite it being a crop top."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket"
+	inhand_icon_state = null
+	body_parts_covered = CHEST
+	post_init_icon_state = "croptop_bomber_base"
+	base_icon_state = "croptop_bomber_base"
+	greyscale_config = /datum/greyscale_config/croptop_bomber_jacket
+	greyscale_config_worn = /datum/greyscale_config/croptop_bomber_jacket/worn
+	greyscale_colors = "#227EFE#E5F0EA#B8BB59#FF0000"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/toggle/rp_jacket/orange
-	name = "Orange Jacket"
-	desc = "A orange jacket with a fluffy collar."
-	icon_state = "jacket_orange"
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/croptop_bomber_jacket)
 
-/obj/item/clothing/suit/toggle/rp_jacket/red
-	name = "Red Jacket"
-	desc = "A red jacket with a fluffy collar."
-	icon_state = "jacket_red"
-
-/obj/item/clothing/suit/toggle/rp_jacket/purple
-	name = "Purple Jacket"
-	desc = "A purple jacket with a fluffy collar."
-	icon_state = "jacket_purple"
-
-/obj/item/clothing/suit/toggle/rp_jacket/white
-	name = "White Jacket"
-	desc = "A white jacket with a fluffy collar."
-	icon_state = "jacket_white"
-
-/obj/item/clothing/suit/toggle/tunnelfox
-	name = "tunnel fox jacket"
-	desc = "Tunnel Foxes Rule!"
-	icon_state = "tunnelfox"
-	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
-	body_parts_covered = CHEST|LEGS|ARMS
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	toggle_noun = "buttons"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-
-/obj/item/clothing/suit/jacket/tailcoat/nanotrasen
-	name = "Nanotrasen tailcoat"
-	desc = "An official coat usually worn by bunny themed executives. The inside is lined with comfortable yet tasteful bunny fluff."
-	icon_state = "tailcoat_nanotrasen"
-	icon = 'modular_zzplurt/icons/obj/clothing/suits.dmi'
-	worn_icon = 'modular_zzplurt/icons/mob/clothing/suit.dmi'
-	post_init_icon_state = null
-	armor_type = /datum/armor/armor_centcom_formal_nt_consultant
-	greyscale_config = null
-	greyscale_config_worn = null
-	greyscale_colors = null
-
-/obj/item/clothing/suit/jacket/tailcoat/engineer/Initialize(mapload)
+/datum/atom_skin/croptop_bomber_jacket/apply(atom/apply_to, mob/user)
 	. = ..()
-	allowed += list(
-		/obj/item/analyzer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rld,
-		/obj/item/construction/rtd,
-		/obj/item/gun/ballistic/rifle/rebarxbow,
-		/obj/item/storage/bag/rebar_quiver,
-		/obj/item/storage/bag/construction,
-	)
+	if(isitem(apply_to)) // The toggle_icon component is evil. that's all.
+		var/obj/item/item_applied_to = apply_to
+		var/obj/item/greyscale_item = greyscale_item_path
+		item_applied_to.icon_state = greyscale_item::post_init_icon_state
+		item_applied_to.post_init_icon_state = greyscale_item::post_init_icon_state
+		item_applied_to.base_icon_state = greyscale_item::base_icon_state
 
-/obj/item/clothing/suit/utility/fire/atmos_tech_tailcoat/Initialize(mapload)
-	. = ..()
-	allowed += list(
-		/obj/item/analyzer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rld,
-		/obj/item/construction/rtd,
-		/obj/item/gun/ballistic/rifle/rebarxbow,
-		/obj/item/storage/bag/rebar_quiver,
-		/obj/item/storage/bag/construction,
-	)
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/stripe
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/stripe"
+	post_init_icon_state = "croptop_bomber_stripe"
+	base_icon_state = "croptop_bomber_stripe"
 
-/obj/item/clothing/suit/utility/fire/ce_tailcoat/Initialize(mapload)
-	. = ..()
-	allowed += list(
-		/obj/item/analyzer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rld,
-		/obj/item/construction/rtd,
-		/obj/item/gun/ballistic/rifle/rebarxbow,
-		/obj/item/storage/bag/rebar_quiver,
-		/obj/item/storage/bag/construction,
-		/obj/item/melee/baton/telescopic,
-	)
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/badge
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/badge"
+	post_init_icon_state = "croptop_bomber_badge"
+	base_icon_state = "croptop_bomber_badge"
+
+/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain
+	icon_state = "/obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain"
+	post_init_icon_state = "croptop_bomber_plain"
+	base_icon_state = "croptop_bomber_plain"
+
+// Atom skins
+
+/datum/atom_skin/croptop_bomber_jacket
+	abstract_type = /datum/atom_skin/croptop_bomber_jacket
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
+
+/datum/atom_skin/croptop_bomber_jacket/base
+	preview_name = "Croptop Bomber Jacket"
+	new_icon_state = "croptop_bomber_base"
+
+/datum/atom_skin/croptop_bomber_jacket/plain
+	preview_name = "Croptop Bomber Jacket Plain"
+	new_icon_state = "croptop_bomber_plain"
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/plain
+
+/datum/atom_skin/croptop_bomber_jacket/stripe
+	preview_name = "Croptop Bomber Jacket Stripe"
+	new_icon_state = "croptop_bomber_stripe"
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/stripe
+
+/datum/atom_skin/croptop_bomber_jacket/badge
+	preview_name = "Croptop Bomber Jacket Badge"
+	new_icon_state = "croptop_bomber_badge"
+	greyscale_item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket/badge

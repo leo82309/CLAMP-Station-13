@@ -45,3 +45,4 @@
 	if(LAZYLEN(the_piece.magazine.stored_ammo))
 		return FALSE
 	return ..()
+

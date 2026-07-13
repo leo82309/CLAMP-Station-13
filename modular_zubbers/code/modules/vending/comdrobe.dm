@@ -247,7 +247,7 @@
 		/obj/item/clothing/under/rank/nanotrasen/tactical/gold = 1,
 		/obj/item/clothing/under/rank/nanotrasen/tactical/gold/skirt = 1,
 		/obj/item/clothing/under/costume/playbunny/nanotrasen = 1,
-		/obj/item/clothing/suit/jacket/tailcoat/nanotrasen = 1,
+// 		/obj/item/clothing/suit/jacket/tailcoat/nanotrasen = 1,
 		/obj/item/clothing/head/beret/nanotrasen_formal/gold = 1,
 		/obj/item/clothing/head/hats/nanotrasen_cap = 1,
 		/obj/item/clothing/head/hats/nanotrasenhat = 1,

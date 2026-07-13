@@ -123,3 +123,14 @@
 	new /obj/item/knife/combat/marksman(src)
 	new /obj/item/knife/combat/marksman(src)
 	new /obj/item/knife/combat/marksman(src)
+
+/obj/item/knife/combat/throwing
+	name = "throwing knife"
+	desc = "While very well weighted for throwing, the distribution of mass makes it unwieldy for use in melee."
+	icon = 'modular_skyrat/modules/exp_corps/icons/throwing.dmi'
+	icon_state = "throwing"
+	force = 12 // don't stab with this
+	throwforce = 30 // 38 force on embed? compare contrast with throwing stars.
+	throw_speed = 4
+// 	embed_type = /datum/embedding/combat_knife/throwing
+

@@ -136,7 +136,7 @@
 	name = "ClothesMate Supply Crate"
 	desc = "Out of cowboy boots? Buy this crate."
 	cost = CARGO_CRATE_VALUE * 2
-	contains = list(/obj/item/vending_refill/clothing)
+// 	contains = list(/obj/item/vending_refill/clothing)
 	crate_name = "\improper ClothesMate supply crate"
 
 

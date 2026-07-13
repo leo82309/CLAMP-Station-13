@@ -70,7 +70,7 @@
 	equip_delay_other = 8
 
 /obj/item/clothing/suit/toggle/labcoat/roboticist
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 	greyscale_colors = "#2D2D33#88242D#88242D#88242D" //Overwrite the TG Roboticist labcoat to Black and Red (not the Interdyne labcoat though)
 
 /obj/item/clothing/suit/toggle/labcoat/medical //Renamed version of the Genetics labcoat for more generic medical purposes; just a subtype of /labcoat/ for the TG files
@@ -81,29 +81,37 @@
 	post_init_icon_state = "labcoat_job"
 	greyscale_config = /datum/greyscale_config/labcoat
 	greyscale_config_worn = /datum/greyscale_config/labcoat/worn
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 	greyscale_colors = "#EEEEEE#4A77A1#4A77A1#7095C2"
 
 /obj/item/clothing/suit/toggle/labcoat/science
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 
 /obj/item/clothing/suit/toggle/labcoat/coroner
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 
 /obj/item/clothing/suit/toggle/labcoat/virologist
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 
 /obj/item/clothing/suit/toggle/labcoat/genetics
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 
 /obj/item/clothing/suit/toggle/labcoat/chemist
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 
 /obj/item/clothing/suit/toggle/labcoat/interdyne
-	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
+// 	greyscale_config_worn_teshari = /datum/greyscale_config/labcoat/worn/teshari //tacks teshari override onto labcoats
 
 /obj/item/clothing/suit/toggle/labcoat/Initialize(mapload)
 	. = ..()
 	allowed += list(
 		/obj/item/handheld_soulcatcher,
 	)
+
+/obj/item/clothing/suit/toggle/labcoat/nova/lalunevest
+	name = "sleeveless buttoned coat"
+	desc = "A fashionable jacket bearing the La Lune insignia on the inside. It appears similar to a labcoat in design and materials, though the tag warns against it being a replacement for such."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/nova/lalunevest"
+	icon_state = "labcoat_lalunevest"
+	gets_cropped_on_taurs = FALSE
+
