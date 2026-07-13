@@ -28,7 +28,9 @@
 					break
 
 			if(!already_exists)
-				product_categories += category
+				if(!product_categories)
+					product_categories = list()
+				product_categories += list(category)
 
 	if(zubbers_premium)
 		// We need this, because duplicates screw up the spritesheet!

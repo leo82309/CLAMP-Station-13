@@ -119,8 +119,8 @@
 				/obj/item/clothing/neck/human_petcollar/locked/spike = 8,
 
 				//torso clothing
-				/obj/item/clothing/suit/straight_jacket/latex_straight_jacket = 5,
-				/obj/item/clothing/suit/straight_jacket/shackles = 4,
+				/obj/item/clothing/suit/jacket/straight_jacket/latex_straight_jacket = 5,
+				/obj/item/clothing/suit/jacket/straight_jacket/shackles = 4,
 
 				//hands
 				/obj/item/clothing/gloves/ball_mittens = 8,
@@ -181,7 +181,7 @@
 					/obj/item/clothing/neck/mind_collar = 2,
 					/obj/item/clothing/under/costume/jabroni = 4,
 					/obj/item/clothing/neck/human_petcollar/locked = 4,
-					/obj/item/clothing/suit/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
+					/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag = 2, //my favorite thing, spent 1 month on it. Don't remove please.
 					/obj/item/disk/nifsoft_uploader/dorms/contract = 5,
 					/obj/item/reagent_containers/applicator/pill/hexacrocin = 10,
 					/obj/item/reagent_containers/applicator/pill/pentacamphor = 5,

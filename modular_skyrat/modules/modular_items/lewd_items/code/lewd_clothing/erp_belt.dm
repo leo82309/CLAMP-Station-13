@@ -47,7 +47,7 @@
 						/obj/item/clothing/head/costume/skyrat/maid,
 						/obj/item/clothing/glasses/blindfold/kinky,
 						/obj/item/clothing/ears/kinky_headphones,
-						/obj/item/clothing/suit/straight_jacket/latex_straight_jacket,
+						/obj/item/clothing/suit/jacket/straight_jacket/latex_straight_jacket,
 						/obj/item/clothing/mask/gas/bdsm_mask,
 						/obj/item/clothing/head/deprivation_helmet,
 						/obj/item/clothing/glasses/hypno,
@@ -63,7 +63,7 @@
 						/obj/item/clothing/under/misc/latex_catsuit,
 						/obj/item/clothing/under/rank/civilian/janitor/maid,
 						/obj/item/clothing/under/costume/lewdmaid,
-						/obj/item/clothing/suit/straight_jacket/shackles,
+						/obj/item/clothing/suit/jacket/straight_jacket/shackles,
 						/obj/item/clothing/under/stripper_outfit,
 						/obj/item/clothing/under/misc/skyrat/gear_harness,
 

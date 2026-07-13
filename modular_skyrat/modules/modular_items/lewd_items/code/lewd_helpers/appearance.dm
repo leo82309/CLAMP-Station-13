@@ -1,7 +1,7 @@
 /// Helper proc for adding overrides to bodyparts to hide them if a catsuit or sleeping bag is worn. Allows for overrides for each, in case a part shouldn't be hidden.
 /datum/sprite_accessory/proc/lewd_is_hidden(mob/living/carbon/human/target_human, hide_if_catsuit = TRUE, hide_if_sleeping_bag = TRUE)
-	if(target_human.wear_suit && istype(target_human.wear_suit, /obj/item/clothing/suit/straight_jacket/kinky_sleepbag))
-		var/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/sleeping_bag = target_human.wear_suit
+	if(target_human.wear_suit && istype(target_human.wear_suit, /obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag))
+		var/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/sleeping_bag = target_human.wear_suit
 		if(sleeping_bag.state_thing == "inflated")
 			return hide_if_sleeping_bag
 		return FALSE
