@@ -90,5 +90,17 @@ GLOBAL_LIST_INIT(integrated_circuit_global_signal_ids, generate_global_circuit_s
 	if(!islist(responses) || !islist(parameters))
 		return
 
-	// var/list/sanitized_data = list()
-	
+	var/list/sanitized_data = list()
+
+	for(var/list/data as anything in responses)
+		sanitized_data += list(circuit_signal_response(data["name"], text2num(data["bitflag"])))
+	for(var/list/data as anything in parameters)
+		sanitized_data += list(circuit_signal_param(data["name"], data["datatype"]))
+
+	var/extra_info = ""
+	if(params["global"])
+		GLOB.integrated_circuit_global_signal_ids[signal_id] = sanitized_data
+		extra_info = " as a global signal"
+	else
+		GLOB.integrated_circuit_signal_ids[signal_id] = sanitized_data
+	balloon_alert(usr, "successfully added [signal_id][extra_info]")

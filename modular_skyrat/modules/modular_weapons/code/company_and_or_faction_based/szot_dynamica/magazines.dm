@@ -72,4 +72,3 @@
 	max_ammo = 3
 	caliber = CALIBER_60STRELA
 	w_class = WEIGHT_CLASS_NORMAL
-

@@ -45,7 +45,7 @@
 
 /datum/loadout_item/shoes/boots/jackboots/rax_armadyne_boots
 	name = "Tactical Boots"
-// 	item_path = /obj/item/clothing/shoes/jackboots/peacekeeper/armadyne/rax
+	item_path = /obj/item/clothing/shoes/jackboots/peacekeeper/armadyne/rax
 	//ckeywhitelist = list("raxraus")
 	restricted_roles = list(ALL_JOBS_SEC)
 

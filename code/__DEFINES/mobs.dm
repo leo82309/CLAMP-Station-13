@@ -1148,6 +1148,3 @@ GLOBAL_LIST_INIT(regal_rat_minion_commands, list(
 	/datum/pet_command/follow,
 	/datum/pet_command/attack/mouse
 ))
-
-
-#define UNDER_UNIFORM_LAYER 19.1

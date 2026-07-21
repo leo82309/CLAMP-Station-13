@@ -61,4 +61,3 @@
 
 /obj/item/gun/ballistic/automatic/xhihao_smg/no_mag
 	spawnwithmagazine = FALSE
-

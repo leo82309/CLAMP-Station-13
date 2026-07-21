@@ -175,4 +175,3 @@
  */
 /datum/interview/proc/link_self()
 	return "<a href='byond://?_src_=holder;[HrefToken(forceGlobal = TRUE)];interview=[REF(src)]'>Interview #[id]</a>"
-

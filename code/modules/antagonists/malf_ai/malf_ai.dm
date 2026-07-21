@@ -321,4 +321,3 @@
 	malf_ai.add_malf_picker()
 
 #undef PROB_SPECIAL
-

@@ -25,13 +25,13 @@ if [ -d ".git" ]; then
 fi
 
 cp tgstation.dmb tgstation.rsc $1/
-cp -r _maps/. $1/_maps/ 2>/dev/null || true
-cp -r code/datums/greyscale/json_configs/. $1/code/datums/greyscale/json_configs/ 2>/dev/null || true
-cp -r icons/. $1/icons/ 2>/dev/null || true
-cp -r sound/runtime/. $1/sound/runtime/ 2>/dev/null || true
-cp -r strings/. $1/strings/ 2>/dev/null || true
-cp -r tgui/public/. $1/tgui/public/ 2>/dev/null || true
-cp -r tgui/packages/tgfont/dist/. $1/tgui/packages/tgfont/dist/ 2>/dev/null || true
+cp -r _maps/* $1/_maps/
+cp -r code/datums/greyscale/json_configs/* $1/code/datums/greyscale/json_configs/
+cp -r icons/* $1/icons/
+cp -r sound/runtime/* $1/sound/runtime/
+cp -r strings/* $1/strings/
+cp -r tgui/public/* $1/tgui/public/
+cp -r tgui/packages/tgfont/dist/* $1/tgui/packages/tgfont/dist/
 
 #remove .dm files from _maps
 

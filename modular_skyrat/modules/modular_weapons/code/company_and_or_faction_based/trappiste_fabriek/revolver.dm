@@ -87,4 +87,3 @@
 	ammo_type = /obj/item/ammo_casing/c585trappiste
 	caliber = CALIBER_585TRAPPISTE
 	max_ammo = 5
-

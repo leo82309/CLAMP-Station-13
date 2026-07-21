@@ -84,12 +84,3 @@
 	desc = "A cheaper brand of sunglasses rated for much lower UV levels. Offers the user no protection against bright lights."
 	icon_state = "sun"
 	inhand_icon_state = "sunglasses"
-
-/obj/item/clothing/glasses/regular/modern
-	name = "modern glasses"
-	desc = "After Nerd. Co went bankrupt for tax evasion and invasion, they were bought out by Dork.Co, who revamped their classic design."
-// 	icon = MODULAR_EYES_ICON
-// 	worn_icon = MODULAR_EYES_WORN_ICON
-	icon_state = "glasses_alt"
-	inhand_icon_state = "glasses"
-

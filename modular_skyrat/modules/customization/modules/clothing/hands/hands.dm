@@ -52,65 +52,10 @@
 	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/gloves/maid_arm_covers"
 	post_init_icon_state = "maid_arm_covers"
-// 	greyscale_config = /datum/greyscale_config/bubber_maid_arm_covers
-// 	greyscale_config_worn = /datum/greyscale_config/bubber_maid_arm_covers/worn
+	greyscale_config = /datum/greyscale_config/bubber_maid_arm_covers
+	greyscale_config_worn = /datum/greyscale_config/bubber_maid_arm_covers/worn
 	greyscale_config_inhand_left = null
 	greyscale_config_inhand_right = null
 	greyscale_colors = "#7b9ab5#edf9ff"
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-
-/obj/item/clothing/gloves/designer
-	name = "designer gloves"
-	desc = "A fancy set of bicep-length designer gloves. For those who live a life of luxury, and/or have poor spending habits."
-// 	worn_icon = MODULAR_HANDS_WORN_ICON
-	strip_delay = 4 SECONDS
-	equip_delay_other = 2 SECONDS
-	icon = 'icons/map_icons/clothing/_clothing.dmi'
-	icon_state = "/obj/item/clothing/gloves/designer"
-	post_init_icon_state = "designer"
-	greyscale_config = /datum/greyscale_config/designer_gloves
-	greyscale_config_worn = /datum/greyscale_config/designer_gloves/worn
-	greyscale_colors = "#2F2E31"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-
-/obj/item/clothing/gloves/recolorable
-	name = "gloves"
-	desc = "A pair of gloves, they don't look special in any way."
-	icon = 'icons/map_icons/clothing/_clothing.dmi'
-	icon_state = "/obj/item/clothing/gloves/recolorable"
-	post_init_icon_state = "gloves"
-	greyscale_config = /datum/greyscale_config/recolorable_gloves
-	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/worn
-	greyscale_colors = "#252525"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-
-/obj/item/clothing/gloves/recolorable/fingerless
-	name = "fingerless gloves"
-	desc = "A pair of gloves. These ones are fingerless."
-	icon_state = "/obj/item/clothing/gloves/recolorable/fingerless"
-	post_init_icon_state = "gloves_fingerless"
-	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless
-	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless/worn
-	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)
-
-
-/obj/item/clothing/gloves/recolorable/fingerless/long
-	name = "long fingerless gloves"
-	desc = "A pair of gloves. These ones are fingerless, and have extra long cuffs."
-	icon_state = "/obj/item/clothing/gloves/recolorable/fingerless/long"
-	post_init_icon_state = "gloves_fingerless_long"
-	greyscale_config = /datum/greyscale_config/recolorable_gloves/fingerless_long
-	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/fingerless_long/worn
-
-
-/obj/item/clothing/gloves/recolorable/long
-	name = "long gloves"
-	desc = "A pair of gloves. These ones have extra long cuffs."
-	icon_state = "/obj/item/clothing/gloves/recolorable/long"
-	post_init_icon_state = "gloves_long"
-	greyscale_config = /datum/greyscale_config/recolorable_gloves/long
-	greyscale_config_worn = /datum/greyscale_config/recolorable_gloves/long/worn
 

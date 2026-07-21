@@ -8,5 +8,5 @@ directories_clamp=( $(find modular_clamp/ -type d -name "icons") )
 for icondir in ${directories_clamp[@]}
 do
     mkdir -p $1/$icondir
-	cp -r $icondir/. $1/$icondir/ 2>/dev/null || true
+	cp -r $icondir/* $1/$icondir/
 done

@@ -95,4 +95,3 @@
 
 /obj/item/gun/ballistic/automatic/sol_grenade_launcher/evil/no_mag
 	spawnwithmagazine = FALSE
-

@@ -129,4 +129,3 @@
 		tend to shatter when the rifle is actually fired."
 
 	return .
-

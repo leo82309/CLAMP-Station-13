@@ -60,4 +60,3 @@
 
 /obj/item/gun/ballistic/automatic/miecz/no_mag
 	spawnwithmagazine = FALSE
-

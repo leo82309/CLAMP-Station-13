@@ -426,6 +426,3 @@ GLOBAL_LIST_INIT(tool_items, list(
 #define LOCATION_NECK "around your neck"
 /// Items placed in the id slot
 #define LOCATION_ID "in your ID slot"
-
-
-#define CLOTHING_BIG_LEGS_MASK (1<<10)

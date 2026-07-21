@@ -215,16 +215,3 @@
 	use(1)
 	to_chat(user, span_notice("You finish repairing [interacting_with] with [src]."))
 	return ITEM_INTERACT_SUCCESS
-
-/obj/item/stack/medical/wrap/sticky_tape/surgical
-	name = "surgical tape"
-	singular_name = "surgical tape"
-	desc = "Made for patching broken bones back together alongside bone gel, not for playing pranks."
-// 	prefix = "surgical"
-// 	conferred_embed = /datum/embedding/sticky_tape/surgical
-	splint_factor = 0.5
-	custom_price = PAYCHECK_CREW
-	merge_type = /obj/item/stack/medical/wrap/sticky_tape/surgical
-	greyscale_colors = "#70BAE7#BD6A62"
-// 	tape_gag = /obj/item/clothing/mask/muzzle/tape/surgical
-

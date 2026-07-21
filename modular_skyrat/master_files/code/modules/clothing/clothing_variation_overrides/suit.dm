@@ -1,163 +1,220 @@
-/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest"
-	post_init_icon_state = "depgag_vest"
-	greyscale_config = /datum/greyscale_config/depgag_vest
-	greyscale_config_worn = /datum/greyscale_config/depgag_vest/worn
-	greyscale_colors = "#39393F#a52f29"
-	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest/blue
-	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest/blue"
-	greyscale_colors = "#39393F#3F6E9E"
+/**
+ * NO NEW ICON
+ * Clothing that do not require a new icon to function correctly, think, big jackets.
+ */
 
-/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim"
-	post_init_icon_state = "depgag_vest_slim"
-	greyscale_config = /datum/greyscale_config/depgag_vest_slim
-	greyscale_config_worn = /datum/greyscale_config/depgag_vest_slim/worn
-	greyscale_colors = "#252426#a52f29"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim/blue
-	icon_state = "/obj/item/clothing/suit/armor/vest/alt/sec/depgag_vest_slim/blue"
-	greyscale_colors = "#252426#3F6E9E"
-
-/obj/item/clothing/suit/armor/vest/depgag_hazard
-	name = "hi-vis armored vest"
-	desc = "Oi bruv, you got a loicence for that?"
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard"
-	post_init_icon_state = "depgag_hazard"
-	greyscale_config = /datum/greyscale_config/depgag_hazard
-	greyscale_config_worn = /datum/greyscale_config/depgag_hazard/worn
-	greyscale_colors = "#BAEA3E#EBEBEB"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/suit/armor/vest/depgag_hazard/red
-	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/red"
-	greyscale_colors = "#A52F29#EBEBEB"
-
-/obj/item/clothing/suit/armor/vest/depgag_hazard/blue
-	icon_state = "/obj/item/clothing/suit/armor/vest/depgag_hazard/blue"
-	greyscale_colors = "#3F6E9E#EBEBEB"
-
-/obj/item/clothing/suit/armor/vest/depgag_hazard/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "zipper")
-
-/obj/item/clothing/suit/armor/vest/secjacket/depgag
-	name = "hi-vis guard jacket"
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/armor/vest/secjacket/depgag"
-	post_init_icon_state = "depgag_hazard_jacket"
-	greyscale_config = /datum/greyscale_config/depgag_hazard_jacket
-	greyscale_config_worn = /datum/greyscale_config/depgag_hazard_jacket/worn
-	greyscale_colors = "#A52F29#39393F#EBEBEB"
-	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/suit/armor/vest/secjacket/depgag/blue
-	icon_state = "/obj/item/clothing/suit/armor/vest/secjacket/depgag/blue"
-	greyscale_colors = "#3F6E9E#39393F#EBEBEB"
-
-/obj/item/clothing/suit/armor/vest/secjacket/depgag/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "zipper")
-
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag
-	name = "guard winter coat"
-	desc = "An armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority."
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag"
-	post_init_icon_state = "depgag_winter_coat"
-	hood_down_overlay_suffix = ""
-	greyscale_config = /datum/greyscale_config/depgag_winter_coat
-	greyscale_config_worn = /datum/greyscale_config/depgag_winter_coat/worn
-	greyscale_colors = "#A52F29#CEC8BF#39393F#39393F"
-	flags_1 = IS_PLAYER_COLORABLE_1
+/obj/item/clothing/suit/bio_suit/plaguedoctorsuit
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	hoodtype = /obj/item/clothing/head/hooded/winterhood/depgag
-	var/hood_up = FALSE
 
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/blue
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/blue"
-	greyscale_colors = "#3F6E9E#CEC8BF#39393F#39393F"
+/obj/item/clothing/suit/toggle/chef
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/// Called when the hood is worn
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/on_hood_up(obj/item/clothing/head/hooded/hood)
-	hood_up = TRUE
+/obj/item/clothing/suit/jacket/det_suit
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/// Called when the hood is hidden
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/on_hood_down(obj/item/clothing/head/hooded/hood)
-	hood_up = FALSE
+/obj/item/clothing/suit/toggle/lawyer
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-//In case colors are changed after initialization
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
-	. = ..()
+/obj/item/clothing/suit/toggle/suspenders
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-	if(!hood)
-		return
+/obj/item/clothing/suit/toggle/labcoat/paramedic
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-	var/list/coat_colors = SSgreyscale.ParseColorString(greyscale_colors)
-	var/list/new_coat_colors = coat_colors.Copy(1,3)
-	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+/obj/item/clothing/suit/jacket/miljacket
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-//But also keep old method in case the hood is (re-)created later
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/on_hood_created(obj/item/clothing/head/hooded/hood)
-	. = ..()
-	var/list/coat_colors = (SSgreyscale.ParseColorString(greyscale_colors))
-	var/list/new_coat_colors = coat_colors.Copy(1,3)
-	hood.set_greyscale(new_coat_colors) //Adopt the suit's grayscale coloring for visual clarity.
+/obj/item/clothing/suit/jacket
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/head/hooded/winterhood/depgag
-	greyscale_config = /datum/greyscale_config/winter_hood
-	greyscale_config_worn = /datum/greyscale_config/winter_hood/worn
+/obj/item/clothing/suit/costume/wellworn_shirt
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber
-	name = "guard bomber jacket"
-	desc = "A comfortable jacket in security red. Probably against uniform regulations."
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber"
-	post_init_icon_state = "depgag_bomber"
-	greyscale_config = /datum/greyscale_config/depgag_bomber
-	greyscale_config_worn = /datum/greyscale_config/depgag_bomber/worn
-	greyscale_colors = "#A52F29#39393F"
-	flags_1 = IS_PLAYER_COLORABLE_1
+/obj/item/clothing/suit/costume/poncho
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
 
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/blue
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/bomber/blue"
-	greyscale_colors = "#3F6E9E#39393F"
+/obj/item/clothing/suit/wizrobe
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket
-	name = "vested guard jacket"
-	desc = "The company standard armor now with a stylish unzipped jacket stitched in for when you don't think you'll get shot!"
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket"
-	post_init_icon_state = "depgag_vested_jacket"
-	greyscale_config = /datum/greyscale_config/depgag_vested_jacket
-	greyscale_config_worn = /datum/greyscale_config/depgag_vested_jacket/worn
-	greyscale_colors = "#A52F29#39393F#39393F"
-	flags_1 = IS_PLAYER_COLORABLE_1
+/obj/item/clothing/suit/hooded/bee_costume
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue
-	icon_state = "/obj/item/clothing/suit/hooded/wintercoat/security/depgag/depgag_vested_jacket/blue"
-	greyscale_colors = "#3F6E9E#39393F#EBEBEB"
-/*
-*	WARDEN
-*/
+/obj/item/clothing/suit/chaplainsuit/holidaypriest
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/armor/vest/warden/blue
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
-	icon_state = "vest_warden"
+/obj/item/clothing/suit/hazardvest
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/*
-*	Head of Security
-*/
+/obj/item/clothing/suit/costume/pirate/captain
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
-/obj/item/clothing/suit/armor/hos/hos_formal/black
-	icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
-	worn_icon = 'modular_skyrat/master_files/icons/mob/clothing/suits/armor.dmi'
-	icon_state = "hosformal_black"
+/obj/item/clothing/suit/jacket/curator
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/costume/wellworn_shirt
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/suit/jacket/oversized
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/suit/mothcoat/winter
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
+//Chaplain Suits
+/obj/item/clothing/suit/hooded/chaplain_hoodie
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/hooded/chaplainsuit
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/chaplainsuit
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+//End Chaplain Suits
+
+
+/obj/item/clothing/suit/hooded/cultrobes/void
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/hooded/cultrobes/eldritch
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/armor/hos/trenchcoat
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/armor/vest
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/armor/reactive
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/changeling
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/costume/whitedress
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/hooded/ethereal_raincoat
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/costume/snowman
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/costume/hawaiian
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/costume/tmc
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/costume/pg
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/costume/soviet
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/jacket/oversized
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/jacket/fancy
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/space/officer
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/space/changeling
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/hooded/wintercoat
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	gets_cropped_on_taurs = FALSE
+
+/obj/item/clothing/suit/toggle/cargo_tech
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/obj/item/clothing/suit/jacket/quartermaster
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+
+/**
+ * NONE(Squash)
+ * Clothing that does not have a digitigrade version, and thus will squash legs to fit.
+ */
+
+/obj/item/clothing/suit/armor/changeling
+	supports_variations_flags = NONE
+
+/obj/item/clothing/suit/armor/vest/ctf
+	supports_variations_flags = NONE
+
+/obj/item/clothing/suit/space/hunter
+	supports_variations_flags = NONE
+
+/obj/item/clothing/suit/costume/deckers
+	supports_variations_flags = NONE
+
+/obj/item/clothing/suit/costume/yuri
+	supports_variations_flags = NONE
+
+/obj/item/clothing/suit/costume/football_armor
+	supports_variations_flags = NONE
+
+/obj/item/clothing/suit/hooded/cloak/godslayer
+	supports_variations_flags = NONE
+
+/obj/item/clothing/suit/hooded/techpriest
+	supports_variations_flags = NONE
+
+/**
+ * SUBTYPE WITH NEW ICON
+ * Clothing that has a digitigrade version, but its parent was set to something else earlier in this file or elsewhere entirely.
+ */
+/obj/item/clothing/suit/wizrobe/magusblue
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/wizrobe/magusred
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/wizrobe/santa
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/apron/overalls
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/vest/warden
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/vest/leather
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/vest/marine/security
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/vest/marine/engineer
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/riot
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+//Chaplain Suits
+//TG neglected to sort between legged and robed, so we'll have to just manually set each one
+/obj/item/clothing/suit/chaplainsuit/armor/studentuni
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION //Prevents a few glaring missing pixels
+
+/obj/item/clothing/suit/chaplainsuit/armor/clock
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/chaplainsuit/armor/templar
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/chaplainsuit/armor/ancient
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/chaplainsuit/shrinehand
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION //Prevents a few glaring missing pixels
+//End Chaplain Suits

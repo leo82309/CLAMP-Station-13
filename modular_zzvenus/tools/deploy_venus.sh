@@ -8,5 +8,5 @@ directories_venus=( $(find modular_zzvenus/ -type d -name "icons") )
 for icondir in ${directories_venus[@]}
 do
     mkdir -p $1/$icondir
-	cp -r $icondir/. $1/$icondir/ 2>/dev/null || true
+	cp -r $icondir/* $1/$icondir/
 done

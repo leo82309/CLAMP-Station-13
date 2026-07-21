@@ -257,31 +257,31 @@
 
 /obj/item/clothing/under
 	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
-// 	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid
+	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid
 
 /obj/item/clothing/neck
 	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
-// 	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/scarf
+	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/scarf
 
 /obj/item/clothing/neck/cloak
 	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
-// 	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/cloak
+	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/cloak
 
 /obj/item/clothing/neck/tie
 	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
-// 	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/tie
+	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/tie
 
 /obj/item/clothing/gloves
 	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
-// 	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/gloves
+	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/gloves
 
 /obj/item/clothing/glasses
 	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
-// 	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/eyes
+	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/eyes
 
 /obj/item/clothing/belt
 	species_clothing_color_coords = list(list(BASE_CLOTH_X_1, BASE_CLOTH_Y_1))
-// 	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/belt
+	greyscale_config_worn_serpentid_fallback = /datum/greyscale_config/serpentid/belt
 
 #undef BASE_CLOTH_X_1
 #undef BASE_CLOTH_Y_1

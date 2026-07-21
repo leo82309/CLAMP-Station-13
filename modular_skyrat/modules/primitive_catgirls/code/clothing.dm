@@ -125,8 +125,8 @@
 	post_init_icon_state = "gaiter"
 	inhand_icon_state = "balaclava"
 	worn_icon = 'modular_skyrat/modules/primitive_catgirls/icons/clothing_greyscale.dmi'
-// 	greyscale_config = /datum/greyscale_config/primitive_catgirl_gaiter
-// 	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_gaiter/worn
+	greyscale_config = /datum/greyscale_config/primitive_catgirl_gaiter
+	greyscale_config_worn = /datum/greyscale_config/primitive_catgirl_gaiter/worn
 	greyscale_colors = "#364660"
 	w_class = WEIGHT_CLASS_TINY
 	flags_inv = HIDEFACE|HIDESNOUT
