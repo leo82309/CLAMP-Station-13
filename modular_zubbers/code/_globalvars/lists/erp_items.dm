@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(erp_items, list(
 	/obj/item/clothing/shoes/latex_heels/domina_heels,
 	/obj/item/clothing/strapon,
 	/obj/item/clothing/suit/corset,
-	/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag,
+	/obj/item/clothing/suit/straight_jacket/kinky_sleepbag,
 	/obj/item/clothing/under/stripper_outfit,
 	/obj/item/condom_pack,
 	/obj/item/construction_kit/bdsm,

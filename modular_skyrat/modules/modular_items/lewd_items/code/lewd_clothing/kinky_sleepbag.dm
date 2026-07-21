@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag
 	name = "latex sleeping bag"
 	desc = "A tight sleeping bag made of a shiny material. It would be dangerous to put it on yourself."
 	icon = 'modular_skyrat/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_suits.dmi'
@@ -37,21 +37,21 @@
 	custom_price = 600
 
 //create radial menu
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/proc/populate_bag_colors()
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/populate_bag_colors()
 	bag_colors = list(
 		"pink" = image (icon = src.icon, icon_state = "sleepbag_pink_deflated_folded"),
 		"teal" = image(icon = src.icon, icon_state = "sleepbag_teal_deflated_folded"))
 
 //radial menu for changing type
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/proc/populate_bag_inf_states()
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/populate_bag_inf_states()
 	bag_inf_states = list(
 		"inflated" = image (icon = src.icon, icon_state = "sleepbag_pink_deflated_folded"),
 		"deflated" = image(icon = src.icon, icon_state = "sleepbag_teal_deflated_folded"))
 
 //to change model
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/click_alt(mob/user)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/click_alt(mob/user)
 	var/mob/living/carbon/human/clicking_human = user
-	if(istype(clicking_human.wear_suit, /obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag))
+	if(istype(clicking_human.wear_suit, /obj/item/clothing/suit/straight_jacket/kinky_sleepbag))
 		to_chat(user, span_warning("Your hands are stuck, you can't do this!"))
 		return CLICK_ACTION_BLOCKING
 	switch(color_changed)
@@ -76,14 +76,14 @@
 				to_chat(user, span_notice("You can't fold the bag while it's inflated!"))
 				return CLICK_ACTION_BLOCKING
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/proc/check_menu(mob/living/user)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/check_menu(mob/living/user)
 	if(!istype(user))
 		return FALSE
 	if(user.incapacitated)
 		return FALSE
 	return TRUE
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/Initialize(mapload)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	update_icon_state()
@@ -93,12 +93,12 @@
 	if(!length(bag_inf_states))
 		populate_bag_inf_states()
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/update_icon_state()
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]_[bag_color]_[bag_state]_[bag_fold? "folded" : "unfolded"]"
 	inhand_icon_state = "[base_icon_state]_[bag_color]_[bag_state]_[bag_fold? "folded" : "unfolded"]"
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/equipped(mob/user, slot)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/equipped(mob/user, slot)
 	var/mob/living/carbon/human/affected_human = user
 	if(ishuman(user) && (slot & ITEM_SLOT_OCLOTHING))
 		ADD_TRAIT(user, TRAIT_FLOORED, CLOTHING_TRAIT)
@@ -121,7 +121,7 @@
 	. = ..()
 
 //to inflate/deflate that thing
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/attack_self(mob/user)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/attack_self(mob/user)
 	var/mob/living/carbon/human/affected_human = user
 	if(bag_fold == FALSE)
 		toggle_mode()
@@ -131,7 +131,7 @@
 	else
 		to_chat(affected_human, span_notice("You need to unfold the bag before inflating it!"))
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/proc/fold(mob/user)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/fold(mob/user)
 	bag_fold = !bag_fold
 	conditional_pref_sound(user, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 40, TRUE)
 	if(bag_fold == TRUE)
@@ -143,7 +143,7 @@
 	update_icon_state()
 	update_icon()
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/proc/toggle_mode()
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/proc/toggle_mode()
 	state_thing = bag_states[state_thing]
 	switch(state_thing)
 		if("deflated")
@@ -156,7 +156,7 @@
 			slowdown = 14 //it should be almost impossible to move in that thing, so this big slowdown have reasons.
 	// appearance_update()
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/dropped(mob/user)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/dropped(mob/user)
 	var/mob/living/carbon/human/affected_human = user
 
 	if(ishuman(user))
@@ -180,7 +180,7 @@
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/process(seconds_per_tick)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/process(seconds_per_tick)
 	if(time_to_sound_left <= 0)
 		if(tt <= 0)
 			conditional_pref_sound(loc, 'modular_skyrat/modules/modular_items/lewd_items/sounds/latex.ogg', 100, TRUE)
@@ -191,7 +191,7 @@
 		time_to_sound_left -= seconds_per_tick
 
 
-/obj/item/clothing/suit/jacket/straight_jacket/kinky_sleepbag/doStrip(mob/stripper, mob/owner)
+/obj/item/clothing/suit/straight_jacket/kinky_sleepbag/doStrip(mob/stripper, mob/owner)
 	. = ..()
 	owner.update_held_items()
 	stripper.update_held_items()

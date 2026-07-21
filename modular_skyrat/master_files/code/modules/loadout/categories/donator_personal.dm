@@ -169,33 +169,33 @@
 	item_path = /obj/item/clothing/head/costume/ushanka/avipilot
 	ckeywhitelist = list("slippyjoe")
 
-// /datum/loadout_item/shoes/britches_shoes
-// 	name = "Britches' shoes"
-// 	item_path = /obj/item/clothing/shoes/clown_shoes/britches
-// 	ckeywhitelist = list("bloodrite")
+/datum/loadout_item/shoes/britches_shoes
+	name = "Britches' shoes"
+	item_path = /obj/item/clothing/shoes/clown_shoes/britches
+	ckeywhitelist = list("bloodrite")
 
 /datum/loadout_item/under/jumpsuit/britches_dress
 	name = "Britches' dress"
 	item_path = /obj/item/clothing/under/rank/civilian/clown/britches
 	ckeywhitelist = list("bloodrite")
 
-// /datum/loadout_item/mask/britches_mask
-// 	name = "Britches' mask"
-// 	item_path = /obj/item/clothing/mask/gas/britches
-// 	ckeywhitelist = list("bloodrite")
+/datum/loadout_item/mask/britches_mask
+	name = "Britches' mask"
+	item_path = /obj/item/clothing/mask/gas/britches
+	ckeywhitelist = list("bloodrite")
 
-// /datum/loadout_item/mask/luchador_mask
-// 	name = "Mask of El Red Templar"
-// 	item_path = /obj/item/clothing/mask/luchador/enzo
-// 	ckeywhitelist = list("enzoman")
+/datum/loadout_item/mask/luchador_mask
+	name = "Mask of El Red Templar"
+	item_path = /obj/item/clothing/mask/luchador/enzo
+	ckeywhitelist = list("enzoman")
 
-// /datum/loadout_item/mask/nightlight_mask
-// 	name = "FIR-36 Rebreather"
-// 	item_path = /obj/item/clothing/mask/gas/nightlight
+/datum/loadout_item/mask/nightlight_mask
+	name = "FIR-36 Rebreather"
+	item_path = /obj/item/clothing/mask/gas/nightlight
 
-// /datum/loadout_item/mask/fir22
-// 	name = "FIR-22 Full-Face Rebreather"
-// 	item_path = /obj/item/clothing/mask/gas/nightlight/fir22
+/datum/loadout_item/mask/fir22
+	name = "FIR-22 Full-Face Rebreather"
+	item_path = /obj/item/clothing/mask/gas/nightlight/fir22
 
 /datum/loadout_item/mask/caligram_visage_mask
 	name = "Caligram Visage Mask"
@@ -234,10 +234,10 @@
 	item_path = /obj/item/clothing/under/wetsuit_norm
 	ckeywhitelist = list("ChillyLobster")
 
-// /datum/loadout_item/mask/wolf_mask
-// 	name = "Wolf Mask"
-// 	item_path = /obj/item/clothing/mask/animal/wolf
-// 	ckeywhitelist = list("hauntme")
+/datum/loadout_item/mask/wolf_mask
+	name = "Wolf Mask"
+	item_path = /obj/item/clothing/mask/animal/wolf
+	ckeywhitelist = list("hauntme")
 
 /datum/loadout_item/head/drake_skull
 	name = "Skull of an ashdrake"
@@ -276,10 +276,10 @@
 	item_path = /obj/item/clothing/gloves/netra
 	ckeywhitelist = list("netrakyram")
 
-// /datum/loadout_item/shoes/metra_boots
-// 	name = "Polished Jackboots"
-// 	item_path = /obj/item/clothing/shoes/jackboots/netra
-// 	ckeywhitelist = list("netrakyram")
+/datum/loadout_item/shoes/metra_boots
+	name = "Polished Jackboots"
+	item_path = /obj/item/clothing/shoes/jackboots/netra
+	ckeywhitelist = list("netrakyram")
 
 /datum/loadout_item/neck/kiaracloak
 	name = "Kiara's cloak"
@@ -291,25 +291,25 @@
 	item_path = /obj/item/clothing/neck/inferno_collar
 	ckeywhitelist = list("inferno707")
 
-// /datum/loadout_item/pocket_items/kiaramedal
-// 	name = "Insignia of Steele"
-// 	item_path = /obj/item/clothing/accessory/medal/steele
-// 	ckeywhitelist = list("inferno707")
+/datum/loadout_item/pocket_items/kiaramedal
+	name = "Insignia of Steele"
+	item_path = /obj/item/clothing/accessory/medal/steele
+	ckeywhitelist = list("inferno707")
 
-// /datum/loadout_item/mask/hheart
-// 	name = "The Hollow Heart"
-// 	item_path = /obj/item/clothing/mask/hheart
-// 	ckeywhitelist = list("inferno707")
+/datum/loadout_item/mask/hheart
+	name = "The Hollow Heart"
+	item_path = /obj/item/clothing/mask/hheart
+	ckeywhitelist = list("inferno707")
 
 /datum/loadout_item/toys/darksabre
 	name = "Dark Sabre"
 	item_path = /obj/item/toy/darksabre
 	ckeywhitelist = list("inferno707")
 
-// /datum/loadout_item/pocket_items/darksabresheath
-// 	name = "Dark Sabre Sheath"
-// 	item_path = /obj/item/storage/belt/sheath/sabre/darksabre
-// 	ckeywhitelist = list("inferno707")
+/datum/loadout_item/pocket_items/darksabresheath
+	name = "Dark Sabre Sheath"
+	item_path = /obj/item/storage/belt/sheath/sabre/darksabre
+	ckeywhitelist = list("inferno707")
 
 /datum/loadout_item/pocket_items/darkarmor
 	name = "Dark Armor"
@@ -366,10 +366,10 @@
 	item_path = /obj/item/clothing/gloves/mikugloves
 	ckeywhitelist = list("grandvegeta")
 
-// /datum/loadout_item/shoes/mikulegging
-// 	name = "starlight singer bikini"
-// 	item_path = /obj/item/clothing/shoes/sneakers/mikuleggings
-// 	ckeywhitelist = list("grandvegeta")
+/datum/loadout_item/shoes/mikulegging
+	name = "starlight singer bikini"
+	item_path = /obj/item/clothing/shoes/sneakers/mikuleggings
+	ckeywhitelist = list("grandvegeta")
 
 /datum/loadout_item/suit/delta_coat
 	name = "Grey Winter Hoodie"
@@ -424,10 +424,10 @@
 	// item_path = /obj/item/toy/plush/nova/donator/voodoo // MISSING
 	ckeywhitelist = list("gamerguy14948")
 
-// /datum/loadout_item/mask/octusvox
-// 	name = "Sinister Visor"
-// 	item_path = /obj/item/clothing/mask/breath/vox/octus
-// 	ckeywhitelist = list("octus")
+/datum/loadout_item/mask/octusvox
+	name = "Sinister Visor"
+	item_path = /obj/item/clothing/mask/breath/vox/octus
+	ckeywhitelist = list("octus")
 
 /datum/loadout_item/glasses/roseglasses
 	name = "Rose-Colored Glasses"
@@ -449,10 +449,10 @@
 	item_path = /obj/item/poster/korpstech
 	ckeywhitelist = list("1ceres")
 
-// /datum/loadout_item/glasses/roseeyepatch
-// 	name = "Rose-Colored Eyepatch"
-// 	item_path = /obj/item/clothing/glasses/eyepatch/rosecolored
-// 	ckeywhitelist = list("kaynite")
+/datum/loadout_item/glasses/roseeyepatch
+	name = "Rose-Colored Eyepatch"
+	item_path = /obj/item/clothing/glasses/eyepatch/rosecolored
+	ckeywhitelist = list("kaynite")
 
 /datum/loadout_item/suit/tenrai_coat
 	name = "Tenrai Coat"
@@ -464,10 +464,10 @@
 	item_path = /obj/item/clothing/neck/cloak/fluffycloak
 	ckeywhitelist = list("realwinterfrost")
 
-// /datum/loadout_item/mask/larpswat
-// 	name = "Foam Force SWAT Mask"
-// 	item_path = /obj/item/clothing/mask/gas/larpswat
-// 	ckeywhitelist = list("erdinyobarboza")
+/datum/loadout_item/mask/larpswat
+	name = "Foam Force SWAT Mask"
+	item_path = /obj/item/clothing/mask/gas/larpswat
+	ckeywhitelist = list("erdinyobarboza")
 
 /datum/loadout_item/toys/plush/zappplush
 	name = "Lil' Zapp Plushie"
@@ -500,10 +500,10 @@
 	ckeywhitelist = list("ultimarifox")
 	restricted_roles = list(JOB_HEAD_OF_SECURITY)
 
-// /datum/loadout_item/glasses/redgigagar
-// 	name = "Red-tinted Giga HUD Gar Glasses"
-// 	item_path = /obj/item/clothing/glasses/hud/security/sunglasses/gars/giga/roselia
-// 	ckeywhitelist = list("ultimarifox")
+/datum/loadout_item/glasses/redgigagar
+	name = "Red-tinted Giga HUD Gar Glasses"
+	item_path = /obj/item/clothing/glasses/hud/security/sunglasses/gars/giga/roselia
+	ckeywhitelist = list("ultimarifox")
 // 	restricted_roles = list(ALL_JOBS_DEPTGUARD, ALL_JOBS_SEC,)
 
 /datum/loadout_item/toys/plush/roselia_plush
@@ -511,10 +511,10 @@
 	// item_path = /obj/item/toy/plush/nova/donator/roselia // MISSING
 	ckeywhitelist = list("ultimarifox")
 
-// /datum/loadout_item/accessory/mercbadge
-// 	name = "Jade Badge"
-// 	item_path = /obj/item/clothing/accessory/badge/holo/jade
-// 	ckeywhitelist = list("konstyantyn")
+/datum/loadout_item/accessory/mercbadge
+	name = "Jade Badge"
+	item_path = /obj/item/clothing/accessory/badge/holo/jade
+	ckeywhitelist = list("konstyantyn")
 
 /datum/loadout_item/toys/plush/plushe_winrow
 	name = "Dark and Brooding Lizard Plushie"
@@ -615,10 +615,10 @@
 	item_path = /obj/item/storage/fancy/cigarettes/khi
 	ckeywhitelist = list("ultimarifox")
 
-// /datum/loadout_item/shoes/dragheels
-// 	name = "Fancy Heels (dragmeme)"
-// 	item_path = /obj/item/clothing/shoes/fancy_heels/drag
-// 	ckeywhitelist = list("thedragmeme", "snailomi")
+/datum/loadout_item/shoes/dragheels
+	name = "Fancy Heels (dragmeme)"
+	item_path = /obj/item/clothing/shoes/fancy_heels/drag
+	ckeywhitelist = list("thedragmeme", "snailomi")
 
 /datum/loadout_item/under/jumpsuit/bimpcap
 	name = "Formal Matte Black Captain Uniform"
@@ -658,20 +658,20 @@
 	item_path = /obj/item/clothing/gloves/elofy
 	ckeywhitelist = list("october23")
 
-// /datum/loadout_item/shoes/elofy
-// 	name = "Solar Admiral Boots"
-// 	item_path = /obj/item/clothing/shoes/jackboots/elofy
-// 	ckeywhitelist = list("october23")
+/datum/loadout_item/shoes/elofy
+	name = "Solar Admiral Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/elofy
+	ckeywhitelist = list("october23")
 
 /datum/loadout_item/pocket_items/transponder
 	name = "Broken Helian Transponder"
 	item_path = /obj/item/donator/transponder
 	ckeywhitelist = list("glacii")
 
-// /datum/loadout_item/glasses/goldaviator
-// 	name = "Purple and Gold Aviators"
-// 	item_path = /obj/item/clothing/glasses/gold_aviators
-// 	ckeywhitelist = list("nikohyena")
+/datum/loadout_item/glasses/goldaviator
+	name = "Purple and Gold Aviators"
+	item_path = /obj/item/clothing/glasses/gold_aviators
+	ckeywhitelist = list("nikohyena")
 
 
 /datum/loadout_item/under/jumpsuit/goldenkimono
@@ -760,10 +760,10 @@
 	item_path = /obj/item/clothing/under/rank/civilian/chaplain/divine_archer/noble
 	ckeywhitelist = list("grasshand")
 
-// /datum/loadout_item/shoes/noble_boots
-// 	name = "Noble Boots"
-// 	item_path = /obj/item/clothing/shoes/jackboots/noble
-// 	ckeywhitelist = list("grasshand")
+/datum/loadout_item/shoes/noble_boots
+	name = "Noble Boots"
+	item_path = /obj/item/clothing/shoes/jackboots/noble
+	ckeywhitelist = list("grasshand")
 
 /datum/loadout_item/suit/nobility_dresscoat
 	name = "Nobility Dresscoat"

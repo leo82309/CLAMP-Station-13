@@ -20,9 +20,9 @@
 	group = "Boots"
 	abstract_type = /datum/loadout_item/shoes/boots
 
-// /datum/loadout_item/shoes/boots/jackboots
-// 	name = "Jackboots"
-// 	item_path = /obj/item/clothing/shoes/jackboots
+/datum/loadout_item/shoes/boots/jackboots
+	name = "Jackboots"
+	item_path = /obj/item/clothing/shoes/jackboots
 
 /datum/loadout_item/shoes/boots/jackboots/recolorable
 	name = "Jackboots (Recolorable)"

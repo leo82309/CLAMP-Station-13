@@ -66,7 +66,7 @@
 	*/ // ORIGINAL END - SKYART EDIT BEGIN:
 	var/static/regex/skyrat_gags_regex = regex("(modular_skyrat/modules/GAGS/.*json_configs/)")
 	// BUBBER EDIT START - GAGS recognition
-	if(!(findtext(string_json_config, "code/datums/greyscale/json_configs/") || skyrat_gags_regex.Find(string_json_config) || findtext(string_json_config, "modular_zubbers/code/datums/greyscale/json_configs") || findtext(string_json_config, "modular_zubbers/code/modules/GAGS/json_configs")))
+	if(!(findtext(string_json_config, "code/datums/greyscale/json_configs/") || skyrat_gags_regex.Find(string_json_config) || findtext(string_json_config, "modular_zubbers/code/datums/greyscale/json_configs")))
 		stack_trace("All greyscale json configuration files should be located within '/greyscale/json_configs/' or 'modular_skyrat/modules/GAGS/json_configs/'.")
 	// BUBBER EDIT END
 	// SKYRAT EDIT END

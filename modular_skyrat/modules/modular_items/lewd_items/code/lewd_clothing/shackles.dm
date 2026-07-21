@@ -1,4 +1,4 @@
-/obj/item/clothing/suit/jacket/straight_jacket/shackles
+/obj/item/clothing/suit/straight_jacket/shackles
 	name = "shackles"
 	desc = "Fancy shackles with a fake lock."
 	inhand_icon_state = null
@@ -26,14 +26,14 @@
 */
 
 //create radial menu
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/proc/populate_shackles_designs()
+/obj/item/clothing/suit/straight_jacket/shackles/proc/populate_shackles_designs()
 	shackles_designs = list(
 		"pink" = image (icon = src.icon, icon_state = "shackles_pink"),
 		"teal" = image (icon = src.icon, icon_state = "shackles_teal"),
 		"metal" = image (icon = src.icon, icon_state = "shackles_metal"))
 
 //to change model
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/click_alt(mob/user)
+/obj/item/clothing/suit/straight_jacket/shackles/click_alt(mob/user)
 	if(color_changed)
 		return CLICK_ACTION_BLOCKING
 
@@ -46,14 +46,14 @@
 	return CLICK_ACTION_SUCCESS
 
 //to check if we can change shackles' model
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/proc/check_menu(mob/living/user)
+/obj/item/clothing/suit/straight_jacket/shackles/proc/check_menu(mob/living/user)
 	if(!istype(user))
 		return FALSE
 	if(user.incapacitated)
 		return FALSE
 	return TRUE
 
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/Initialize(mapload)
+/obj/item/clothing/suit/straight_jacket/shackles/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 	update_icon_state()
@@ -61,13 +61,13 @@
 	if(!length(shackles_designs))
 		populate_shackles_designs()
 
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/update_icon_state()
+/obj/item/clothing/suit/straight_jacket/shackles/update_icon_state()
 	. = ..()
 	icon_state = "[base_icon_state]_[current_color]"
 	inhand_icon_state = "[base_icon_state]_[current_color]"
 
 //message when equipping that thing
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/equipped(mob/user, slot)
+/obj/item/clothing/suit/straight_jacket/shackles/equipped(mob/user, slot)
 	. = ..()
 	var/mob/living/carbon/human/affected_mob = user
 	if(src == affected_mob.wear_suit)
@@ -76,16 +76,16 @@
 		return
 
 //message when unequipping that thing
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/dropped(mob/user)
+/obj/item/clothing/suit/straight_jacket/shackles/dropped(mob/user)
 	. = ..()
 	var/mob/living/carbon/human/affected_mob = user
 	if(src == affected_mob.wear_suit)
 		to_chat(user, span_purple("The shackles are no longer restraining your body. It wasn't too hard, huh?"))
 
 //reinforcing normal version by using handcuffs on it.
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/attackby(obj/item/used_item, mob/user, params) //That part allows reinforcing this item with normal straightjacket
+/obj/item/clothing/suit/straight_jacket/shackles/attackby(obj/item/used_item, mob/user, params) //That part allows reinforcing this item with normal straightjacket
 	if(istype(used_item, /obj/item/restraints/handcuffs))
-		var/obj/item/clothing/suit/jacket/straight_jacket/shackles/reinforced/shackles = new()
+		var/obj/item/clothing/suit/straight_jacket/shackles/reinforced/shackles = new()
 		remove_item_from_storage(user)
 		user.put_in_hands(shackles)
 		to_chat(user, span_notice("You reinforced the locks on [src] with [used_item]."))
@@ -96,7 +96,7 @@
 	return ..()
 
 //reinforced version.
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/reinforced
+/obj/item/clothing/suit/straight_jacket/shackles/reinforced
 	name = "reinforced shackles"
 	desc = "Fancy shackles, but with a suspiciously sturdy lock..."
 	clothing_flags = DANGEROUS_OBJECT
@@ -106,7 +106,7 @@
 	slowdown = 2
 
 //message when equipping that thing
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/reinforced/equipped(mob/user, slot)
+/obj/item/clothing/suit/straight_jacket/shackles/reinforced/equipped(mob/user, slot)
 	. = ..()
 	var/mob/living/carbon/human/affected_mob = user
 	if(src == affected_mob.wear_suit)
@@ -115,7 +115,7 @@
 		return
 
 //message when unequipping that thing
-/obj/item/clothing/suit/jacket/straight_jacket/shackles/reinforced/dropped(mob/user)
+/obj/item/clothing/suit/straight_jacket/shackles/reinforced/dropped(mob/user)
 	. = ..()
 	var/mob/living/carbon/human/affected_mob = user
 	if(src == affected_mob.wear_suit)
