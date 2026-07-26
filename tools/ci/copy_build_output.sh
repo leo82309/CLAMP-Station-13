@@ -5,8 +5,8 @@ mkdir -p \
     $1/tgui/public \
 
 cp tgstation.dmb tgstation.rsc $1/
-cp -r icons/* $1/icons/
-cp -r tgui/public/* $1/tgui/public/
+if [ -d "icons" ]; then cp -r icons/. $1/icons/; fi
+if [ -d "tgui/public" ]; then cp -r tgui/public/. $1/tgui/public/; fi
 
 # BUBBER EDIT ADDITION BEGIN - Call our deploy too
 source modular_zubbers/tools/deploy_bubber.sh

@@ -19,19 +19,19 @@ mkdir -p \
     $1/tgui/public \
     $1/tgui/packages/tgfont/dist
 
-if [ -d ".git" ]; then
+if [ -d ".git/logs" ]; then
   mkdir -p $1/.git/logs
-  cp -r .git/logs/* $1/.git/logs/
+  cp -r .git/logs/. $1/.git/logs/
 fi
 
 cp tgstation.dmb tgstation.rsc $1/
-cp -r _maps/* $1/_maps/
-cp -r code/datums/greyscale/json_configs/* $1/code/datums/greyscale/json_configs/
-cp -r icons/* $1/icons/
-cp -r sound/runtime/* $1/sound/runtime/
-cp -r strings/* $1/strings/
-cp -r tgui/public/* $1/tgui/public/
-cp -r tgui/packages/tgfont/dist/* $1/tgui/packages/tgfont/dist/
+if [ -d "_maps" ]; then cp -r _maps/. $1/_maps/; fi
+if [ -d "code/datums/greyscale/json_configs" ]; then cp -r code/datums/greyscale/json_configs/. $1/code/datums/greyscale/json_configs/; fi
+if [ -d "icons" ]; then cp -r icons/. $1/icons/; fi
+if [ -d "sound/runtime" ]; then cp -r sound/runtime/. $1/sound/runtime/; fi
+if [ -d "strings" ]; then cp -r strings/. $1/strings/; fi
+if [ -d "tgui/public" ]; then cp -r tgui/public/. $1/tgui/public/; fi
+if [ -d "tgui/packages/tgfont/dist" ]; then cp -r tgui/packages/tgfont/dist/. $1/tgui/packages/tgfont/dist/; fi
 
 #remove .dm files from _maps
 

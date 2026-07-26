@@ -40,15 +40,19 @@ PROCESSING_SUBSYSTEM_DEF(greyscale)
 		config.CrossVerify()
 #ifdef USE_RUSTG_ICONFORGE_GAGS
 		job_ids += rustg_iconforge_load_gags_config_async(greyscale_type, config.raw_json_string, config.string_icon_file)
+		if(length(job_ids) >= 50)
+			UNTIL(jobs_completed(job_ids))
 
-	UNTIL(jobs_completed(job_ids))
+	if(length(job_ids))
+		UNTIL(jobs_completed(job_ids))
 #endif
 
 	return SS_INIT_SUCCESS
 
 #ifdef USE_RUSTG_ICONFORGE_GAGS
 /datum/controller/subsystem/processing/greyscale/proc/jobs_completed(list/job_ids)
-	for(var/job in job_ids)
+	while(length(job_ids))
+		var/job = job_ids[1]
 		var/result = rustg_iconforge_check(job)
 		if(result == RUSTG_JOB_NO_RESULTS_YET)
 			return FALSE

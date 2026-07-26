@@ -5,8 +5,8 @@
 # and a dynamically generated list of every module in modular_skyrat/modules that contains an icons folder
 # If there ever comes a day where the modular_skyrat folder is organized so all the sprites are together
 # instead of spread across modules, shed a tear of relief and remove the relevant code from here
-directories_skyrat=( $(find modular_skyrat/ -type d -name "icons") )
-directories_zubbers=( $(find modular_zubbers/ -type d -name "icons") )
+directories_skyrat=( $(find modular_skyrat/ -type d -name "icons" -not -empty 2>/dev/null) )
+directories_zubbers=( $(find modular_zubbers/ -type d -name "icons" -not -empty 2>/dev/null) )
 
 mkdir -p \
 	$1/modular_skyrat/modules/aesthetics \
@@ -14,19 +14,19 @@ mkdir -p \
 	$1/modular_skyrat/modules/GAGS/nsfw/json_configs \
 	$1/modular_zubbers/code/datums/greyscale/json_configs
 
-cp -r modular_skyrat/modules/aesthetics/* $1/modular_skyrat/modules/aesthetics/ # the aesthetics module doesnt use an icon folder but it does contain DMIs. God has abandoned us
-cp -r modular_skyrat/modules/GAGS/json_configs/* $1/modular_skyrat/modules/GAGS/json_configs/
-cp -r modular_skyrat/modules/GAGS/nsfw/json_configs/* $1/modular_skyrat/modules/GAGS/nsfw/json_configs/
-cp -r modular_zubbers/code/datums/greyscale/json_configs/* $1/modular_zubbers/code/datums/greyscale/json_configs/
+if [ -d "modular_skyrat/modules/aesthetics" ]; then cp -r modular_skyrat/modules/aesthetics/. $1/modular_skyrat/modules/aesthetics/; fi
+if [ -d "modular_skyrat/modules/GAGS/json_configs" ]; then cp -r modular_skyrat/modules/GAGS/json_configs/. $1/modular_skyrat/modules/GAGS/json_configs/; fi
+if [ -d "modular_skyrat/modules/GAGS/nsfw/json_configs" ]; then cp -r modular_skyrat/modules/GAGS/nsfw/json_configs/. $1/modular_skyrat/modules/GAGS/nsfw/json_configs/; fi
+if [ -d "modular_zubbers/code/datums/greyscale/json_configs" ]; then cp -r modular_zubbers/code/datums/greyscale/json_configs/. $1/modular_zubbers/code/datums/greyscale/json_configs/; fi
 
 for icondir in ${directories_skyrat[@]}
 do
     mkdir -p $1/$icondir
-	cp -r $icondir/* $1/$icondir/
+	cp -r $icondir/. $1/$icondir/
 done
 
 for icondir in ${directories_zubbers[@]}
 do
     mkdir -p $1/$icondir
-	cp -r $icondir/* $1/$icondir/
+	cp -r $icondir/. $1/$icondir/
 done
