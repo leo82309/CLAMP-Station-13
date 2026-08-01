@@ -7,7 +7,7 @@
 /obj/item/seeds/peanut/packing
 	name = "package peanut seed pack"
 	desc = "These seeds grow into package peanut plants."
-	icon = 'modular_zzplurt/icons/obj/service/hydroponics/seeds.dmi'
+	icon = 'icons/obj/service/hydroponics/seeds.dmi'
 	icon_state = "seed-peanut"
 	species = "package peanut"
 	plantname = "Package Peanut Plant"

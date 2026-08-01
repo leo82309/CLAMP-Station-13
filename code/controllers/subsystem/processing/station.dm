@@ -118,6 +118,9 @@ PROCESSING_SUBSYSTEM_DEF(station)
 				if(!event_to_check.valid_for_map())
 					continue
 
+		if(initial(trait_typepath.weight) <= 0)
+			continue
+
 		selectable_traits_by_types[initial(trait_typepath.trait_type)][trait_typepath] = initial(trait_typepath.weight)
 
 	var/positive_trait_budget = text2num(pick_weight(CONFIG_GET(keyed_list/positive_station_traits)))
@@ -154,6 +157,8 @@ PROCESSING_SUBSYSTEM_DEF(station)
 			return
 		//Rolls from the table for the specific trait type
 		var/datum/station_trait/trait_type = pick_weight(selectable_traits)
+		if(!trait_type)
+			break
 		selectable_traits -= trait_type
 		budget -= initial(trait_type.cost)
 		setup_trait(trait_type)
