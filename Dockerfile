@@ -99,8 +99,11 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libssl3:i386 \
         zlib1g:i386 \
+        iputils-ping \
+        mariadb-client \
+        python3-minimal \
     && rm -rf /var/lib/apt/lists/* \
-    && useradd -m tgstation \
+    && useradd -m -s /bin/bash tgstation \
     && chown -R tgstation:tgstation /tgstation
 
 USER tgstation
@@ -122,10 +125,11 @@ COPY --chown=tgstation:tgstation _maps ./_maps
 COPY --chown=tgstation:tgstation icons ./icons
 
 COPY --chown=tgstation:tgstation libdreamluau.so ./libdreamluau.so
+COPY --chown=tgstation:tgstation tools/watchdog.py ./watchdog.py
 
 RUN mkdir -p /tgstation/config /tgstation/data
 
 ENV RUST_BACKTRACE=1
 VOLUME [ "/tgstation/config", "/tgstation/data" ]
-ENTRYPOINT [ "DreamDaemon", "tgstation.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
-EXPOSE 1337
+ENTRYPOINT [ "python3", "watchdog.py", "DreamDaemon", "tgstation.dmb", "-port", "3000", "-trusted", "-close", "-verbose" ]
+EXPOSE 3000
